@@ -992,7 +992,7 @@ def niigata_nagano():
         "night_ski": "少", "onsen": "有", "chinese_coach": "有", "ski_in_out": "部分",
         "chinese_service": "中文少於白馬／湯澤。",
         "snow_rhythm": "標高高、冷、雪質好。不是為夜滑來的。",
-        "pitfalls": ["18 區個性差很大，一張身份證講不完。", "交通與動線不直覺。", "餐飲評價兩極，偏貴。"],
+        "pitfalls": ["18 區個性差很大，一頁講不完。", "交通與動線不直覺。", "餐飲評價兩極，偏貴。"],
         "companion_note": "看你住哪一區；不是每個區都有村子可逛。",
         "season_delta": None,
         "scores": sc(2, 4, 3, 1, 3, 2, 3, 3, 3, 5),
@@ -1120,7 +1120,7 @@ HEAD = """<!doctype html>
 FOOTER = (
     '<footer class="site-footer">'
     '<p>本站只做地區整理與外部連結導引，不代辦訂房或滑雪課程；延伸閱讀與引用的版權與內容都屬於原作者，點擊會開新分頁前往原文，請支持原創作者。預算與季節資訊為約略整理，以當季官網為準。</p>'
-    '<p>現場回報尚未開放。身份證上的「看看社群怎麼說」是編輯引用公開來源，不是使用者留言板。</p>'
+    '<p>現場回報尚未開放。雪場頁上的「看看社群怎麼說」是編輯引用公開來源，不是使用者留言板。</p>'
     '</footer>'
 )
 
@@ -1304,7 +1304,7 @@ def area_article(a):
             '<div class="resort-card"><div class="resort-name-row"><span class="resort-name">%s</span>'
             '<span class="resort-romaji">%s</span></div><p class="why">%s</p>'
             '<p class="not-for">不適合誰：%s</p>'
-            '<a class="card-link" href="%sresorts/%s.html">看身份證 ↗</a></div>'
+            '<a class="card-link" href="%sresorts/%s.html">看介紹 ↗</a></div>'
             % (hx(r["name"]), hx(r["romaji"]), hx(r["one_liner"]), hx(r["not_for"]), prefix, rid)
         )
     return (

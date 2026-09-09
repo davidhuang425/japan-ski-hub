@@ -74,7 +74,7 @@
   function footerHtml() {
     return '<footer class="site-footer">' +
       '<p>本站只做地區整理與外部連結導引，不代辦訂房或滑雪課程；延伸閱讀與引用的版權與內容都屬於原作者，點擊會開新分頁前往原文，請支持原創作者。預算與季節資訊為約略整理，以當季官網為準。</p>' +
-      '<p>現場回報尚未開放。身份證上的「看看社群怎麼說」是編輯引用公開來源，不是使用者留言板。</p>' +
+      '<p>現場回報尚未開放。雪場頁上的「看看社群怎麼說」是編輯引用公開來源，不是使用者留言板。</p>' +
       '</footer>';
   }
   function mountChrome(active) {
@@ -303,7 +303,7 @@
         '<div class="why">' + esc(whyFor(r, answers, asAlt)) + '</div>' +
         '<div class="not-for">不適合誰：' + esc(r.not_for) + '</div>' +
         '<div class="card-actions">' +
-          '<a class="btn" href="' + resortUrl(id) + '">看身份證</a>' +
+          '<a class="btn" href="' + resortUrl(id) + '">看介紹</a>' +
           '<button class="btn secondary mark-map" data-region="' + r.region + '">在地圖上標出</button>' +
         '</div></div>';
     }
@@ -333,7 +333,7 @@
           '<div class="resort-meta">' + esc(r.one_liner) + '</div>' +
           '<div class="tag-row">' + tagsHtml((r.tags || []).slice(0, 3)) + '</div>' +
           (hours ? '<div class="access-row">從台灣　<span class="access-value">' + esc(hours) + '</span></div>' : '') +
-          '<div class="card-actions"><a class="card-link" href="' + resortUrl(id) + '">看身份證 ↗</a></div>' +
+          '<div class="card-actions"><a class="card-link" href="' + resortUrl(id) + '">看介紹 ↗</a></div>' +
           '</div>';
       }).join('');
       var hub = '';
@@ -425,7 +425,7 @@
       var avoidR = DATA.resorts[avoid.id];
       var avoidHtml = '<div class="share-row avoid"><span class="label">不要</span><div><div class="name">' + esc(avoidR.name) + '</div><div class="why-line">' + esc(avoid.line) + '</div></div></div>';
       var idBtns = picked.primary.map(function (id) {
-        return '<a class="btn secondary" href="' + resortUrl(id) + '">看 ' + esc(DATA.resorts[id].name) + ' 身份證</a>';
+        return '<a class="btn secondary" href="' + resortUrl(id) + '">看 ' + esc(DATA.resorts[id].name) + ' 介紹</a>';
       }).join('');
       el.innerHTML = '<div class="quiz">' +
         '<div class="share-card" id="shareCard">' +
@@ -565,7 +565,7 @@
       var r = DATA.resorts[rid];
       return '<div class="resort-card"><div class="resort-name-row"><span class="resort-name">' + esc(r.name) + '</span><span class="resort-romaji">' + esc(r.romaji) + '</span></div>' +
         '<p class="why">' + esc(r.one_liner) + '</p><p class="not-for">不適合誰：' + esc(r.not_for) + '</p>' +
-        '<a class="card-link" href="' + resortUrl(rid) + '">看身份證 ↗</a></div>';
+        '<a class="card-link" href="' + resortUrl(rid) + '">看介紹 ↗</a></div>';
     }).join('');
     el.innerHTML = '<div class="crumb"><a href="' + rootPath() + 'index.html">轉運站</a></div>' +
       '<div class="resort-name-row"><h1 class="page-title">' + esc(a.name) + '</h1><span class="resort-romaji">' + esc(a.romaji) + '</span></div>' +
