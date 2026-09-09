@@ -65,7 +65,7 @@
       '</a>' +
       '<div class="subhead">台灣人的日本滑雪選場入口</div>' +
       '<nav class="nav">' +
-        item(r + 'index.html#quiz', 'quiz', '選場') +
+        item(r + 'go.html', 'quiz', '選場') +
         item(r + 'index.html#map', 'map', '地圖') +
         item(r + 'compare.html', 'compare', '比較') +
         item(r + 'guide/first-trip.html', 'guide', '第一次') +
@@ -169,6 +169,49 @@
     });
     return { primary: primary, alt: alt };
   }
+  function hasOpt(opts, val) {
+    return opts.some(function (o) { return o[0] === val; });
+  }
+  function encodeAnswers(a) {
+    return [a.q1, a.q2, a.q3, a.q4].join('.');
+  }
+  function decodeAnswers(s) {
+    var p = String(s || '').split('.');
+    if (p.length !== 4) return null;
+    var a = { q1: p[0], q2: p[1], q3: p[2], q4: p[3] };
+    if (!hasOpt(Q1_OPTS, a.q1) || !hasOpt(Q2_OPTS, a.q2) || !hasOpt(Q3_OPTS, a.q3) || !hasOpt(Q4_OPTS, a.q4)) return null;
+    return a;
+  }
+  function youLine(a) {
+    var bits = [];
+    if (a.q1 === 'first') bits.push('第一次');
+    else if (a.q1 === 'green') bits.push('綠線沒問題');
+    else if (a.q1 === 'red') bits.push('想找地形');
+    else if (a.q1 === 'powder') bits.push('衝粉雪');
+    if (a.q2 === 'hokkaido') bits.push('直奔北海道');
+    else if (a.q2 === 'tokyo_transfer') bits.push('東京再轉');
+    else if (a.q2 === 'tokyo_day') bits.push('已在東京');
+    else if (a.q2 === 'undecided') bits.push('行程未定');
+    if (a.q3 === 'kids') bits.push('有小孩');
+    else if (a.q3 === 'non_skier') bits.push('有人不滑');
+    return bits.join(' · ');
+  }
+  function avoidFor(a) {
+    if (a.q2 === 'tokyo_day') return { id: 'niseko', line: '已在東京短待，北海道當天到不了' };
+    if (a.q3 === 'kids') return { id: 'happo-one', line: '帶小孩不要以八方當主場' };
+    if (a.q1 === 'first') return { id: 'happo-one', line: '第一次先別當第一座山' };
+    if (a.q1 === 'powder' || a.q4 === 'powder') return { id: 'karuizawa', line: '不是為粉雪來的場' };
+    return { id: 'happo-one', line: '第一次或帶小孩先別當主場' };
+  }
+  function goPageBase() {
+    if (/japanski\.djhousetw\.com$/.test(location.hostname) || /\.vercel\.app$/.test(location.hostname)) return '/go';
+    return rootPath() + 'go.html';
+  }
+  function localShareUrl(a) {
+    var base = goPageBase();
+    if (base.charAt(0) === '/') return location.origin + base + '?a=' + encodeAnswers(a);
+    return new URL(base, location.href).href.split('?')[0] + '?a=' + encodeAnswers(a);
+  }
 
   function renderIndex() {
     mountChrome('map');
@@ -217,14 +260,9 @@
         '<div class="season-chip">2026–27 雪季</div>' +
         '<div class="empty-lede">台灣人的日本滑雪轉運站</div>' +
         '<div class="empty-sub">先選場，再轉乘到最好的中文攻略。點左邊地圖看地區，或用 30 秒問卷告訴我們你是誰。</div>' +
-        '<button class="btn" id="startQuiz">幫我選場（30 秒）</button>' +
+        '<a class="btn" href="' + rootPath() + 'go.html">幫我選場（30 秒）</a>' +
         '<div class="muted">或點左邊地圖看地區</div>' +
         '<div class="quickpicks">' + qp + '</div></div>';
-      document.getElementById('startQuiz').addEventListener('click', function () {
-        mode = 'quiz'; selected = null; step = 1;
-        answers = { q1: null, q2: null, q3: null, q4: null };
-        draw();
-      });
       panelEl.querySelectorAll('.quickpick').forEach(function (btn) {
         btn.addEventListener('click', function () { selectRegion(btn.getAttribute('data-id')); });
       });
@@ -315,15 +353,116 @@
     }
     draw();
     if (location.hash === '#quiz') {
-      mode = 'quiz'; step = 1; draw();
-      mountChrome('quiz');
+      location.replace(rootPath() + 'go.html');
+      return;
     } else if (location.hash && DATA.regions[location.hash.slice(1)]) {
       selectRegion(location.hash.slice(1));
     }
     window.addEventListener('hashchange', function () {
-      if (location.hash === '#quiz') { mode = 'quiz'; step = 1; selected = null; draw(); mountChrome('quiz'); }
+      if (location.hash === '#quiz') { location.replace(rootPath() + 'go.html'); }
       if (location.hash === '#map') { mode = 'home'; selected = null; draw(); mountChrome('map'); }
     });
+  }
+
+  function renderGo() {
+    mountChrome('quiz');
+    var el = document.getElementById('go');
+    var answers = { q1: null, q2: null, q3: null, q4: null };
+    var step = 1;
+    var mode = 'quiz';
+    var params = new URLSearchParams(location.search);
+    var decoded = decodeAnswers(params.get('a'));
+    if (decoded) {
+      answers = decoded;
+      mode = 'results';
+    }
+
+    function syncUrl() {
+      if (mode !== 'results') return;
+      var next = goPageBase() + '?a=' + encodeAnswers(answers);
+      if (location.pathname + location.search !== next && location.search !== '?a=' + encodeAnswers(answers)) {
+        history.replaceState(null, '', next);
+      }
+    }
+    function draw() {
+      if (mode === 'results') {
+        syncUrl();
+        resultsView();
+      } else quizView();
+    }
+    function quizView() {
+      var qMap = { 1: ['q1', '程度', Q1_OPTS], 2: ['q2', '這趟怎麼走', Q2_OPTS], 3: ['q3', '同行', Q3_OPTS], 4: ['q4', '這趟最在乎', Q4_OPTS] };
+      var q = qMap[step];
+      var choices = q[2].map(function (opt) {
+        var sel = answers[q[0]] === opt[0] ? ' selected' : '';
+        return '<button class="choice' + sel + '" data-val="' + opt[0] + '">' + esc(opt[1]) + '</button>';
+      }).join('');
+      el.innerHTML = '<div class="quiz go-quiz">' +
+        '<div class="season-chip">2026–27 雪季</div>' +
+        '<div class="quiz-progress">選場 ' + step + ' / 4</div>' +
+        '<div class="quiz-q">' + esc(q[1]) + '</div>' +
+        '<div class="choice-row">' + choices + '</div>' +
+        '<div class="quiz-actions">' +
+          (step > 1 ? '<button class="btn ghost" id="quizBack">上一題</button>' : '') +
+        '</div></div>';
+      el.querySelectorAll('.choice').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          answers[q[0]] = btn.getAttribute('data-val');
+          if (step < 4) { step += 1; draw(); }
+          else { mode = 'results'; draw(); }
+        });
+      });
+      var back = document.getElementById('quizBack');
+      if (back) back.addEventListener('click', function () { step -= 1; draw(); });
+    }
+    function resultsView() {
+      var picked = pickResults(answers);
+      var avoid = avoidFor(answers);
+      var primary = picked.primary.map(function (id) {
+        var r = DATA.resorts[id];
+        return '<div class="share-row pick"><span class="label">主選</span><div><div class="name">' + esc(r.name) + '</div><div class="why-line">' + esc(whyFor(r, answers, false)) + '</div></div></div>';
+      }).join('');
+      var avoidR = DATA.resorts[avoid.id];
+      var avoidHtml = '<div class="share-row avoid"><span class="label">不要</span><div><div class="name">' + esc(avoidR.name) + '</div><div class="why-line">' + esc(avoid.line) + '</div></div></div>';
+      var idBtns = picked.primary.map(function (id) {
+        return '<a class="btn secondary" href="' + resortUrl(id) + '">看 ' + esc(DATA.resorts[id].name) + ' 身份證</a>';
+      }).join('');
+      el.innerHTML = '<div class="quiz">' +
+        '<div class="share-card" id="shareCard">' +
+          '<div class="share-kicker">雪國轉運站 · 2026–27</div>' +
+          '<div class="share-you">你：' + esc(youLine(answers)) + '</div>' +
+          primary + avoidHtml +
+        '</div>' +
+        '<div class="card-actions" style="margin-top:16px">' +
+          '<button class="btn" id="copyLink">複製連結</button>' +
+          '<span class="copy-ok" id="copyOk" hidden>已複製，可貼到社團</span>' +
+        '</div>' +
+        '<p class="muted">截圖上面這張卡丟回去最快。連結打開會是同一份建議。</p>' +
+        '<div class="card-actions">' + idBtns + '</div>' +
+        '<div class="quiz-actions"><button class="btn ghost" id="again">重填一輪</button></div>' +
+        '</div>';
+      document.getElementById('copyLink').addEventListener('click', function () {
+        var url = localShareUrl(answers);
+        function ok() {
+          var n = document.getElementById('copyOk');
+          n.hidden = false;
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(ok).catch(function () { window.prompt('複製這條連結', url); ok(); });
+        } else {
+          window.prompt('複製這條連結', url);
+          ok();
+        }
+      });
+      document.getElementById('again').addEventListener('click', function () {
+        answers = { q1: null, q2: null, q3: null, q4: null };
+        step = 1;
+        mode = 'quiz';
+        history.replaceState(null, '', goPageBase());
+        draw();
+      });
+    }
+    draw();
   }
 
   function fact(label, value) {
@@ -439,7 +578,7 @@
     mountChrome('compare');
     var el = document.getElementById('page');
     var groups = DATA.compare;
-    el.innerHTML = '<div class="crumb"><a href="index.html">轉運站</a></div><h1 class="page-title">三組台灣人每年都在吵的對照</h1><p class="muted">不能自訂勾選。要選場請回首頁問卷。</p>' +
+    el.innerHTML = '<div class="crumb"><a href="index.html">轉運站</a></div><h1 class="page-title" id="hokkaido">二世谷、留壽都、富良野怎麼選</h1><p class="muted">北海道三選、東京側短待、長野三選。要「該去哪」請用 <a class="card-link" href="go.html">30 秒選場</a>。</p>' +
       groups.map(function (g) {
         var heads = '<th></th>' + g.ids.map(function (id) {
           var r = DATA.resorts[id];
@@ -473,6 +612,7 @@
   window.Hub = {
     mountChrome: mountChrome,
     renderIndex: renderIndex,
+    renderGo: renderGo,
     renderResort: renderResort,
     renderArea: renderArea,
     renderCompare: renderCompare,

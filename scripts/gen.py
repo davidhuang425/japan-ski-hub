@@ -1157,7 +1157,7 @@ def main():
         write("areas/%s.html" % aid, html)
 
     write("compare.html", page(
-        "雪場比較｜雪國轉運站",
+        "二世谷、留壽都、富良野怎麼選｜雪國轉運站",
         "北海道三選、東京側短待、長野三選。給台灣人的日本滑雪對照。",
         ORIGIN + "/compare.html", 0, "Hub.renderCompare();",
         '<main class="page page-wide" id="page"></main>',
@@ -1165,6 +1165,7 @@ def main():
 
     urls = [
         ORIGIN + "/",
+        ORIGIN + "/go",
         ORIGIN + "/compare.html",
         ORIGIN + "/guide/first-trip.html",
         ORIGIN + "/areas/yuzawa.html",
