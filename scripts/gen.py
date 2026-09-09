@@ -1083,6 +1083,8 @@ DATA["resorts"]["sahoro"]["community"] = [
     }
 ]
 
+ORIGIN = "https://japanski.djhousetw.com"
+
 HEAD = """<!doctype html>
 <html lang="zh-Hant">
 <head>
@@ -1095,15 +1097,19 @@ HEAD = """<!doctype html>
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{canonical}">
+<meta property="og:image" content="{origin}/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="zh_TW">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Noto+Sans+TC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="{css}">
+<!--JSONLD-->
 </head>
 <body data-depth="{depth}">
-<div id="site-header"></div>
+<div id="site-header">{header}</div>
 {main}
-<div id="site-footer"></div>
+<div id="site-footer">{footer}</div>
 <script src="{data}"></script>
 <script src="{app}"></script>
 <script>{boot}</script>
@@ -1111,7 +1117,45 @@ HEAD = """<!doctype html>
 </html>
 """
 
-ORIGIN = "https://japanski.djhousetw.com"
+FOOTER = (
+    '<footer class="site-footer">'
+    '<p>本站只做地區整理與外部連結導引，不代辦訂房或滑雪課程；延伸閱讀與引用的版權與內容都屬於原作者，點擊會開新分頁前往原文，請支持原創作者。預算與季節資訊為約略整理，以當季官網為準。</p>'
+    '<p>現場回報尚未開放。身份證上的「看看社群怎麼說」是編輯引用公開來源，不是使用者留言板。</p>'
+    '</footer>'
+)
+
+
+def hx(s):
+    return ("" if s is None else str(s)).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+
+
+def classify_tag(t):
+    if any(k in t for k in ("親子", "新手", "友善")):
+        return t, "family"
+    if "溫泉" in t:
+        return "♨ " + t, "onsen"
+    return t, "default"
+
+
+def chrome(prefix, active="map"):
+    def item(href, key, label):
+        cls = ' class="active"' if active == key else ""
+        return '<a href="%s"%s>%s</a>' % (href, cls, label)
+    return (
+        '<header class="topbar">'
+        '<a class="brand" href="%sindex.html">'
+        '<div class="brand-cn">雪國轉運站</div>'
+        '<div class="brand-en">Snow Country Transit Hub</div></a>'
+        '<div class="subhead">台灣人的日本滑雪選場入口</div>'
+        '<nav class="nav">%s%s%s%s</nav></header>'
+    ) % (
+        prefix,
+        item(prefix + "go.html", "quiz", "選場"),
+        item(prefix + "index.html#map", "map", "地圖"),
+        item(prefix + "compare.html", "compare", "比較"),
+        item(prefix + "guide/first-trip.html", "guide", "第一次"),
+    )
+
 
 def write(path, content):
     full = os.path.join(ROOT, path)
@@ -1119,12 +1163,207 @@ def write(path, content):
     with open(full, "w", encoding="utf-8") as f:
         f.write(content)
 
-def page(title, desc, canonical, depth, boot, main_html):
+
+def page(title, desc, canonical, depth, boot, main_html, active="map", jsonld=""):
     prefix = "../" if depth == 1 else ""
-    return HEAD.format(
-        title=title, desc=desc, canonical=canonical, css=prefix + "app.css",
-        data=prefix + "data.js", app=prefix + "app.js", depth=depth, boot=boot, main=main_html,
+    html = HEAD.format(
+        title=hx(title), desc=hx(desc), canonical=canonical, origin=ORIGIN,
+        css=prefix + "app.css", data=prefix + "data.js", app=prefix + "app.js",
+        depth=depth, boot=boot, main=main_html,
+        header=chrome(prefix, active), footer=FOOTER,
     )
+    return html.replace("<!--JSONLD-->", jsonld or "")
+
+
+def tags_html(tags):
+    bits = []
+    for t in tags or []:
+        text, cls = classify_tag(t)
+        bits.append('<span class="tag %s">%s</span>' % (cls, hx(text)))
+    return "".join(bits)
+
+
+def resort_article(r):
+    prefix = "../"
+    region = DATA["regions"][r["region"]]
+    hub = ""
+    if r.get("cluster") == "yuzawa":
+        hub = ' · <a href="%sareas/yuzawa.html">越後湯澤樞紐</a>' % prefix
+    if r.get("cluster") == "hakuba":
+        hub = ' · <a href="%sareas/hakuba-valley.html">白馬谷樞紐</a>' % prefix
+    routes = "<ul class=\"route-list\">" + "".join(
+        "<li><div class=\"route-from\">%s　<span class=\"route-hours\">%s</span></div><div class=\"muted\">%s</div></li>"
+        % (hx(rt["from"]), hx(rt["hours"]), hx(rt["steps"]))
+        for rt in (r.get("access_routes") or [])
+    ) + "</ul>"
+    b = r.get("budget_twd") or {}
+    budget = ""
+    if b:
+        budget = (
+            '<div class="budget"><span class="budget-num">NT$%s–%s</span>'
+            '<span class="muted">%s，%s</span></div>'
+            % ("{:,}".format(b["min"]), "{:,}".format(b["max"]), hx(b.get("days", "")), hx(b.get("note", "")))
+        )
+    facts = "".join(
+        '<div class="fact"><dt>%s</dt><dd>%s</dd></div>' % (hx(lab), hx(val))
+        for lab, val in (
+            ("夜滑", r.get("night_ski")),
+            ("溫泉", r.get("onsen")),
+            ("中文教練", r.get("chinese_coach")),
+            ("Ski-in/out", r.get("ski_in_out")),
+            ("中文辦事", r.get("chinese_service")),
+        )
+    )
+    pitfalls = "".join("<li>%s</li>" % hx(p) for p in (r.get("pitfalls") or []))
+    rhythm = ('<div class="section"><h2>一日雪質節奏</h2><p>%s</p></div>' % hx(r["snow_rhythm"])) if r.get("snow_rhythm") else ""
+    companion = ('<div class="section"><h2>不滑雪的人</h2><p>%s</p></div>' % hx(r["companion_note"])) if r.get("companion_note") else ""
+    delta = ('<div class="section"><h2>這季備註</h2><p>%s</p></div>' % hx(r["season_delta"])) if r.get("season_delta") else ""
+    ex = r.get("experts") or {}
+    experts = ""
+    if ex.get("consensus"):
+        cons = "<ol>" + "".join("<li>%s</li>" % hx(c) for c in ex["consensus"]) + "</ol>"
+        dis = ('<div class="disagree">達人有分歧：%s</div>' % hx(ex["disagreement"])) if ex.get("disagreement") else ""
+        chips = '<div class="source-chips">' + "".join(
+            '<a href="%s" target="_blank" rel="noopener noreferrer">%s · %s ↗</a>'
+            % (hx(s["url"]), hx(s["name"]), "教練" if s.get("kind") == "coach" else "部落客")
+            for s in (ex.get("sources") or [])
+        ) + "</div>"
+        experts = '<div class="section"><h2>看看達人怎麼說</h2><p class="section-note">本站整理，請讀原文</p><div class="expert-card">' + cons + dis + chips + "</div></div>"
+    comm = r.get("community") or []
+    community = ""
+    if comm:
+        tw, jp_g = [], []
+        for q in comm:
+            card = (
+                '<div class="quote-card"><blockquote>%s</blockquote>' % hx(q.get("quote"))
+                + (('<div class="quote-orig">%s</div>' % hx(q["original"])) if q.get("original") else "")
+                + '<div class="quote-meta">%s · %s · <a href="%s" target="_blank" rel="noopener noreferrer">原文</a></div></div>'
+                % (hx(q.get("source")), hx(q.get("date")), hx(q.get("url")))
+            )
+            if q.get("source_kind") in ("threads", "public_fb", "ptt", "dcard"):
+                tw.append(card)
+            else:
+                jp_g.append(card)
+        blocks = ""
+        if tw:
+            blocks += '<div class="community-group"><h3>台灣雪友</h3>' + "".join(tw) + "</div>"
+        if jp_g:
+            blocks += '<div class="community-group"><h3>日本當地</h3>' + "".join(jp_g) + "</div>"
+        community = '<div class="section"><h2>看看社群怎麼說</h2><p class="section-note">本站整理，請讀原文。雪況類引用有日期，不是即時雪況。</p>' + blocks + "</div>"
+    compare = ""
+    names = []
+    for cid in (r.get("compare_with") or []):
+        o = DATA["resorts"].get(cid)
+        if o:
+            names.append('<a class="card-link" href="%sresorts/%s.html">%s</a>' % (prefix, cid, hx(o["name"])))
+    if names:
+        compare = '<div class="section"><h2>不要和它搞混</h2><p>' + " · ".join(names) + "</p></div>"
+    skip = set(s.get("url") for s in (ex.get("sources") or []))
+    type_label = {"overview": "總覽", "access": "交通", "hotel": "住宿", "slope": "雪道", "pitfall": "避雷"}
+    link_items = []
+    for l in (r.get("links") or []):
+        if l.get("url") in skip:
+            continue
+        link_items.append(
+            '<li><a href="%s" target="_blank" rel="noopener noreferrer">%s</a>'
+            '<span class="link-source muted">%s · %s</span></li>'
+            % (hx(l["url"]), hx(l["title"]), hx(type_label.get(l.get("type"), l.get("type"))), hx(l.get("source")))
+        )
+    links = ('<div class="section"><h2>延伸閱讀</h2><ul class="link-list" style="list-style:none;margin:0;padding:0">' + "".join(link_items) + "</ul></div>") if link_items else ""
+    return (
+        '<main class="page" id="page">'
+        '<div class="crumb"><a href="%sindex.html">轉運站</a> · '
+        '<a href="%sindex.html#%s">%s</a>%s · <a href="%sgo.html">30 秒選場</a></div>'
+        '<div class="resort-name-row"><h1 class="page-title">%s</h1><span class="resort-romaji">%s</span></div>'
+        '<div class="muted">%s</div>'
+        '<div class="tag-row">%s</div>'
+        '<div class="verdict"><p><strong>本站怎麼判　</strong>%s</p><p class="not-for">不適合誰：%s</p></div>'
+        '<p class="cta-row"><a class="btn" href="%sgo.html">不確定？30 秒選場</a></p>'
+        '<div class="section"><h2>從台灣怎麼到</h2>%s</div>'
+        '<div class="section"><h2>5 天預算帶</h2>%s</div>'
+        '<div class="section"><h2>運行資訊</h2><div class="grid-5">%s</div>'
+        '<p class="muted" style="margin-top:10px">%s</p></div>'
+        "%s"
+        '<div class="section"><h2>現場坑</h2><ul class="pitfalls">%s</ul></div>'
+        "%s%s%s%s%s%s"
+        "</main>"
+    ) % (
+        prefix, prefix, r["region"], hx(region["name"]), hub, prefix,
+        hx(r["name"]), hx(r["romaji"]), hx(r["prefecture"]), tags_html(r.get("tags")),
+        hx(r["one_liner"]), hx(r["not_for"]), prefix, routes, budget, facts, hx(r.get("season_note")),
+        rhythm, pitfalls, companion, experts, community, delta, compare, links,
+    )
+
+
+def area_article(a):
+    prefix = "../"
+    cards = []
+    for rid in a["resortIds"]:
+        r = DATA["resorts"][rid]
+        cards.append(
+            '<div class="resort-card"><div class="resort-name-row"><span class="resort-name">%s</span>'
+            '<span class="resort-romaji">%s</span></div><p class="why">%s</p>'
+            '<p class="not-for">不適合誰：%s</p>'
+            '<a class="card-link" href="%sresorts/%s.html">看身份證 ↗</a></div>'
+            % (hx(r["name"]), hx(r["romaji"]), hx(r["one_liner"]), hx(r["not_for"]), prefix, rid)
+        )
+    return (
+        '<main class="page" id="page"><div class="crumb"><a href="%sindex.html">轉運站</a> · '
+        '<a href="%sgo.html">30 秒選場</a></div>'
+        '<div class="resort-name-row"><h1 class="page-title">%s</h1><span class="resort-romaji">%s</span></div>'
+        '<div class="verdict"><p>%s</p></div><p>%s</p>'
+        '<div class="section"><h2>先選山再出發</h2><div class="resort-list">%s</div></div></main>'
+    ) % (prefix, prefix, hx(a["name"]), hx(a["romaji"]), hx(a["one_liner"]), hx(a["desc"]), "".join(cards))
+
+
+def compare_article():
+    groups_html = []
+    for g in DATA["compare"]:
+        heads = "<th></th>" + "".join(
+            '<th><a href="resorts/%s.html">%s</a><div class="resort-romaji">%s</div></th>'
+            % (rid, hx(DATA["resorts"][rid]["name"]), hx(DATA["resorts"][rid]["romaji"]))
+            for rid in g["ids"]
+        )
+        rows_spec = [
+            ("適合誰", "one_liner"),
+            ("不適合誰", "not_for"),
+            ("從台灣怎麼到", "hours"),
+            ("預算帶", "budget"),
+            ("中文教練", "chinese_coach"),
+            ("粉雪", "powder"),
+            ("新手友善", "beginner"),
+        ]
+        body = []
+        for label, key in rows_spec:
+            cells = []
+            for rid in g["ids"]:
+                r = DATA["resorts"][rid]
+                if key == "hours":
+                    val = r["access_routes"][0]["hours"]
+                elif key == "budget":
+                    b = r["budget_twd"]
+                    val = "NT$%s–%s" % ("{:,}".format(b["min"]), "{:,}".format(b["max"]))
+                elif key == "powder":
+                    val = "%s/5" % r["scores"]["powder"]
+                elif key == "beginner":
+                    val = "%s/5" % r["scores"]["beginner"]
+                else:
+                    val = r[key]
+                cells.append("<td>%s</td>" % hx(val))
+            body.append("<tr><th>%s</th>%s</tr>" % (hx(label), "".join(cells)))
+        groups_html.append(
+            '<div class="section"><h2>%s</h2><div style="overflow:auto"><table class="compare-table">'
+            "<thead><tr>%s</tr></thead><tbody>%s</tbody></table></div></div>"
+            % (hx(g["title"]), heads, "".join(body))
+        )
+    return (
+        '<main class="page page-wide" id="page">'
+        '<div class="crumb"><a href="index.html">轉運站</a> · <a href="go.html">30 秒選場</a></div>'
+        '<h1 class="page-title" id="hokkaido">二世谷、留壽都、富良野怎麼選</h1>'
+        '<p class="muted">北海道三選、東京側短待、長野三選。要「日本滑雪該去哪」請用 <a class="card-link" href="go.html">30 秒選場</a>。</p>'
+        + "".join(groups_html) + "</main>"
+    )
+
 
 def main():
     with open(os.path.join(ROOT, "data.js"), "w", encoding="utf-8") as f:
@@ -1136,31 +1375,38 @@ def main():
     assert len(ids) == 24, ids
 
     for rid, r in DATA["resorts"].items():
-        title = "%s %s｜雪國轉運站" % (r["name"], r["romaji"])
-        desc = r["one_liner"]
+        title = "%s 適合誰、從台灣怎麼走｜雪國轉運站" % r["name"]
+        desc = "%s 不適合誰：%s" % (r["one_liner"], r["not_for"])
+        ld = json.dumps({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": title,
+            "description": desc,
+            "url": ORIGIN + "/resorts/%s.html" % rid,
+            "inLanguage": "zh-Hant",
+        }, ensure_ascii=False)
         html = page(
             title, desc, ORIGIN + "/resorts/%s.html" % rid, 1,
             "Hub.renderResort(%s);" % json.dumps(rid),
-            '<main class="page" id="page"><h1 class="page-title">%s</h1><p>%s</p><p class="muted">不適合誰：%s</p></main>' % (
-                r["name"], r["one_liner"], r["not_for"]
-            ),
+            resort_article(r), active="map",
+            jsonld='<script type="application/ld+json">%s</script>' % ld,
         )
         write("resorts/%s.html" % rid, html)
 
     for aid, a in DATA["areas"].items():
-        title = "%s｜雪國轉運站" % a["name"]
         html = page(
-            title, a["one_liner"], ORIGIN + "/areas/%s.html" % aid, 1,
+            "%s 怎麼選｜雪國轉運站" % a["name"], a["one_liner"],
+            ORIGIN + "/areas/%s.html" % aid, 1,
             "Hub.renderArea(%s);" % json.dumps(aid),
-            '<main class="page" id="page"></main>',
+            area_article(a),
         )
         write("areas/%s.html" % aid, html)
 
     write("compare.html", page(
         "二世谷、留壽都、富良野怎麼選｜雪國轉運站",
-        "北海道三選、東京側短待、長野三選。給台灣人的日本滑雪對照。",
+        "北海道三選、東京當日（GALA／苗場／輕井澤）、長野三選。給台灣人的日本滑雪對照。",
         ORIGIN + "/compare.html", 0, "Hub.renderCompare();",
-        '<main class="page page-wide" id="page"></main>',
+        compare_article(), active="compare",
     ))
 
     urls = [
@@ -1183,6 +1429,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 

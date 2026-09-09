@@ -399,6 +399,10 @@ button { font-family: inherit; color: inherit; }
 }
 .guide-lead ol { margin: 8px 0 14px; padding-left: 1.2em; }
 .guide-lead li { margin: 4px 0; font-weight: 600; }
+.seo-copy { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); }
+.seo-copy h1 { font-size: 1.2rem; font-weight: 800; margin: 0 0 12px; }
+.seo-copy h2 { font-size: 1rem; margin-top: 20px; }
+.cta-row { margin: 14px 0 8px; }
 
 @media (max-width: 760px) {
   .topbar, .wrap, .page, .site-footer { padding-left: 18px; padding-right: 18px; }
