@@ -37,12 +37,21 @@ def vs_url(a, b):
 
 
 def compare_pairs(DATA):
+    """只收互相列為比較對象、而且有一句話差異（DATA["vs_notes"]）的組合。"""
+    notes = DATA.get("vs_notes") or {}
     pairs = set()
     for rid, r in DATA["resorts"].items():
         for c in r.get("compare_with") or []:
-            if c in DATA["resorts"] and c != rid:
+            o = DATA["resorts"].get(c)
+            if not o or c == rid or rid not in (o.get("compare_with") or []):
+                continue
+            if vs_slug(rid, c) in notes:
                 pairs.add(tuple(sorted((rid, c))))
     return sorted(pairs)
+
+
+def has_vs(DATA, a, b):
+    return tuple(sorted((a, b))) in set(compare_pairs(DATA))
 
 
 def go_link(prefix, r, first=True):
@@ -80,7 +89,7 @@ def resort_links(r, prefix, DATA):
     ]
     for c in r.get("compare_with") or []:
         o = DATA["resorts"].get(c)
-        if o:
+        if o and has_vs(DATA, rid, c):
             bits.append('<a class="card-link" href="%s%s">%s 還是 %s</a>' % (prefix, vs_url(rid, c), r["name"], o["name"]))
     return '<div class="section"><h2>常見問題</h2><p class="longtail-links">%s</p></div>' % " · ".join(bits)
 
@@ -259,6 +268,9 @@ def vs_article(DATA, SEASON, hx, md, a, b):
         lead = "多數項目 %s 較強，尤其是%s。" % (B["name"], top_b)
     else:
         lead = "兩座條件很接近，看交通與預算決定。"
+    note = (DATA.get("vs_notes") or {}).get(vs_slug(a, b))
+    if note:
+        lead = note
     faq = [("%s 還是 %s？" % (A["name"], B["name"]), lead + " " + A["one_liner"] + " " + B["one_liner"])]
     html = (
         '<main class="page page-wide" id="page">'

@@ -1240,6 +1240,31 @@ DATA["resorts"]["karuizawa"]["next_steps"] = {
     "learn": {"title": "教練怎麼約", "text": "王子體系服務好，中文教練有；連假先線上買票與租借。", "url": None},
 }
 
+# vs 比較頁的一句話差異。只產生「互相列為比較對象」且有 note 的組合；key = longtail.vs_slug(a, b)。
+DATA["vs_notes"] = {
+    "appi-vs-zao": "要長雪道和細粉雪選安比；要看樹冰、泡溫泉街選藏王。兩座都要從東京搭新幹線再轉車。",
+    "furano-vs-niseko": "想要人少、乾雪、預算好控選富良野；要四場相連、國際村和夜生活選二世谷。",
+    "furano-vs-rusutsu": "中級以上想要地形選富良野；帶小孩、第一次北海道、想住在度假村裡選留壽都。",
+    "gala-yuzawa-vs-ishiuchi": "完全沒滑過、只滑一天選 GALA；已經會一點、嫌 GALA 擠，走到隔壁石打，道更寬。",
+    "gala-yuzawa-vs-karuizawa": "要中文教練和真雪選 GALA；帶不滑雪的家人、想順便逛 outlet 選輕井澤。兩座都能東京當日來回。",
+    "gala-yuzawa-vs-naeba": "只滑一天、東京當日來回選 GALA；要過夜、上課、夜滑選苗場，住苗場王子出門就是雪場。",
+    "hakuba-goryu-vs-happo-one": "已會滑、想要公園和夜滑選五龍；想挑戰本州最硬的地形選八方。兩座都不適合第一天。",
+    "hakuba-goryu-vs-tsugaike": "第一次來白馬選栂池；已會滑、想要多一點變化選五龍。兩座住宿不要混著選。",
+    "happo-one-vs-kagura": "要冬奧地形與白馬村選八方；要粉雪、春雪、從東京比較近選神樂。新手兩座都別當第一座山。",
+    "happo-one-vs-tsugaike": "第一次來白馬選栂池，寬綠線多；八方留給已經會滑的人。住宿要跟著選，不要住八方再跨去栂池。",
+    "ishiuchi-vs-yuzawa-kogen": "第一次選湯澤高原，從溫泉街直接上纜車；已經會滑、要大場和寬道選石打。三山共通券可以兩邊滑。",
+    "joetsu-kokusai-vs-maiko": "要 Ski-in/out 加夜滑、預算好控選上越國際；新手到進階都要照顧到選舞子，但新手別跟去奧添區。",
+    "kagura-vs-naeba": "第一次、要中文課選苗場；已會滑、要粉雪和春雪選神樂。兩座用龍纜車連，票要買對。",
+    "kagura-vs-shiga-kogen": "從東京近、要粉雪與春雪選神樂；要待好幾天、滑遍日本最大雪區選志賀。兩座都不適合第一次。",
+    "kiroro-vs-niseko": "要雪量、季初季末也穩、Club Med 全包選 Kiroro；要國際村、夜生活、四場相連選二世谷。",
+    "naeba-vs-tsugaike": "從東京走得快、中文課最多選苗場；想去白馬又是第一次，選栂池。",
+    "niseko-vs-rusutsu": "粉雪同級。要村子、夜生活、預算充足選二世谷；帶小孩、第一次北海道、想省腦選留壽都。",
+    "nozawa-vs-shiga-kogen": "要溫泉街、外湯和帶不滑雪的人選野澤；要雪區夠大、滑好幾天不重複選志賀。",
+    "nozawa-vs-zao": "兩座都是溫泉加雪場。從東京交通較順、村子好逛選野澤；要看樹冰選藏王，1–2 月才有。",
+    "rusutsu-vs-tomamu": "兩座都是親子友善的度假村。場大、地形多選留壽都；不滑雪的人多、要冰雪村活動選 Tomamu。",
+    "sahoro-vs-tomamu": "想要 Club Med 全包、晴天率高選 Sahoro；要自由行好到、設施多選 Tomamu。",
+}
+
 # 2026–27 季節總表（/season/2026-27.html）。每週排程 Agent 從官網補齊。
 # 只填官方公布的事實；沒公布就保持 None，頁面會顯示例年季節並標「待公布」。
 #   open / close: "YYYY-MM-DD"（官方預定開季／閉季日）

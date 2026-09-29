@@ -1,5 +1,160 @@
 {
   "rewrites": [
-    { "source": "/go", "destination": "/go.html" }
+    {
+      "source": "/go",
+      "destination": "/go.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/vs/appi-vs-bandai.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/appi-vs-happo-one.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/appi-vs-naeba.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/bandai-vs-tomamu.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/bandai-vs-zao.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/furano-vs-kiroro.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/furano-vs-teine.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/gala-yuzawa-vs-joetsu-kokusai.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/gala-yuzawa-vs-maiko.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/gala-yuzawa-vs-yuzawa-kogen.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/hakuba-goryu-vs-naeba.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/happo-one-vs-myoko.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/happo-one-vs-nozawa.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/happo-one-vs-shiga-kogen.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/happo-one-vs-zao.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/ishiuchi-vs-naeba.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/joetsu-kokusai-vs-naeba.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/karuizawa-vs-naeba.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/karuizawa-vs-tsugaike.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/kiroro-vs-rusutsu.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/kiroro-vs-sahoro.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/kiroro-vs-tomamu.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/maiko-vs-naeba.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/myoko-vs-naeba.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/myoko-vs-nozawa.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/naeba-vs-yuzawa-kogen.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/niseko-vs-tomamu.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/rusutsu-vs-sahoro.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/rusutsu-vs-teine.html",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/vs/teine-vs-tomamu.html",
+      "destination": "/compare.html",
+      "permanent": true
+    }
   ]
 }
