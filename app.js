@@ -517,6 +517,12 @@
           '<span class="copy-ok" id="copyOk" hidden>已複製，可貼到社團</span>' +
         '</div>' +
         '<p class="muted">截圖上面這張卡丟回去最快。連結打開會是同一份建議。</p>' +
+        (function () {
+          var first = DATA.resorts[picked.primary[0]];
+          var second = picked.primary[1] ? DATA.resorts[picked.primary[1]] : null;
+          var extra = second ? ' <a class="step-other" href="' + resortUrl(second.id) + '#next">看' + esc(second.name) + '的三步</a>' : '';
+          return first ? nextStepsHtml(first, first.name + '：接下來這三步', extra) : '';
+        })() +
         '<div class="card-actions">' + idBtns + '</div>' +
         '<div class="quiz-actions"><button class="btn ghost" id="again">重填一輪</button></div>' +
         '</div>';
@@ -544,6 +550,17 @@
     draw();
   }
 
+  function nextStepsHtml(r, heading, extra) {
+    var ns = r.next_steps || {};
+    var items = ['fly', 'stay', 'learn'].map(function (k, i) {
+      var st = ns[k];
+      if (!st) return '';
+      var link = st.url ? ' <a class="card-link" href="' + esc(st.url) + '" target="_blank" rel="noopener noreferrer">官方資訊</a>' : '';
+      return '<li><span class="step-num">' + (i + 1) + '</span><div><strong>' + esc(st.title) + '</strong><p>' + esc(st.text) + link + '</p></div></li>';
+    }).join('');
+    if (!items) return '';
+    return '<div class="section next-steps" id="next"><h2>' + esc(heading || '接下來這三步') + (extra || '') + '</h2><ol>' + items + '</ol></div>';
+  }
   function fact(label, value) {
     return '<div class="fact"><dt>' + esc(label) + '</dt><dd>' + esc(value) + '</dd></div>';
   }
@@ -620,6 +637,7 @@
       '<div class="muted">' + esc(r.prefecture) + '</div>' +
       '<div class="tag-row">' + tagsHtml(r.tags) + '</div>' +
       '<div class="verdict"><p><strong>本站怎麼判　</strong>' + esc(r.one_liner) + '</p><p class="not-for">不適合誰：' + esc(r.not_for) + '</p></div>' +
+      nextStepsHtml(r) +
       '<div class="section"><h2>從台灣怎麼到</h2>' + routesHtml(r.access_routes) + '</div>' +
       '<div class="section"><h2>5 天預算帶</h2>' + budget + '</div>' +
       '<div class="section"><h2>運行資訊</h2><div class="grid-5">' +

@@ -319,6 +319,23 @@ var DATA = {
         "early": 3,
         "peak": 5,
         "spring": 3
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "桃園直飛新千歲，再搭接駁巴士或包車 2.5–3 小時。當天下午才滑得到，至少排 4 天。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "四大場住宿遠近差很大，選邊決定每天累不累；第一次多住比羅夫（Hirafu）村，餐廳與酒吧集中。旺季要早訂。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "中文教練有但不是主力，英文課比中文好約。",
+          "url": null
+        }
       }
     },
     "rusutsu": {
@@ -459,6 +476,23 @@ var DATA = {
         "early": 2,
         "peak": 5,
         "spring": 2
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "桃園直飛新千歲，度假村接駁或巴士 1.5–2 小時。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "住度假村內最省腦，設施與室內遊樂都在裡面；想逛村子、找獨立餐廳的人會覺得悶。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "有官方合作的中文雪校駐點，比多數本州場好約。",
+          "url": null
+        }
       }
     },
     "furano": {
@@ -598,6 +632,23 @@ var DATA = {
         "early": 3,
         "peak": 5,
         "spring": 3
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "飛旭川最順，巴士約 1 小時；別買新千歲出發的套票，會多花 2–3 小時。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "富良野區與北之峰幾乎是兩座場，先決定滑哪邊再訂房，否則天天接駁。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "有中文課，密度不如湯澤；王子飯店體系相對好溝通。",
+          "url": null
+        }
       }
     },
     "kiroro": {
@@ -726,6 +777,23 @@ var DATA = {
         "early": 4,
         "peak": 5,
         "spring": 4
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "桃園直飛新千歲，巴士經小樽或札幌 2–2.5 小時。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "雪場內住宿為主；自己住晚上選擇有限，Club Med 全包對不滑雪的人最友善。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "Club Med 中文服務較完整；自己約課以日英為主。",
+          "url": null
+        }
       }
     },
     "tomamu": {
@@ -860,6 +928,23 @@ var DATA = {
         "early": 2,
         "peak": 4,
         "spring": 2
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "桃園直飛新千歲，滑雪巴士約 2 小時，或搭 JR 到 Tomamu 站。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "住星野度假村內，冰雪村、餐廳街、溫泉都在，不滑雪的人也能排滿。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "星野體系有中文教練駐點，標示清楚。",
+          "url": null
+        }
       }
     },
     "teine": {
@@ -960,6 +1045,23 @@ var DATA = {
         "early": 4,
         "peak": 4,
         "spring": 2
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "桃園直飛新千歲，先進札幌市區，再搭手稻滑雪巴士 40–50 分。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "住札幌市區當日往返，晚上吃喝都在市區，比住雪場方便。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "官網有中文，中文教練有駐點；新手留在奧林匹亞區上課。",
+          "url": null
+        }
       }
     },
     "sahoro": {
@@ -1070,6 +1172,23 @@ var DATA = {
         "early": 2,
         "peak": 4,
         "spring": 1
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "桃園直飛新千歲，巴士往十勝約 2.5–3 小時；自由行交通是門檻。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "幾乎都是 Club Med 全包，住宿、餐、課一起訂。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "Club Med 中文服務完整，課程通常包在套裝裡。",
+          "url": null
+        }
       }
     },
     "zao": {
@@ -1210,6 +1329,23 @@ var DATA = {
         "early": 1,
         "peak": 5,
         "spring": 3
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "飛東京（羽田／成田），山形新幹線約 2.5 小時再轉巴士 40 分；別當東京當日場。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "住藏王溫泉街，滑完泡湯；纜車公司多家，選離你要滑那區近的旅館。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "中文教練比湯澤少，溫泉街以日文為主，出發前先約好。",
+          "url": null
+        }
       }
     },
     "appi": {
@@ -1338,6 +1474,23 @@ var DATA = {
         "early": 2,
         "peak": 4,
         "spring": 4
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "飛東京，東北新幹線到盛岡約 2 小時 20 分，再轉巴士 50 分。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "住安比度假村內飯店，Ski-in/out 最省事。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "中文比湯澤少，度假村內英文尚可。",
+          "url": null
+        }
       }
     },
     "bandai": {
@@ -1438,6 +1591,23 @@ var DATA = {
         "early": 3,
         "peak": 3,
         "spring": 4
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "飛東京，東北新幹線到郡山或會津若松再轉巴士；不是東京當日場。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "貓魔區與磐梯區不是無腦相連，先確定要滑哪區再選星野的住宿。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "星野標示清楚，中文比純東北鄉鎮場好一點。",
+          "url": null
+        }
       }
     },
     "gala-yuzawa": {
@@ -1572,6 +1742,23 @@ var DATA = {
         "early": 1,
         "peak": 4,
         "spring": 3
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "飛東京，東京站搭上越新幹線約 75 分，GALA湯澤站下車就是雪場。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "可以住東京當日來回省住宿；想住就住越後湯澤溫泉街，走路到車站。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "中文教練與台灣店密度是本州最高帶；週末先在手機完成租借。",
+          "url": null
+        }
       }
     },
     "ishiuchi": {
@@ -1700,6 +1887,23 @@ var DATA = {
         "early": 1,
         "peak": 4,
         "spring": 2
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "飛東京，新幹線到越後湯澤站，再接駁 10–20 分。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "住越後湯澤站周邊或石打山腳；和 GALA 相通，可以兩邊輪流滑。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "湯澤圈中文教練好找；綠線比例不高，第一次上課前先看地圖。",
+          "url": null
+        }
       }
     },
     "yuzawa-kogen": {
@@ -1799,6 +2003,23 @@ var DATA = {
         "early": 1,
         "peak": 3,
         "spring": 2
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "飛東京，新幹線到越後湯澤站，走路或短程到纜車站。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "住越後湯澤溫泉街最方便，三山共通券可以逃去石打。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "湯澤町內台灣店多，中文教練好找。",
+          "url": null
+        }
       }
     },
     "naeba": {
@@ -1933,6 +2154,23 @@ var DATA = {
         "early": 1,
         "peak": 4,
         "spring": 2
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "飛東京，新幹線到越後湯澤，再搭巴士 40–60 分到苗場王子；當日來回不划算。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "住苗場王子飯店最省事，出門就是雪場。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "中文教練非常多，台灣人密度高，第一次很常被推來這裡上課。",
+          "url": null
+        }
       }
     },
     "kagura": {
@@ -2033,6 +2271,23 @@ var DATA = {
         "early": 4,
         "peak": 4,
         "spring": 5
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "飛東京，新幹線到越後湯澤，再搭巴士到神樂／田代／三俣；三個入口名稱很混，先確認哪一個。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "多數人住苗場王子或越後湯澤，經龍纜車進場；票種要買對。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "中文教練比苗場少，進階客較多；新手不建議把神樂當第一堂。",
+          "url": null
+        }
       }
     },
     "joetsu-kokusai": {
@@ -2132,6 +2387,23 @@ var DATA = {
         "early": 1,
         "peak": 4,
         "spring": 2
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "飛東京，新幹線到越後湯澤，再短程接駁或轉上越線。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "住度假村內飯店，Ski-in/out 加夜滑，預算比苗場好控。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "湯澤圈，中文可；台灣教練會拿來當過夜練習場。",
+          "url": null
+        }
       }
     },
     "myoko": {
@@ -2244,6 +2516,23 @@ var DATA = {
         "early": 1,
         "peak": 5,
         "spring": 3
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "飛東京，北陸新幹線到上越妙高約 100 分，再轉冬季巴士；先搞清楚上越妙高站和妙高高原站。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "子場分散，先決定主要滑哪一場再訂附近的溫泉旅館，否則天天坐巴士。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "中文少於湯澤；出發前先確認授課語言。",
+          "url": null
+        }
       }
     },
     "maiko": {
@@ -2343,6 +2632,23 @@ var DATA = {
         "early": 1,
         "peak": 4,
         "spring": 1
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "飛東京，新幹線到越後湯澤，再接駁約 20 分。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "住雪場內的 Ski-in/out 飯店最省事；奧添區紅黑為主，住哪都別讓新手跟上去。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "台灣團變多，中文比以前好找。",
+          "url": null
+        }
       }
     },
     "happo-one": {
@@ -2483,6 +2789,23 @@ var DATA = {
         "early": 2,
         "peak": 5,
         "spring": 4
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "飛東京，北陸新幹線到長野 80–90 分，再搭巴士約 70 分到白馬。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "住白馬村八方一帶，餐廳多；新手同行就讓他們待咲花區或去栂池。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "國際化，中英文教練都有；但課程常假設你已會滑。",
+          "url": null
+        }
       }
     },
     "tsugaike": {
@@ -2610,6 +2933,23 @@ var DATA = {
         "early": 3,
         "peak": 4,
         "spring": 4
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "飛東京，北陸新幹線到長野，再搭巴士約 90 分。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "住栂池高原，不要住八方再跨過來，交通會耗掉一大段時間。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "白馬谷中文教練好找；初中級道佔約八成，適合第一次上課。",
+          "url": null
+        }
       }
     },
     "hakuba-goryu": {
@@ -2709,6 +3049,23 @@ var DATA = {
         "early": 2,
         "peak": 4,
         "spring": 3
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "飛東京，北陸新幹線到長野，再搭巴士到白馬五龍。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "住五龍區，和八方、栂池不是走得到的距離。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "白馬谷中文教練多；第一次仍偏硬，先上課再自己滑。",
+          "url": null
+        }
       }
     },
     "nozawa": {
@@ -2849,6 +3206,23 @@ var DATA = {
         "early": 3,
         "peak": 5,
         "spring": 3
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "飛東京，北陸新幹線到飯山約 100 分，再搭巴士 25–30 分。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "住野澤溫泉村，外湯、老街、吃都在走路範圍；要過夜才值得來。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "外國人多、英文不錯，中文中等，出發前先約。",
+          "url": null
+        }
       }
     },
     "shiga-kogen": {
@@ -2977,6 +3351,23 @@ var DATA = {
         "early": 2,
         "peak": 5,
         "spring": 5
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "飛東京，北陸新幹線到長野，再搭巴士 70–80 分，或到湯田中再轉。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "18 區個性差很大，先決定主要滑哪幾區，再住那一區的飯店。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "中文少於白馬和湯澤；第一次請先去更單純的場。",
+          "url": null
+        }
       }
     },
     "karuizawa": {
@@ -3111,6 +3502,23 @@ var DATA = {
         "early": 5,
         "peak": 3,
         "spring": 2
+      },
+      "next_steps": {
+        "fly": {
+          "title": "飛哪個機場",
+          "text": "飛東京，北陸新幹線到輕井澤約 70 分，下車步行或接駁 10 分。",
+          "url": null
+        },
+        "stay": {
+          "title": "住哪一區",
+          "text": "可以住東京當日來回；住王子飯店省事但總額會接近北海道。",
+          "url": null
+        },
+        "learn": {
+          "title": "教練怎麼約",
+          "text": "王子體系服務好，中文教練有；連假先線上買票與租借。",
+          "url": null
+        }
       }
     }
   },

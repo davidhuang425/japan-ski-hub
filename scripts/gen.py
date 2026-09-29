@@ -1117,6 +1117,129 @@ DATA["resorts"]["nozawa"]["month_fit"] = {"early": 3, "peak": 5, "spring": 3}  #
 DATA["resorts"]["shiga-kogen"]["month_fit"] = {"early": 2, "peak": 5, "spring": 5}  # 12/5 開；標高高，4 月仍常有好雪，5/5 關
 DATA["resorts"]["karuizawa"]["month_fit"] = {"early": 5, "peak": 3, "spring": 2}  # 10/31 開，人造雪為主；旺季人多、春雪弱
 
+# 「接下來這三步」：/go 結果卡與雪場頁共用。只整理站內既有事實；不寫價格、不放訂房網站。
+# url 只准雪場官網或白名單網域（main() 會檢查）；沒有就 None。
+DATA["resorts"]["niseko"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "桃園直飛新千歲，再搭接駁巴士或包車 2.5–3 小時。當天下午才滑得到，至少排 4 天。", "url": None},
+    "stay": {"title": "住哪一區", "text": "四大場住宿遠近差很大，選邊決定每天累不累；第一次多住比羅夫（Hirafu）村，餐廳與酒吧集中。旺季要早訂。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "中文教練有但不是主力，英文課比中文好約。", "url": None},
+}
+DATA["resorts"]["rusutsu"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "桃園直飛新千歲，度假村接駁或巴士 1.5–2 小時。", "url": None},
+    "stay": {"title": "住哪一區", "text": "住度假村內最省腦，設施與室內遊樂都在裡面；想逛村子、找獨立餐廳的人會覺得悶。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "有官方合作的中文雪校駐點，比多數本州場好約。", "url": None},
+}
+DATA["resorts"]["furano"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "飛旭川最順，巴士約 1 小時；別買新千歲出發的套票，會多花 2–3 小時。", "url": None},
+    "stay": {"title": "住哪一區", "text": "富良野區與北之峰幾乎是兩座場，先決定滑哪邊再訂房，否則天天接駁。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "有中文課，密度不如湯澤；王子飯店體系相對好溝通。", "url": None},
+}
+DATA["resorts"]["kiroro"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "桃園直飛新千歲，巴士經小樽或札幌 2–2.5 小時。", "url": None},
+    "stay": {"title": "住哪一區", "text": "雪場內住宿為主；自己住晚上選擇有限，Club Med 全包對不滑雪的人最友善。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "Club Med 中文服務較完整；自己約課以日英為主。", "url": None},
+}
+DATA["resorts"]["tomamu"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "桃園直飛新千歲，滑雪巴士約 2 小時，或搭 JR 到 Tomamu 站。", "url": None},
+    "stay": {"title": "住哪一區", "text": "住星野度假村內，冰雪村、餐廳街、溫泉都在，不滑雪的人也能排滿。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "星野體系有中文教練駐點，標示清楚。", "url": None},
+}
+DATA["resorts"]["teine"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "桃園直飛新千歲，先進札幌市區，再搭手稻滑雪巴士 40–50 分。", "url": None},
+    "stay": {"title": "住哪一區", "text": "住札幌市區當日往返，晚上吃喝都在市區，比住雪場方便。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "官網有中文，中文教練有駐點；新手留在奧林匹亞區上課。", "url": None},
+}
+DATA["resorts"]["sahoro"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "桃園直飛新千歲，巴士往十勝約 2.5–3 小時；自由行交通是門檻。", "url": None},
+    "stay": {"title": "住哪一區", "text": "幾乎都是 Club Med 全包，住宿、餐、課一起訂。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "Club Med 中文服務完整，課程通常包在套裝裡。", "url": None},
+}
+DATA["resorts"]["zao"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "飛東京（羽田／成田），山形新幹線約 2.5 小時再轉巴士 40 分；別當東京當日場。", "url": None},
+    "stay": {"title": "住哪一區", "text": "住藏王溫泉街，滑完泡湯；纜車公司多家，選離你要滑那區近的旅館。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "中文教練比湯澤少，溫泉街以日文為主，出發前先約好。", "url": None},
+}
+DATA["resorts"]["appi"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "飛東京，東北新幹線到盛岡約 2 小時 20 分，再轉巴士 50 分。", "url": None},
+    "stay": {"title": "住哪一區", "text": "住安比度假村內飯店，Ski-in/out 最省事。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "中文比湯澤少，度假村內英文尚可。", "url": None},
+}
+DATA["resorts"]["bandai"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "飛東京，東北新幹線到郡山或會津若松再轉巴士；不是東京當日場。", "url": None},
+    "stay": {"title": "住哪一區", "text": "貓魔區與磐梯區不是無腦相連，先確定要滑哪區再選星野的住宿。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "星野標示清楚，中文比純東北鄉鎮場好一點。", "url": None},
+}
+DATA["resorts"]["gala-yuzawa"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "飛東京，東京站搭上越新幹線約 75 分，GALA湯澤站下車就是雪場。", "url": None},
+    "stay": {"title": "住哪一區", "text": "可以住東京當日來回省住宿；想住就住越後湯澤溫泉街，走路到車站。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "中文教練與台灣店密度是本州最高帶；週末先在手機完成租借。", "url": None},
+}
+DATA["resorts"]["ishiuchi"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "飛東京，新幹線到越後湯澤站，再接駁 10–20 分。", "url": None},
+    "stay": {"title": "住哪一區", "text": "住越後湯澤站周邊或石打山腳；和 GALA 相通，可以兩邊輪流滑。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "湯澤圈中文教練好找；綠線比例不高，第一次上課前先看地圖。", "url": None},
+}
+DATA["resorts"]["yuzawa-kogen"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "飛東京，新幹線到越後湯澤站，走路或短程到纜車站。", "url": None},
+    "stay": {"title": "住哪一區", "text": "住越後湯澤溫泉街最方便，三山共通券可以逃去石打。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "湯澤町內台灣店多，中文教練好找。", "url": None},
+}
+DATA["resorts"]["naeba"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "飛東京，新幹線到越後湯澤，再搭巴士 40–60 分到苗場王子；當日來回不划算。", "url": None},
+    "stay": {"title": "住哪一區", "text": "住苗場王子飯店最省事，出門就是雪場。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "中文教練非常多，台灣人密度高，第一次很常被推來這裡上課。", "url": None},
+}
+DATA["resorts"]["kagura"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "飛東京，新幹線到越後湯澤，再搭巴士到神樂／田代／三俣；三個入口名稱很混，先確認哪一個。", "url": None},
+    "stay": {"title": "住哪一區", "text": "多數人住苗場王子或越後湯澤，經龍纜車進場；票種要買對。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "中文教練比苗場少，進階客較多；新手不建議把神樂當第一堂。", "url": None},
+}
+DATA["resorts"]["joetsu-kokusai"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "飛東京，新幹線到越後湯澤，再短程接駁或轉上越線。", "url": None},
+    "stay": {"title": "住哪一區", "text": "住度假村內飯店，Ski-in/out 加夜滑，預算比苗場好控。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "湯澤圈，中文可；台灣教練會拿來當過夜練習場。", "url": None},
+}
+DATA["resorts"]["myoko"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "飛東京，北陸新幹線到上越妙高約 100 分，再轉冬季巴士；先搞清楚上越妙高站和妙高高原站。", "url": None},
+    "stay": {"title": "住哪一區", "text": "子場分散，先決定主要滑哪一場再訂附近的溫泉旅館，否則天天坐巴士。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "中文少於湯澤；出發前先確認授課語言。", "url": None},
+}
+DATA["resorts"]["maiko"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "飛東京，新幹線到越後湯澤，再接駁約 20 分。", "url": None},
+    "stay": {"title": "住哪一區", "text": "住雪場內的 Ski-in/out 飯店最省事；奧添區紅黑為主，住哪都別讓新手跟上去。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "台灣團變多，中文比以前好找。", "url": None},
+}
+DATA["resorts"]["happo-one"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "飛東京，北陸新幹線到長野 80–90 分，再搭巴士約 70 分到白馬。", "url": None},
+    "stay": {"title": "住哪一區", "text": "住白馬村八方一帶，餐廳多；新手同行就讓他們待咲花區或去栂池。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "國際化，中英文教練都有；但課程常假設你已會滑。", "url": None},
+}
+DATA["resorts"]["tsugaike"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "飛東京，北陸新幹線到長野，再搭巴士約 90 分。", "url": None},
+    "stay": {"title": "住哪一區", "text": "住栂池高原，不要住八方再跨過來，交通會耗掉一大段時間。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "白馬谷中文教練好找；初中級道佔約八成，適合第一次上課。", "url": None},
+}
+DATA["resorts"]["hakuba-goryu"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "飛東京，北陸新幹線到長野，再搭巴士到白馬五龍。", "url": None},
+    "stay": {"title": "住哪一區", "text": "住五龍區，和八方、栂池不是走得到的距離。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "白馬谷中文教練多；第一次仍偏硬，先上課再自己滑。", "url": None},
+}
+DATA["resorts"]["nozawa"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "飛東京，北陸新幹線到飯山約 100 分，再搭巴士 25–30 分。", "url": None},
+    "stay": {"title": "住哪一區", "text": "住野澤溫泉村，外湯、老街、吃都在走路範圍；要過夜才值得來。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "外國人多、英文不錯，中文中等，出發前先約。", "url": None},
+}
+DATA["resorts"]["shiga-kogen"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "飛東京，北陸新幹線到長野，再搭巴士 70–80 分，或到湯田中再轉。", "url": None},
+    "stay": {"title": "住哪一區", "text": "18 區個性差很大，先決定主要滑哪幾區，再住那一區的飯店。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "中文少於白馬和湯澤；第一次請先去更單純的場。", "url": None},
+}
+DATA["resorts"]["karuizawa"]["next_steps"] = {
+    "fly": {"title": "飛哪個機場", "text": "飛東京，北陸新幹線到輕井澤約 70 分，下車步行或接駁 10 分。", "url": None},
+    "stay": {"title": "住哪一區", "text": "可以住東京當日來回；住王子飯店省事但總額會接近北海道。", "url": None},
+    "learn": {"title": "教練怎麼約", "text": "王子體系服務好，中文教練有；連假先線上買票與租借。", "url": None},
+}
+
 # 2026–27 季節總表（/season/2026-27.html）。每週排程 Agent 從官網補齊。
 # 只填官方公布的事實；沒公布就保持 None，頁面會顯示例年季節並標「待公布」。
 #   open / close: "YYYY-MM-DD"（官方預定開季／閉季日）
@@ -1160,6 +1283,13 @@ DATA["news"][:0] = [
 ]
 
 ORIGIN = "https://japanski.djhousetw.com"
+
+# 對外連結白名單（官網網域另外從 SEASON 的 source 自動加入）。與 INGEST_AGENT.md 白名單一致。
+ALLOWED_DOMAINS = [
+    "natasha-traveler.tw", "mimigo.tw", "japowproject.com", "sswboardhouse.com", "yuriselfmedia.tw",
+    "whitemileage.com", "snow.tabiris.com", "surfsnow.jp", "minhyo.jp", "ptt.cc", "dcard.tw",
+    "princehotels.co.jp", "snowtomamu.jp", "hoshinoresorts.com", "clubmed.com.tw", "clubmed.co.jp",
+]
 
 HEAD = """<!doctype html>
 <html lang="zh-Hant">
@@ -1262,6 +1392,23 @@ def tags_html(tags):
     return "".join(bits)
 
 
+NEXT_ORDER = ("fly", "stay", "learn")
+
+
+def next_steps_html(r, heading="接下來這三步"):
+    ns = r.get("next_steps") or {}
+    items = []
+    for i, k in enumerate(NEXT_ORDER, 1):
+        st = ns.get(k)
+        if not st:
+            continue
+        link = (' <a class="card-link" href="%s" target="_blank" rel="noopener noreferrer">官方資訊</a>' % hx(st["url"])) if st.get("url") else ""
+        items.append('<li><span class="step-num">%d</span><div><strong>%s</strong><p>%s%s</p></div></li>' % (i, hx(st["title"]), hx(st["text"]), link))
+    if not items:
+        return ""
+    return '<div class="section next-steps" id="next"><h2>%s</h2><ol>%s</ol></div>' % (hx(heading), "".join(items))
+
+
 def resort_article(r):
     prefix = "../"
     region = DATA["regions"][r["region"]]
@@ -1359,6 +1506,7 @@ def resort_article(r):
         '<div class="tag-row">%s</div>'
         '<div class="verdict"><p><strong>本站怎麼判　</strong>%s</p><p class="not-for">不適合誰：%s</p></div>'
         '<p class="cta-row"><a class="btn" href="%sgo.html">不確定？30 秒選場</a></p>'
+        '%s'
         '<div class="section"><h2>從台灣怎麼到</h2>%s</div>'
         '<div class="section"><h2>5 天預算帶</h2>%s</div>'
         '<div class="section"><h2>運行資訊</h2><div class="grid-5">%s</div>'
@@ -1371,7 +1519,7 @@ def resort_article(r):
         prefix, prefix, r["region"], hx(region["name"]), hub, prefix,
         ('<img class="resort-banner" src="%s%s" alt="%s">' % (prefix, region["img"], hx(region["name"]))) if region.get("img") else "",
         hx(r["name"]), hx(r["romaji"]), hx(r["prefecture"]), tags_html(r.get("tags")),
-        hx(r["one_liner"]), hx(r["not_for"]), prefix, routes, budget, facts, hx(r.get("season_note")),
+        hx(r["one_liner"]), hx(r["not_for"]), prefix, next_steps_html(r), routes, budget, facts, hx(r.get("season_note")),
         rhythm, pitfalls, companion, experts, community, delta, compare, links,
     )
 
@@ -1528,6 +1676,22 @@ def main():
 
     ids = list(DATA["resorts"].keys())
     assert len(ids) == 24, ids
+
+    # next_steps／schools 等對外連結只准雪場官網或白名單網域
+    from urllib.parse import urlparse
+    allowed = set(ALLOWED_DOMAINS)
+    for sid, sv in SEASON.items():
+        for k in ("source", "early_bird_source"):
+            if sv.get(k):
+                allowed.add(urlparse(sv[k]).hostname)
+    def check_url(where, u):
+        if not u:
+            return
+        h = urlparse(u).hostname or ""
+        assert any(h == d or h.endswith("." + d) for d in allowed), "%s: %s 不在允許網域" % (where, u)
+    for rid, r in DATA["resorts"].items():
+        for k, st in (r.get("next_steps") or {}).items():
+            check_url("%s.next_steps.%s" % (rid, k), st.get("url"))
 
     for rid, r in DATA["resorts"].items():
         title = "%s 適合誰、從台灣怎麼走｜雪國轉運站" % r["name"]

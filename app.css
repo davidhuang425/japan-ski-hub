@@ -481,3 +481,19 @@ img { max-width: 100%; }
   .nav a.nav-cta { padding: 8px 12px; }
 }
 .share-row.note span.label { background: var(--bg); color: var(--ink-faint); }
+
+/* ---------- 接下來這三步 ---------- */
+.next-steps ol { list-style: none; margin: 0; padding: 0; background: var(--bg-elevated); border-radius: var(--r); }
+.next-steps li { display: grid; grid-template-columns: 36px 1fr; gap: 14px; padding: 16px 20px; border-bottom: 1px solid var(--line); align-items: start; }
+.next-steps li:last-child { border-bottom: 0; }
+.next-steps .step-num {
+  width: 32px; height: 32px; border-radius: 50%; background: var(--accent-soft); color: var(--accent);
+  font-family: var(--display); font-weight: 700; font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.next-steps strong { font-weight: 500; font-size: 0.95rem; }
+.next-steps p { margin: 2px 0 0; font-size: 0.9rem; color: var(--ink-soft); line-height: 1.7; }
+.next-steps h2 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.step-other { font-family: var(--body); font-size: 0.82rem; font-weight: 500; color: var(--accent); text-decoration: none; }
+.step-other:hover { text-decoration: underline; }
+.go-wrap .next-steps { margin-top: 22px; }
