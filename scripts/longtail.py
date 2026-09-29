@@ -94,6 +94,10 @@ def resort_links(r, prefix, DATA):
     return '<div class="section"><h2>常見問題</h2><p class="longtail-links">%s</p></div>' % " · ".join(bits)
 
 
+# gen.py 在呼叫 build() 前設定，避免循環 import
+school_html = lambda rid, prefix: ""
+
+
 def beginner_article(DATA, SEASON, hx, md, rid):
     prefix = "../"
     r = DATA["resorts"][rid]
@@ -141,7 +145,7 @@ def beginner_article(DATA, SEASON, hx, md, rid):
         '<div class="fact"><dt>不滑雪的人</dt><dd>%s / 5</dd></div>'
         "</div>"
         '<div class="section"><h2>第一次去要知道的坑</h2><ul class="pitfalls">%s</ul></div>'
-        '<div class="section"><h2>中文教練與中文服務</h2><p>%s</p><p class="muted">%s</p></div>'
+        '<div class="section"><h2>中文教練與中文服務</h2><p>%s</p><p class="muted">%s</p>%s</div>'
         "%s"
         '<div class="section"><h2>什麼時候去</h2><p>%s</p></div>'
         '<div class="section"><h2>%s</h2><ul class="pitfalls">%s</ul></div>'
@@ -155,7 +159,7 @@ def beginner_article(DATA, SEASON, hx, md, rid):
         hx(verdict), hx(r.get("why_beginner") or r["one_liner"]),
         b, hx(r.get("chinese_coach")), hx(r.get("night_ski")), sc.get("non_skier"),
         pit,
-        hx(r.get("why_coach") or ""), hx(r.get("chinese_service") or ""),
+        hx(r.get("why_coach") or ""), hx(r.get("chinese_service") or ""), school_html(rid, prefix),
         ('<div class="section"><h2>一天裡的雪況</h2><p>%s</p></div>' % hx(r["snow_rhythm"])) if r.get("snow_rhythm") else "",
         hx(season_line(SEASON, md, rid, r)),
         alt_title, alts or "<li>同區沒有更新手友善的場。</li>",
@@ -303,8 +307,11 @@ def vs_article(DATA, SEASON, hx, md, a, b):
     return html, faq
 
 
-def build(DATA, SEASON, page, hx, md, write, ORIGIN):
+def build(DATA, SEASON, page, hx, md, write, ORIGIN, school_list=None):
     """產生全部長尾頁，回傳 sitemap 用的網址清單。"""
+    global school_html
+    if school_list:
+        school_html = school_list
     urls = []
     for rid, r in DATA["resorts"].items():
         html, faq = beginner_article(DATA, SEASON, hx, md, rid)

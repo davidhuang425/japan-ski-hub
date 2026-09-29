@@ -84,7 +84,7 @@
   function footerHtml() {
     var r = rootPath();
     return '<footer class="site-footer">' +
-      '<p class="footer-links"><a href="' + r + 'about.html">關於本站</a> · <a href="' + r + 'about.html#report">回報錯誤</a> · <a href="' + r + 'season/2026-27.html">本季總表</a></p>' +
+      '<p class="footer-links"><a href="' + r + 'about.html">關於本站</a> · <a href="' + r + 'about.html#report">回報錯誤</a> · <a href="' + r + 'season/2026-27.html">本季總表</a> · <a href="' + r + 'schools.html">中文雪校</a></p>' +
       '<p>本站只做地區整理與外部連結導引，不代辦訂房或滑雪課程；延伸閱讀與引用的版權與內容都屬於原作者，點擊會開新分頁前往原文，請支持原創作者。預算與季節資訊為約略整理，以當季官網為準。</p>' +
       '<p>雪場頁上的「看看社群怎麼說」是編輯引用公開來源，不是使用者留言板。</p>' +
       '</footer>';
@@ -552,12 +552,29 @@
     draw();
   }
 
+  var LESSON_LABEL = { private: '私人課', group: '團體課', kids: '兒童課' };
+  function schoolsFor(id) {
+    return (DATA.schools || []).filter(function (sc) { return sc.resort_ids.indexOf(id) !== -1; });
+  }
+  function schoolListHtml(id) {
+    var r = rootPath();
+    var lst = schoolsFor(id);
+    if (!lst.length) return '<p class="muted">尚未整理，<a class="card-link" href="' + r + 'about.html#report">歡迎回報</a>。</p>';
+    return '<ul class="school-list">' + lst.map(function (sc) {
+      var types = (sc.lesson_types || []).map(function (t) { return LESSON_LABEL[t]; }).join('、');
+      var age = sc.kids_min_age ? '；兒童課 ' + sc.kids_min_age + ' 歲起' : '';
+      return '<li><a href="' + esc(sc.url) + '" target="_blank" rel="noopener noreferrer">' + esc(sc.name) + '</a>' +
+        '<span class="muted">' + esc(types) + age + '</span> ' +
+        '<a class="card-link" href="' + esc(sc.booking_url || sc.url) + '" target="_blank" rel="noopener noreferrer">預約</a></li>';
+    }).join('') + '</ul><p class="muted"><a class="card-link" href="' + r + 'schools.html#' + id + '">看全部中文雪校</a></p>';
+  }
   function nextStepsHtml(r, heading, extra) {
     var ns = r.next_steps || {};
     var items = ['fly', 'stay', 'learn'].map(function (k, i) {
       var st = ns[k];
       if (!st) return '';
       var link = st.url ? ' <a class="card-link" href="' + esc(st.url) + '" target="_blank" rel="noopener noreferrer">官方資訊</a>' : '';
+      if (k === 'learn' && schoolsFor(r.id).length) link += ' <a class="card-link" href="' + rootPath() + 'schools.html#' + r.id + '">中文雪校</a>';
       return '<li><span class="step-num">' + (i + 1) + '</span><div><strong>' + esc(st.title) + '</strong><p>' + esc(st.text) + link + '</p></div></li>';
     }).join('');
     if (!items) return '';
@@ -634,7 +651,9 @@
     if (r.cluster === 'yuzawa') hubLink = ' · <a href="' + areaUrl('yuzawa') + '">越後湯澤樞紐</a>';
     if (r.cluster === 'hakuba') hubLink = ' · <a href="' + areaUrl('hakuba-valley') + '">白馬谷樞紐</a>';
     el.innerHTML = '<div class="crumb"><a href="' + rootPath() + 'index.html">轉運站</a> · <a href="' + rootPath() + 'index.html#' + r.region + '">' + esc(region.name) + '</a>' + hubLink + ' · <a href="' + rootPath() + 'go.html">30 秒選場</a></div>' +
-      (region.img ? '<img class="resort-banner" src="' + rootPath() + region.img + '" alt="' + esc(region.name) + '">' : '') +
+      (r.hero_img
+        ? '<img class="resort-banner" src="' + rootPath() + r.hero_img + '" alt="' + esc(r.name) + '">' + (r.hero_credit ? '<p class="banner-credit muted">照片：' + esc(r.hero_credit) + '</p>' : '')
+        : (region.img ? '<img class="resort-banner" src="' + rootPath() + region.img + '" alt="' + esc(region.name) + '">' : '')) +
       '<div class="resort-name-row"><h1 class="page-title">' + esc(r.name) + '</h1><span class="resort-romaji">' + esc(r.romaji) + '</span></div>' +
       '<div class="muted">' + esc(r.prefecture) + '</div>' +
       '<div class="tag-row">' + tagsHtml(r.tags) + '</div>' +
@@ -646,6 +665,7 @@
         fact('夜滑', r.night_ski) + fact('溫泉', r.onsen) + fact('中文教練', r.chinese_coach) +
         fact('Ski-in/out', r.ski_in_out) + fact('中文辦事', r.chinese_service) +
       '</div><p class="muted" style="margin-top:10px">' + esc(r.season_note || '') + '</p></div>' +
+      '<div class="section" id="schools"><h2>中文雪校</h2>' + schoolListHtml(r.id) + '</div>' +
       rhythm +
       '<div class="section"><h2>現場坑</h2><ul class="pitfalls">' + pitfalls + '</ul></div>' +
       companion +

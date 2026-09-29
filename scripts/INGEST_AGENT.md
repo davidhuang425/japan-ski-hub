@@ -8,12 +8,14 @@
 
 - 24 座雪場的所有內容都在 `scripts/gen.py` 的 Python dict 裡。**只改 `gen.py`**，不要手改 `data.js` 或任何 HTML。
 - 改完跑 `python3 scripts/gen.py`，它會重寫 `data.js`、24 張雪場頁、比較頁、sitemap。
-- 可改的欄位只有五種：
+- 可改的欄位只有六種：
   1. `links` — 延伸閱讀。用 `L(title, source, url, typ)`，`typ` 只能是 `overview` / `access` / `hotel` / `slope` / `pitfall`。
   2. `community` — 社群短引用。dict 形狀：`{"quote": 中文一句(≤40字), "original": 原文(日文才填，否則 ""), "source": 來源名, "source_kind": "jp_review"|"ptt"|"dcard"|"threads"|"blogger", "url": 原文網址, "date": "YYYY-MM-DD", "theme": "snow"|"beginner"|"pitfall"}`。日文來源可用現成的 `jp(slug, quote, original, theme)`。
   3. `season_delta` — 這季結構變化一句話（開閉幕日、早鳥、票價大漲、新纜車、新直飛）。每座場只有一句，新的覆蓋舊的。
   4. `DATA["news"]` — 首頁「本週雪國」跑馬燈。每則 `{"date": "YYYY-MM-DD", "resort_id": id, "text": "≤30字", "url": 來源網址}`。新的加在最前面；**超過 60 天的移除**；最多保留 12 則。
   5. `SEASON[rid]` — 季節總表（`/season/2026-27.html`）。在 `gen.py` 的 `SEASON = {...}` 那段之後，用 `SEASON["gala-yuzawa"].update({...})` 一行一座寫入。欄位：`open`／`close`（"YYYY-MM-DD"，官方預定開閉季日）、`early_bird`（≤30 字，例「早割全日券 ¥6,500，10/31 前線上」）、`lift_price`（≤30 字，例「旺季全日券 ¥8,000」）、`source`（官方公告網址，**任一欄有值就必填**，否則 generate 會報錯）、`early_bird_source`（早鳥若在另一個官方頁面才填）、`updated`（查證日 "YYYY-MM-DD"）。**只收雪場官網或官方新聞稿**，部落客轉述不算。官方改期就覆蓋舊值。
+  6. `DATA["schools"]` — 中文雪校總表（`/schools.html`）。list，每筆 `{"id", "name", "resort_ids", "url", "booking_url", "lang", "kids_min_age", "lesson_types", "note", "source", "updated"}`。**只收學校官網或雪場官網明寫中文授課**（中文／華語／普通話／Chinese／中国語）的學校；「有台灣教練」「會說一點中文」不算。`lang` 必須含 `"zh"`；`lesson_types` 只能是 `private`／`group`／`kids`；`kids_min_age` 只在官網寫明時填；`note` ≤ 40 字、只寫事實、不評價；**不寫價格**；臉書與 OTA 網址會被 generate 擋下。每次最多新增 3 所、更新 5 所；`updated` 超過 180 天的要重開官網確認還在，不在就移除。
+- **不要動的既有資料**（除非官方來源明確推翻）：`month_fit`（/go 第五題月份分數，只依站內開閉季事實給分）、`next_steps`（接下來這三步；url 只准官網）、`DATA["vs_notes"]`（21 組比較頁的一句話差異）。`hero_img`／`hero_credit`（雪場代表圖）**排程不處理**：需要站長核准才下載圖片。
 - **季節表補齊（每次都做，不受「過去 10 天」限制）**：對 `SEASON` 裡 `open` 還是 `None` 的雪場，逐一去官網（或官網的 news／お知らせ頁）查 2026–27 季的營業期間與早割券；查到就寫入，查不到就跳過，不要猜。每次最多補 12 座，優先順序：niseko、rusutsu、gala-yuzawa、naeba、happo-one、furano、zao、nozawa、tsugaike、kiroro、tomamu、appi，其餘依序。同一筆季節資訊若是新公布（發布日在過去 10 天內），也另外寫一則 `news`。
 - 24 個 `resort_id`（只能用這些）：
   `niseko, rusutsu, furano, kiroro, tomamu, teine, sahoro, zao, appi, bandai, gala-yuzawa, ishiuchi, yuzawa-kogen, naeba, kagura, joetsu-kokusai, myoko, maiko, happo-one, tsugaike, hakuba-goryu, nozawa, shiga-kogen, karuizawa`

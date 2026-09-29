@@ -1265,6 +1265,58 @@ DATA["vs_notes"] = {
     "sahoro-vs-tomamu": "想要 Club Med 全包、晴天率高選 Sahoro；要自由行好到、設施多選 Tomamu。",
 }
 
+# 雪場代表圖：只用雪場官網媒體素材頁明寫可用於介紹的照片；hero_credit 寫「○○提供」並附授權頁。
+# 沒有就 None，頁面退回地區示意圖。
+for _rid in DATA["resorts"]:
+    DATA["resorts"][_rid].setdefault("hero_img", None)
+    DATA["resorts"][_rid].setdefault("hero_credit", None)
+
+# 中文雪校總表（/schools.html）。只收官網明寫有中文授課的學校；不寫價格。
+# url／source／updated 必填；resort_ids 只能是 24 座；note ≤40 字、只寫事實。
+DATA["schools"] = [
+    {"id": "snow-and-flow", "name": "Snow and Flow（雪浪）", "resort_ids": ["niseko", "rusutsu", "kiroro", "teine"], "url": "https://www.snowandflow.com/", "booking_url": "https://snowandflow.bookfast.jp/public/booking/order02.jsf?vid=2c98902a63f906290163fc3bc56f1143&i18n=en", "lang": ["zh", "en"], "kids_min_age": None, "lesson_types": ["private"], "note": "港台教練組成，以二世谷比羅夫為主", "source": "https://www.snowandflow.com/", "updated": "2026-09-30"},
+    {"id": "chase-for-snow", "name": "Chase for Snow", "resort_ids": ["niseko", "rusutsu", "kiroro", "teine", "zao"], "url": "https://chaseforsnow.com/en/", "booking_url": "https://chase4snow.bookfast.jp/", "lang": ["zh", "en"], "kids_min_age": 4, "lesson_types": ["private", "group", "kids"], "note": "普通話、粵語授課；藏王本季改新制，請先確認開課", "source": "https://chaseforsnow.com/en/", "updated": "2026-09-30"},
+    {"id": "pinnacle-snowsports", "name": "Pinnacle Snowsports", "resort_ids": ["niseko", "rusutsu", "kiroro"], "url": "https://pinnaclesnow.com/", "booking_url": "https://pinnaclesnow.com/private", "lang": ["zh"], "kids_min_age": None, "lesson_types": ["private"], "note": "二世谷、留壽都、Kiroro 中文私人課", "source": "https://pinnaclesnow.com/private", "updated": "2026-09-30"},
+    {"id": "snowplus", "name": "SnowPlus", "resort_ids": ["niseko", "rusutsu", "kiroro"], "url": "https://snowplus.school/", "booking_url": "https://book.snowplus.school/", "lang": ["zh"], "kids_min_age": None, "lesson_types": ["private", "group", "kids"], "note": "二世谷比羅夫、安努普利、花園，也教留壽都", "source": "https://snowplus.school/", "updated": "2026-09-30"},
+    {"id": "jd-niseko", "name": "JD 二世谷中文滑雪學校", "resort_ids": ["niseko"], "url": "https://www.jdnisekosss.com/", "booking_url": None, "lang": ["zh"], "kids_min_age": None, "lesson_types": [], "note": "二世谷的中文滑雪學校", "source": "https://www.jdnisekosss.com/", "updated": "2026-09-30"},
+    {"id": "niseko-supreme", "name": "Niseko Supreme", "resort_ids": ["niseko"], "url": "https://nisekosupreme.com/", "booking_url": None, "lang": ["en", "zh"], "kids_min_age": 3, "lesson_types": ["private", "kids"], "note": "以英文課為主，可另外安排中文", "source": "https://nisekosupreme.com/ski-lessons/", "updated": "2026-09-30"},
+    {"id": "konayuki-rusutsu", "name": "Konayuki Chinese Ski School", "resort_ids": ["rusutsu"], "url": "https://rusutsu.com/en/konayukitendo-ski-lessons/", "booking_url": None, "lang": ["zh"], "kids_min_age": None, "lesson_types": ["private"], "note": "留壽都官網列名的中文滑雪學校", "source": "https://rusutsu.com/en/konayukitendo-ski-lessons/", "updated": "2026-09-30"},
+    {"id": "kiroro-international-academy", "name": "Kiroro International Ski & Snowboard Academy", "resort_ids": ["kiroro"], "url": "https://www.kiroro.co.jp/ski_international_lesson/", "booking_url": "https://webstore.kiroro.co.jp/EN/", "lang": ["en", "zh"], "kids_min_age": None, "lesson_types": ["private"], "note": "Kiroro 自營；私人課預約時註明要中文", "source": "https://www.kiroro.co.jp/ski_international_lesson/", "updated": "2026-09-30"},
+    {"id": "snoway-academy", "name": "Snoway Academy", "resort_ids": ["kiroro", "rusutsu", "teine"], "url": "https://snoway.club/en/hokkaido-kiroro-ski-snowboard-lesson/", "booking_url": None, "lang": ["en", "zh"], "kids_min_age": None, "lesson_types": ["private", "kids"], "note": "英文、普通話、粵語授課", "source": "https://snoway.club/en/hokkaido-kiroro-ski-snowboard-lesson/", "updated": "2026-09-30"},
+    {"id": "tomamu-academy", "name": "Tomamu 滑雪學院", "resort_ids": ["tomamu"], "url": "https://www.snowtomamu.jp/winter/cn/ski/lesson/", "booking_url": "https://www.alts-system.jp/tomamuacademy/book/?lang=zh_tw", "lang": ["zh", "en", "ja"], "kids_min_age": 4, "lesson_types": ["private", "group", "kids"], "note": "星野 Tomamu 自營；中文只開雙板私人課", "source": "https://www.snowtomamu.jp/winter/cn/ski/lesson/", "updated": "2026-09-30"},
+    {"id": "visnow", "name": "Visnow Ski School", "resort_ids": ["tomamu", "teine", "kiroro", "rusutsu"], "url": "https://www.visnow.jp/", "booking_url": None, "lang": ["zh", "en"], "kids_min_age": None, "lesson_types": ["private", "kids"], "note": "星野 Tomamu 認可的中文滑雪學校", "source": "https://www.visnow.jp/tomamu-ski-snowboard", "updated": "2026-09-30"},
+    {"id": "snowmaps-hokkaido", "name": "SnowMAPS Hokkaido", "resort_ids": ["tomamu", "teine"], "url": "https://www.snowmapshokkaido.com/", "booking_url": None, "lang": ["zh", "en", "ja"], "kids_min_age": None, "lesson_types": ["private"], "note": "公司在富良野北之峰，也教 Tomamu、手稻", "source": "https://www.snowmapshokkaido.com/", "updated": "2026-09-30"},
+    {"id": "snowi", "name": "Snowi 白龍滑雪學校", "resort_ids": ["tomamu", "furano", "sahoro", "teine", "kiroro", "rusutsu"], "url": "https://snowisnow.com/", "booking_url": None, "lang": ["zh", "en", "ja"], "kids_min_age": None, "lesson_types": ["private", "kids"], "note": "北海道多場授課，創辦人與多數教練中文授課", "source": "https://snowisnow.com/", "updated": "2026-09-30"},
+    {"id": "snowland", "name": "SnowLand 滑雪學校", "resort_ids": ["tomamu", "rusutsu", "teine"], "url": "https://land110602.com/", "booking_url": None, "lang": ["zh"], "kids_min_age": None, "lesson_types": ["private", "kids"], "note": "Tomamu、留壽都、手稻中文課", "source": "https://land110602.com/", "updated": "2026-09-30"},
+    {"id": "pure-ski", "name": "PURE SKI 滑雪純愛組", "resort_ids": ["tomamu", "teine", "rusutsu"], "url": "https://www.pureski-school.com/", "booking_url": None, "lang": ["zh"], "kids_min_age": None, "lesson_types": ["private", "group"], "note": "團體課只在手稻開班", "source": "https://www.pureski-school.com/tomamu/", "updated": "2026-09-30"},
+    {"id": "jstyle-ski", "name": "Jstyle Ski 中文滑雪學校", "resort_ids": ["tomamu", "rusutsu"], "url": "https://www.jstyleski.com/", "booking_url": None, "lang": ["zh"], "kids_min_age": None, "lesson_types": [], "note": "北海道中文教練預約平台", "source": "https://www.jstyleski.com/", "updated": "2026-09-30"},
+    {"id": "krt-snow-school", "name": "KRT 中文滑雪學校", "resort_ids": ["furano", "naeba"], "url": "https://www.krtsnowschool.com/", "booking_url": "https://lin.ee/tWJ8XJm", "lang": ["zh"], "kids_min_age": 7, "lesson_types": ["private", "group"], "note": "苗場、新富良野的王子飯店櫃台報到", "source": "https://www.krtsnowschool.com/en/furano", "updated": "2026-09-30"},
+    {"id": "pandaruman-furano", "name": "PANDARUMAN Kids Ski School", "resort_ids": ["furano"], "url": "https://www.pandarumankidsschool.com/en/furano", "booking_url": "https://www.pandarumankidsschool.com/en/furano-panda", "lang": ["en", "zh", "ja"], "kids_min_age": 3, "lesson_types": ["kids"], "note": "新富良野王子飯店的兒童雙板學校，3–6 歲", "source": "https://www.pandarumankidsschool.com/en/furano", "updated": "2026-09-30"},
+    {"id": "prince-chinese-ski-school", "name": "王子中文滑雪學校", "resort_ids": ["furano", "naeba", "kagura", "karuizawa", "myoko"], "url": "https://www.princeskischool.com/", "booking_url": "http://jp.mikecrm.com/UBh60Hw", "lang": ["zh", "ja", "en"], "kids_min_age": None, "lesson_types": ["private", "group", "kids"], "note": "王子飯店集團認證的中文學校，苗場、神樂、輕井澤、妙高、富良野", "source": "https://www.princeskischool.com/", "updated": "2026-09-30"},
+    {"id": "teine-chinese-ski-school", "name": "手稻中文滑雪學校", "resort_ids": ["teine"], "url": "https://www.teineskischool.com/", "booking_url": None, "lang": ["zh"], "kids_min_age": None, "lesson_types": [], "note": "札幌手稻官網列名的中文學校", "source": "https://www.teineskischool.com/", "updated": "2026-09-30"},
+    {"id": "iski", "name": "iSKI 滑雪學校", "resort_ids": ["teine", "rusutsu", "ishiuchi", "kagura", "gala-yuzawa", "naeba"], "url": "https://www.iski.com.tw/ski-school", "booking_url": "https://www.iski.com.tw/index.php?route=product/snowing_product&trail_class_id=102", "lang": ["zh"], "kids_min_age": 3, "lesson_types": ["private", "group", "kids"], "note": "台灣業者；湯澤圈以石打為主，北海道在手稻、留壽都", "source": "https://www.iski.com.tw/ski-school", "updated": "2026-09-30"},
+    {"id": "snowlife", "name": "雪道 SnowLife", "resort_ids": ["rusutsu", "teine"], "url": "https://www.hokkaidosnowlife.com/", "booking_url": None, "lang": ["zh"], "kids_min_age": None, "lesson_types": ["private"], "note": "北海道中文私人課", "source": "https://www.hokkaidosnowlife.com/", "updated": "2026-09-30"},
+    {"id": "appi-ski-snowboard-school", "name": "Appi Ski & Snowboard School", "resort_ids": ["appi"], "url": "https://www.appi-ski-and-snowboard-school.com/", "booking_url": "https://www.appi-ski-and-snowboard-school.com/book-now", "lang": ["zh", "en", "ja"], "kids_min_age": None, "lesson_types": ["private", "group", "kids"], "note": "安比高原的滑雪學校；中文師資有限，請提早預約", "source": "https://www.appi-ski-and-snowboard-school.com/home-ch", "updated": "2026-09-30"},
+    {"id": "sora-nekoma", "name": "SORA International Ski & Snowboard School", "resort_ids": ["bandai"], "url": "https://sorasnow.com/", "booking_url": "https://sorasnow.com/pages/book-now", "lang": ["zh", "en"], "kids_min_age": None, "lesson_types": ["private"], "note": "貓魔山的國際滑雪學校，雪場官網列為中英文授課", "source": "https://www.nekoma.co.jp/special-program/", "updated": "2026-09-30"},
+    {"id": "snow-star", "name": "雪星球滑雪學校 SNOW STAR", "resort_ids": ["zao", "teine"], "url": "https://snowstar.com.tw/", "booking_url": None, "lang": ["zh"], "kids_min_age": 5, "lesson_types": ["private", "group"], "note": "台灣團隊，全中文教學；5–8 歲只收一對一", "source": "https://snowstar.com.tw/", "updated": "2026-09-30"},
+    {"id": "outdoorland", "name": "凹豆郎 Outdoorland", "resort_ids": ["zao"], "url": "https://outdoorland.club/", "booking_url": "https://outdoorland.club/products/ski-snowboard-lesson-zao", "lang": ["zh"], "kids_min_age": 3, "lesson_types": ["private"], "note": "藏王中文課，3 或 5 小時，雙板單板都有", "source": "https://outdoorland.club/products/ski-snowboard-lesson-zao", "updated": "2026-09-30"},
+    {"id": "naeba-ski-school", "name": "Naeba Ski School", "resort_ids": ["naeba"], "url": "https://zh.naebass.jp/", "booking_url": "https://reserva.be/naebaskischool", "lang": ["zh", "en", "ja"], "kids_min_age": 3, "lesson_types": ["private", "group", "kids"], "note": "苗場在地雪校；雙板 3 歲起、單板 6 歲起", "source": "https://zh.naebass.jp/", "updated": "2026-09-30"},
+    {"id": "sherpa-naeba", "name": "Sherpa International Snow School Naeba", "resort_ids": ["naeba"], "url": "https://sherpasnow.com/", "booking_url": "https://www.trunktools.jp/_app/sherpasnow/#!/en", "lang": ["zh", "en"], "kids_min_age": None, "lesson_types": ["private"], "note": "苗場，雙板與單板私人課", "source": "https://sherpasnow.com/", "updated": "2026-09-30"},
+    {"id": "kagura-ski-school", "name": "かぐらスキースクール", "resort_ids": ["kagura"], "url": "https://www.kagura-ss.jp/chinese_hantai/", "booking_url": None, "lang": ["zh", "ja"], "kids_min_age": 6, "lesson_types": ["private"], "note": "神樂三俣滑雪中心 2 樓；中文教練需事先預約", "source": "https://www.kagura-ss.jp/chinese_hantai/", "updated": "2026-09-30"},
+    {"id": "canyons", "name": "Canyons Snow Sports School", "resort_ids": ["gala-yuzawa", "kagura", "naeba", "ishiuchi"], "url": "https://canyons.jp/en/winter-tours/chinese-ski-school", "booking_url": "https://canyons.active-manager.io/customers/book-now/start?area=3&location=4", "lang": ["zh", "en"], "kids_min_age": 4, "lesson_types": ["private"], "note": "GALA湯澤的國際雪校；也在神樂、苗場、石打開課", "source": "https://canyons.jp/en/winter-tours/gala-yuzawa-snow-resort/", "updated": "2026-09-30"},
+    {"id": "giant-ski-school", "name": "巨人中文滑雪學校", "resort_ids": ["gala-yuzawa"], "url": "https://www.giantskischool.com/", "booking_url": "http://jp.mikecrm.com/3Tz7hh1", "lang": ["zh"], "kids_min_age": None, "lesson_types": ["private", "group", "kids"], "note": "GALA湯澤官網列名的中文學校", "source": "https://gala.co.jp/en/winter/school/", "updated": "2026-09-30"},
+    {"id": "snow-country-instructors", "name": "雪國教練 Snow Country Instructors", "resort_ids": ["naeba", "gala-yuzawa", "ishiuchi", "joetsu-kokusai", "kagura", "maiko"], "url": "https://www.snowcountry-instructors.com/chn/", "booking_url": "https://www.snowcountry-instructors.com/chn/contact/#book", "lang": ["zh", "en", "ja"], "kids_min_age": None, "lesson_types": ["private", "group", "kids"], "note": "湯澤町據點，湯澤圈多場授課，國語或粵語", "source": "https://www.snowcountry-instructors.com/chn/", "updated": "2026-09-30"},
+    {"id": "snowgame", "name": "SnowGame 雪遊中文滑雪學校", "resort_ids": ["kagura", "naeba", "ishiuchi", "maiko"], "url": "https://www.snowgame.school/", "booking_url": "https://booking.snowgame.school/", "lang": ["zh"], "kids_min_age": 4, "lesson_types": ["private", "kids"], "note": "越後湯澤，台灣教練；雙板 4 歲、單板 6 歲起", "source": "https://www.snowgame.school/", "updated": "2026-09-30"},
+    {"id": "pod-snowsports", "name": "Pod Snowsports", "resort_ids": ["yuzawa-kogen", "naeba"], "url": "https://podsnowsports.com/", "booking_url": "https://podsnowsports.com/store/", "lang": ["zh", "en"], "kids_min_age": 4, "lesson_types": ["private", "group"], "note": "湯澤高原官網列名的英中文雪校，需事先預約", "source": "https://www.yuzawakogen.com/winter/school/", "updated": "2026-09-30"},
+    {"id": "snowsenpai", "name": "Snow Senpai 雪長姐", "resort_ids": ["ishiuchi", "gala-yuzawa"], "url": "https://www.snowsenpai.com/", "booking_url": "https://www.snowsenpai.com/yuzawa/", "lang": ["zh"], "kids_min_age": None, "lesson_types": ["private", "group"], "note": "越後湯澤多場授課，全程中文", "source": "https://www.snowsenpai.com/", "updated": "2026-09-30"},
+    {"id": "crazy-snow", "name": "Crazy Snow 瘋雪滑雪學校", "resort_ids": ["gala-yuzawa", "kagura", "naeba", "ishiuchi"], "url": "https://tokyo.crazyforsnow.com/", "booking_url": None, "lang": ["zh"], "kids_min_age": None, "lesson_types": ["private"], "note": "越後湯澤地區，GALA、神樂、苗場、石打等", "source": "https://tokyo.crazyforsnow.com/", "updated": "2026-09-30"},
+    {"id": "snowfish-vic", "name": "維克養雪魚 Snowfish Vic", "resort_ids": ["ishiuchi", "maiko", "gala-yuzawa", "naeba", "kagura"], "url": "https://snowfish-vic.com/", "booking_url": "https://snowfish-vic.com/booking-process/", "lang": ["zh"], "kids_min_age": None, "lesson_types": [], "note": "越後湯澤的中文教練團隊，單板與雙板", "source": "https://snowfish-vic.com/", "updated": "2026-09-30"},
+    {"id": "evergreen-hakuba", "name": "Evergreen International Ski School", "resort_ids": ["happo-one", "tsugaike"], "url": "https://www.evergreen-skischool.com/", "booking_url": "https://www.evergreen-skischool.com/cn/reservations/", "lang": ["zh", "en", "ja"], "kids_min_age": 3, "lesson_types": ["private", "group", "kids"], "note": "白馬的國際滑雪學校，八方與栂池都有據點", "source": "https://www.tsugaike.gr.jp/snow/school", "updated": "2026-09-30"},
+    {"id": "tsugaike-ski-school", "name": "栂池スキー学校", "resort_ids": ["tsugaike"], "url": "https://www.tsugaike-ss.com/", "booking_url": "https://jski-outdoors.jp.mikecrm.com/A0OwB3V", "lang": ["zh", "ja"], "kids_min_age": None, "lesson_types": ["private", "group", "kids"], "note": "栂池的在地雪校，雪場官網另設中文課預約表單", "source": "https://www.tsugaike.gr.jp/snow/school", "updated": "2026-09-30"},
+    {"id": "toomi-snow-school", "name": "TOOMI Snow School 遠見中文滑雪學校", "resort_ids": ["hakuba-goryu"], "url": "https://toomisnow.com/", "booking_url": "https://booking.toomisnow.com/", "lang": ["zh"], "kids_min_age": None, "lesson_types": ["private", "group"], "note": "全中文教學，白馬五龍官網列名", "source": "https://www.hakubaescal.com/winter-en/school/", "updated": "2026-09-30"},
+    {"id": "chillyhill-snowsports", "name": "Chillyhill Snowsports", "resort_ids": ["tsugaike", "nozawa", "shiga-kogen"], "url": "https://www.chillyhill.jp/", "booking_url": "https://www.chillyhill.jp/booking", "lang": ["zh", "en"], "kids_min_age": None, "lesson_types": ["private", "kids"], "note": "中文、廣東話私人課；8 歲以下兒童限一對一", "source": "https://www.chillyhill.jp/", "updated": "2026-09-30"},
+]
+
 # 2026–27 季節總表（/season/2026-27.html）。每週排程 Agent 從官網補齊。
 # 只填官方公布的事實；沒公布就保持 None，頁面會顯示例年季節並標「待公布」。
 #   open / close: "YYYY-MM-DD"（官方預定開季／閉季日）
@@ -1353,11 +1405,11 @@ HEAD = """<!doctype html>
 def footer(prefix=""):
     return (
         '<footer class="site-footer">'
-        '<p class="footer-links"><a href="%sabout.html">關於本站</a> · <a href="%sabout.html#report">回報錯誤</a> · <a href="%sseason/2026-27.html">本季總表</a></p>'
+        '<p class="footer-links"><a href="%sabout.html">關於本站</a> · <a href="%sabout.html#report">回報錯誤</a> · <a href="%sseason/2026-27.html">本季總表</a> · <a href="%sschools.html">中文雪校</a></p>'
         '<p>本站只做地區整理與外部連結導引，不代辦訂房或滑雪課程；延伸閱讀與引用的版權與內容都屬於原作者，點擊會開新分頁前往原文，請支持原創作者。預算與季節資訊為約略整理，以當季官網為準。</p>'
         '<p>雪場頁上的「看看社群怎麼說」是編輯引用公開來源，不是使用者留言板。</p>'
         '</footer>'
-    ) % (prefix, prefix, prefix)
+    ) % (prefix, prefix, prefix, prefix)
 
 
 def hx(s):
@@ -1422,6 +1474,31 @@ def tags_html(tags):
 NEXT_ORDER = ("fly", "stay", "learn")
 
 
+LANG_LABEL = {"zh": "中文", "en": "英文", "ja": "日文", "ko": "韓文"}
+LESSON_LABEL = {"private": "私人課", "group": "團體課", "kids": "兒童課"}
+
+
+def schools_for(rid):
+    return [sc for sc in DATA["schools"] if rid in sc["resort_ids"]]
+
+
+def school_list_html(rid, prefix):
+    lst = schools_for(rid)
+    if not lst:
+        return '<p class="muted">尚未整理，<a class="card-link" href="%sabout.html#report">歡迎回報</a>。</p>' % prefix
+    items = []
+    for sc in lst:
+        book = sc.get("booking_url") or sc["url"]
+        age = ("；兒童課 %d 歲起" % sc["kids_min_age"]) if sc.get("kids_min_age") else ""
+        items.append(
+            '<li><a href="%s" target="_blank" rel="noopener noreferrer">%s</a>'
+            '<span class="muted">%s%s</span>'
+            ' <a class="card-link" href="%s" target="_blank" rel="noopener noreferrer">預約</a></li>'
+            % (hx(sc["url"]), hx(sc["name"]), hx("、".join(LESSON_LABEL[t] for t in sc.get("lesson_types") or [])), age, hx(book))
+        )
+    return '<ul class="school-list">%s</ul><p class="muted"><a class="card-link" href="%sschools.html#%s">看全部中文雪校</a></p>' % ("".join(items), prefix, rid)
+
+
 def next_steps_html(r, heading="接下來這三步"):
     ns = r.get("next_steps") or {}
     items = []
@@ -1430,10 +1507,22 @@ def next_steps_html(r, heading="接下來這三步"):
         if not st:
             continue
         link = (' <a class="card-link" href="%s" target="_blank" rel="noopener noreferrer">官方資訊</a>' % hx(st["url"])) if st.get("url") else ""
+        if k == "learn" and schools_for(r["id"]):
+            link += ' <a class="card-link" href="../schools.html#%s">中文雪校</a>' % r["id"]
         items.append('<li><span class="step-num">%d</span><div><strong>%s</strong><p>%s%s</p></div></li>' % (i, hx(st["title"]), hx(st["text"]), link))
     if not items:
         return ""
     return '<div class="section next-steps" id="next"><h2>%s</h2><ol>%s</ol></div>' % (hx(heading), "".join(items))
+
+
+def banner_html(r, region, prefix):
+    """雪場頁頂部照片：有官方授權的 hero_img 就用，否則退回地區示意圖。"""
+    if r.get("hero_img"):
+        credit = ('<p class="banner-credit muted">照片：%s</p>' % hx(r["hero_credit"])) if r.get("hero_credit") else ""
+        return '<img class="resort-banner" src="%s%s" alt="%s">%s' % (prefix, r["hero_img"], hx(r["name"]), credit)
+    if region.get("img"):
+        return '<img class="resort-banner" src="%s%s" alt="%s">' % (prefix, region["img"], hx(region["name"]))
+    return ""
 
 
 def resort_article(r):
@@ -1538,6 +1627,7 @@ def resort_article(r):
         '<div class="section"><h2>5 天預算帶</h2>%s</div>'
         '<div class="section"><h2>運行資訊</h2><div class="grid-5">%s</div>'
         '<p class="muted" style="margin-top:10px">%s</p></div>'
+        '<div class="section" id="schools"><h2>中文雪校</h2>%s</div>'
         "%s"
         '<div class="section"><h2>現場坑</h2><ul class="pitfalls">%s</ul></div>'
         "%s%s%s%s%s%s"
@@ -1545,9 +1635,9 @@ def resort_article(r):
         "</main>"
     ) % (
         prefix, prefix, r["region"], hx(region["name"]), hub, prefix,
-        ('<img class="resort-banner" src="%s%s" alt="%s">' % (prefix, region["img"], hx(region["name"]))) if region.get("img") else "",
+        banner_html(r, region, prefix),
         hx(r["name"]), hx(r["romaji"]), hx(r["prefecture"]), tags_html(r.get("tags")),
-        hx(r["one_liner"]), hx(r["not_for"]), prefix, next_steps_html(r), routes, budget, facts, hx(r.get("season_note")),
+        hx(r["one_liner"]), hx(r["not_for"]), prefix, next_steps_html(r), routes, budget, facts, hx(r.get("season_note")), school_list_html(r["id"], prefix),
         rhythm, pitfalls, companion, experts, community, delta, compare, links, prefix,
     )
 
@@ -1696,6 +1786,50 @@ def season_article():
     ) % (prefix, prefix, announced, jump, prefix, news_html, "".join(rows_by_region))
 
 
+def schools_article():
+    prefix = ""
+    blocks = []
+    for reg_id, reg in DATA["regions"].items():
+        rows = []
+        for rid in reg["resortIds"]:
+            r = DATA["resorts"][rid]
+            lst = schools_for(rid)
+            if not lst:
+                rows.append(
+                    '<tr id="%s"><th scope="row"><a href="resorts/%s.html">%s</a></th>'
+                    '<td colspan="5" class="muted">尚未整理，<a class="card-link" href="about.html#report">歡迎回報</a></td></tr>'
+                    % (rid, rid, hx(r["name"])))
+                continue
+            for i, sc in enumerate(lst):
+                rows.append(
+                    '<tr%s><th scope="row">%s</th>'
+                    '<td data-label="雪校"><a href="%s" target="_blank" rel="noopener noreferrer">%s</a><div class="muted">%s</div></td>'
+                    '<td data-label="語言">%s</td><td data-label="課型">%s</td><td data-label="兒童">%s</td>'
+                    '<td data-label="預約"><a class="card-link" href="%s" target="_blank" rel="noopener noreferrer">預約</a>'
+                    '<div class="muted"><a href="%s" target="_blank" rel="noopener noreferrer">來源</a> %s 查證</div></td></tr>'
+                    % (' id="%s"' % rid if i == 0 else "",
+                       ('<a href="resorts/%s.html">%s</a>' % (rid, hx(r["name"]))) if i == 0 else "",
+                       hx(sc["url"]), hx(sc["name"]), hx(sc.get("note") or ""),
+                       hx("、".join(LANG_LABEL.get(l, l) for l in sc.get("lang") or [])),
+                       hx("、".join(LESSON_LABEL[t] for t in sc.get("lesson_types") or [])) or "—",
+                       ("%d 歲起" % sc["kids_min_age"]) if sc.get("kids_min_age") else "—",
+                       hx(sc.get("booking_url") or sc["url"]), hx(sc["source"]), md(sc["updated"])))
+        blocks.append(
+            '<div class="section" id="region-%s"><h2>%s</h2><div class="table-wrap"><table class="compare-table school-table">'
+            "<thead><tr><th>雪場</th><th>雪校</th><th>授課語言</th><th>課型</th><th>兒童</th><th>預約</th></tr></thead>"
+            "<tbody>%s</tbody></table></div></div>" % (reg_id, hx(reg["name"]), "".join(rows)))
+    covered = len(set(rid for sc in DATA["schools"] for rid in sc["resort_ids"]))
+    return (
+        '<main class="page page-wide" id="page">'
+        '<div class="crumb"><a href="index.html">轉運站</a> · 中文雪校</div>'
+        '<h1 class="page-title">日本滑雪中文教練與雪校總表</h1>'
+        '<p class="lead-copy">24 座台灣人最常去的日本雪場，哪裡有中文授課的雪校、教哪些場、小孩幾歲收、去哪裡預約。只收官網明寫有中文授課的學校，不做評價；價格常變，請以各校官網為準。</p>'
+        '<div class="season-summary"><div><b>%d</b><span>所雪校</span></div><div><b>%d</b><span>/ 24 座雪場已整理</span></div><div><b>官網</b><span>每筆都附來源與查證日</span></div></div>'
+        '<p class="muted">還沒決定去哪？<a class="card-link" href="go.html">30 秒選場</a>　·　發現雪校資訊有誤：<a class="card-link" href="about.html#report">告訴我們</a></p>'
+        "%s</main>"
+    ) % (len(DATA["schools"]), covered, "".join(blocks))
+
+
 def main():
     with open(os.path.join(ROOT, "data.js"), "w", encoding="utf-8") as f:
         f.write("var DATA = ")
@@ -1720,6 +1854,20 @@ def main():
     for rid, r in DATA["resorts"].items():
         for k, st in (r.get("next_steps") or {}).items():
             check_url("%s.next_steps.%s" % (rid, k), st.get("url"))
+    seen = set()
+    for sc in DATA["schools"]:
+        where = "schools.%s" % sc.get("id")
+        assert sc.get("id") and sc["id"] not in seen, where + " id 重複或缺"
+        seen.add(sc["id"])
+        for k in ("name", "url", "source", "updated"):
+            assert sc.get(k), "%s 缺 %s" % (where, k)
+        assert sc.get("resort_ids") and all(x in DATA["resorts"] for x in sc["resort_ids"]), where + " resort_ids 不在 24 座"
+        assert "zh" in (sc.get("lang") or []), where + " 沒有中文授課"
+        assert set(sc.get("lesson_types") or []) <= set(LESSON_LABEL), where + " lesson_types 不合法"
+        assert len(sc.get("note") or "") <= 40, where + " note 超過 40 字"
+        for k in ("url", "booking_url", "source"):
+            u = sc.get(k) or ""
+            assert "facebook.com" not in u and "klook" not in u and "kkday" not in u, "%s.%s 不准用臉書或 OTA" % (where, k)
 
     for rid, r in DATA["resorts"].items():
         title = "%s 適合誰、從台灣怎麼走｜雪國轉運站" % r["name"]
@@ -1766,13 +1914,21 @@ def main():
         season_article(), active="season",
     ))
 
-    longtail_urls = longtail.build(DATA, SEASON, page, hx, md, write, ORIGIN)
+    write("schools.html", page(
+        "日本滑雪中文教練與雪校總表｜雪國轉運站",
+        "二世谷、留壽都、GALA湯澤、苗場、白馬等 24 座日本雪場的中文授課雪校：教哪些場、兒童幾歲收、預約連結，只收官網明寫中文授課的學校。",
+        ORIGIN + "/schools.html", 0, "Hub.mountChrome('schools');",
+        schools_article(), active="schools",
+    ))
+
+    longtail_urls = longtail.build(DATA, SEASON, page, hx, md, write, ORIGIN, school_list=school_list_html)
 
     urls = [
         ORIGIN + "/",
         ORIGIN + "/go",
         ORIGIN + "/season/%s.html" % SEASON_ID,
         ORIGIN + "/about.html",
+        ORIGIN + "/schools.html",
         ORIGIN + "/compare.html",
         ORIGIN + "/guide/first-trip.html",
         ORIGIN + "/areas/yuzawa.html",

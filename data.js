@@ -336,7 +336,9 @@ var DATA = {
           "text": "中文教練有但不是主力，英文課比中文好約。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "rusutsu": {
       "id": "rusutsu",
@@ -493,7 +495,9 @@ var DATA = {
           "text": "有官方合作的中文雪校駐點，比多數本州場好約。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "furano": {
       "id": "furano",
@@ -649,7 +653,9 @@ var DATA = {
           "text": "有中文課，密度不如湯澤；王子飯店體系相對好溝通。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "kiroro": {
       "id": "kiroro",
@@ -794,7 +800,9 @@ var DATA = {
           "text": "Club Med 中文服務較完整；自己約課以日英為主。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "tomamu": {
       "id": "tomamu",
@@ -945,7 +953,9 @@ var DATA = {
           "text": "星野體系有中文教練駐點，標示清楚。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "teine": {
       "id": "teine",
@@ -1062,7 +1072,9 @@ var DATA = {
           "text": "官網有中文，中文教練有駐點；新手留在奧林匹亞區上課。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "sahoro": {
       "id": "sahoro",
@@ -1189,7 +1201,9 @@ var DATA = {
           "text": "Club Med 中文服務完整，課程通常包在套裝裡。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "zao": {
       "id": "zao",
@@ -1346,7 +1360,9 @@ var DATA = {
           "text": "中文教練比湯澤少，溫泉街以日文為主，出發前先約好。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "appi": {
       "id": "appi",
@@ -1491,7 +1507,9 @@ var DATA = {
           "text": "中文比湯澤少，度假村內英文尚可。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "bandai": {
       "id": "bandai",
@@ -1608,7 +1626,9 @@ var DATA = {
           "text": "星野標示清楚，中文比純東北鄉鎮場好一點。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "gala-yuzawa": {
       "id": "gala-yuzawa",
@@ -1759,7 +1779,9 @@ var DATA = {
           "text": "中文教練與台灣店密度是本州最高帶；週末先在手機完成租借。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "ishiuchi": {
       "id": "ishiuchi",
@@ -1904,7 +1926,9 @@ var DATA = {
           "text": "湯澤圈中文教練好找；綠線比例不高，第一次上課前先看地圖。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "yuzawa-kogen": {
       "id": "yuzawa-kogen",
@@ -2020,7 +2044,9 @@ var DATA = {
           "text": "湯澤町內台灣店多，中文教練好找。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "naeba": {
       "id": "naeba",
@@ -2171,7 +2197,9 @@ var DATA = {
           "text": "中文教練非常多，台灣人密度高，第一次很常被推來這裡上課。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "kagura": {
       "id": "kagura",
@@ -2288,7 +2316,9 @@ var DATA = {
           "text": "中文教練比苗場少，進階客較多；新手不建議把神樂當第一堂。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "joetsu-kokusai": {
       "id": "joetsu-kokusai",
@@ -2404,7 +2434,9 @@ var DATA = {
           "text": "湯澤圈，中文可；台灣教練會拿來當過夜練習場。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "myoko": {
       "id": "myoko",
@@ -2533,7 +2565,9 @@ var DATA = {
           "text": "中文少於湯澤；出發前先確認授課語言。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "maiko": {
       "id": "maiko",
@@ -2649,7 +2683,9 @@ var DATA = {
           "text": "台灣團變多，中文比以前好找。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "happo-one": {
       "id": "happo-one",
@@ -2806,7 +2842,9 @@ var DATA = {
           "text": "國際化，中英文教練都有；但課程常假設你已會滑。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "tsugaike": {
       "id": "tsugaike",
@@ -2950,7 +2988,9 @@ var DATA = {
           "text": "白馬谷中文教練好找；初中級道佔約八成，適合第一次上課。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "hakuba-goryu": {
       "id": "hakuba-goryu",
@@ -3066,7 +3106,9 @@ var DATA = {
           "text": "白馬谷中文教練多；第一次仍偏硬，先上課再自己滑。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "nozawa": {
       "id": "nozawa",
@@ -3223,7 +3265,9 @@ var DATA = {
           "text": "外國人多、英文不錯，中文中等，出發前先約。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "shiga-kogen": {
       "id": "shiga-kogen",
@@ -3368,7 +3412,9 @@ var DATA = {
           "text": "中文少於白馬和湯澤；第一次請先去更單純的場。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     },
     "karuizawa": {
       "id": "karuizawa",
@@ -3519,7 +3565,9 @@ var DATA = {
           "text": "王子體系服務好，中文教練有；連假先線上買票與租借。",
           "url": null
         }
-      }
+      },
+      "hero_img": null,
+      "hero_credit": null
     }
   },
   "vs_notes": {
@@ -3545,6 +3593,907 @@ var DATA = {
     "rusutsu-vs-tomamu": "兩座都是親子友善的度假村。場大、地形多選留壽都；不滑雪的人多、要冰雪村活動選 Tomamu。",
     "sahoro-vs-tomamu": "想要 Club Med 全包、晴天率高選 Sahoro；要自由行好到、設施多選 Tomamu。"
   },
+  "schools": [
+    {
+      "id": "snow-and-flow",
+      "name": "Snow and Flow（雪浪）",
+      "resort_ids": [
+        "niseko",
+        "rusutsu",
+        "kiroro",
+        "teine"
+      ],
+      "url": "https://www.snowandflow.com/",
+      "booking_url": "https://snowandflow.bookfast.jp/public/booking/order02.jsf?vid=2c98902a63f906290163fc3bc56f1143&i18n=en",
+      "lang": [
+        "zh",
+        "en"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private"
+      ],
+      "note": "港台教練組成，以二世谷比羅夫為主",
+      "source": "https://www.snowandflow.com/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "chase-for-snow",
+      "name": "Chase for Snow",
+      "resort_ids": [
+        "niseko",
+        "rusutsu",
+        "kiroro",
+        "teine",
+        "zao"
+      ],
+      "url": "https://chaseforsnow.com/en/",
+      "booking_url": "https://chase4snow.bookfast.jp/",
+      "lang": [
+        "zh",
+        "en"
+      ],
+      "kids_min_age": 4,
+      "lesson_types": [
+        "private",
+        "group",
+        "kids"
+      ],
+      "note": "普通話、粵語授課；藏王本季改新制，請先確認開課",
+      "source": "https://chaseforsnow.com/en/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "pinnacle-snowsports",
+      "name": "Pinnacle Snowsports",
+      "resort_ids": [
+        "niseko",
+        "rusutsu",
+        "kiroro"
+      ],
+      "url": "https://pinnaclesnow.com/",
+      "booking_url": "https://pinnaclesnow.com/private",
+      "lang": [
+        "zh"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private"
+      ],
+      "note": "二世谷、留壽都、Kiroro 中文私人課",
+      "source": "https://pinnaclesnow.com/private",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "snowplus",
+      "name": "SnowPlus",
+      "resort_ids": [
+        "niseko",
+        "rusutsu",
+        "kiroro"
+      ],
+      "url": "https://snowplus.school/",
+      "booking_url": "https://book.snowplus.school/",
+      "lang": [
+        "zh"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private",
+        "group",
+        "kids"
+      ],
+      "note": "二世谷比羅夫、安努普利、花園，也教留壽都",
+      "source": "https://snowplus.school/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "jd-niseko",
+      "name": "JD 二世谷中文滑雪學校",
+      "resort_ids": [
+        "niseko"
+      ],
+      "url": "https://www.jdnisekosss.com/",
+      "booking_url": null,
+      "lang": [
+        "zh"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [],
+      "note": "二世谷的中文滑雪學校",
+      "source": "https://www.jdnisekosss.com/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "niseko-supreme",
+      "name": "Niseko Supreme",
+      "resort_ids": [
+        "niseko"
+      ],
+      "url": "https://nisekosupreme.com/",
+      "booking_url": null,
+      "lang": [
+        "en",
+        "zh"
+      ],
+      "kids_min_age": 3,
+      "lesson_types": [
+        "private",
+        "kids"
+      ],
+      "note": "以英文課為主，可另外安排中文",
+      "source": "https://nisekosupreme.com/ski-lessons/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "konayuki-rusutsu",
+      "name": "Konayuki Chinese Ski School",
+      "resort_ids": [
+        "rusutsu"
+      ],
+      "url": "https://rusutsu.com/en/konayukitendo-ski-lessons/",
+      "booking_url": null,
+      "lang": [
+        "zh"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private"
+      ],
+      "note": "留壽都官網列名的中文滑雪學校",
+      "source": "https://rusutsu.com/en/konayukitendo-ski-lessons/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "kiroro-international-academy",
+      "name": "Kiroro International Ski & Snowboard Academy",
+      "resort_ids": [
+        "kiroro"
+      ],
+      "url": "https://www.kiroro.co.jp/ski_international_lesson/",
+      "booking_url": "https://webstore.kiroro.co.jp/EN/",
+      "lang": [
+        "en",
+        "zh"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private"
+      ],
+      "note": "Kiroro 自營；私人課預約時註明要中文",
+      "source": "https://www.kiroro.co.jp/ski_international_lesson/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "snoway-academy",
+      "name": "Snoway Academy",
+      "resort_ids": [
+        "kiroro",
+        "rusutsu",
+        "teine"
+      ],
+      "url": "https://snoway.club/en/hokkaido-kiroro-ski-snowboard-lesson/",
+      "booking_url": null,
+      "lang": [
+        "en",
+        "zh"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private",
+        "kids"
+      ],
+      "note": "英文、普通話、粵語授課",
+      "source": "https://snoway.club/en/hokkaido-kiroro-ski-snowboard-lesson/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "tomamu-academy",
+      "name": "Tomamu 滑雪學院",
+      "resort_ids": [
+        "tomamu"
+      ],
+      "url": "https://www.snowtomamu.jp/winter/cn/ski/lesson/",
+      "booking_url": "https://www.alts-system.jp/tomamuacademy/book/?lang=zh_tw",
+      "lang": [
+        "zh",
+        "en",
+        "ja"
+      ],
+      "kids_min_age": 4,
+      "lesson_types": [
+        "private",
+        "group",
+        "kids"
+      ],
+      "note": "星野 Tomamu 自營；中文只開雙板私人課",
+      "source": "https://www.snowtomamu.jp/winter/cn/ski/lesson/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "visnow",
+      "name": "Visnow Ski School",
+      "resort_ids": [
+        "tomamu",
+        "teine",
+        "kiroro",
+        "rusutsu"
+      ],
+      "url": "https://www.visnow.jp/",
+      "booking_url": null,
+      "lang": [
+        "zh",
+        "en"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private",
+        "kids"
+      ],
+      "note": "星野 Tomamu 認可的中文滑雪學校",
+      "source": "https://www.visnow.jp/tomamu-ski-snowboard",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "snowmaps-hokkaido",
+      "name": "SnowMAPS Hokkaido",
+      "resort_ids": [
+        "tomamu",
+        "teine"
+      ],
+      "url": "https://www.snowmapshokkaido.com/",
+      "booking_url": null,
+      "lang": [
+        "zh",
+        "en",
+        "ja"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private"
+      ],
+      "note": "公司在富良野北之峰，也教 Tomamu、手稻",
+      "source": "https://www.snowmapshokkaido.com/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "snowi",
+      "name": "Snowi 白龍滑雪學校",
+      "resort_ids": [
+        "tomamu",
+        "furano",
+        "sahoro",
+        "teine",
+        "kiroro",
+        "rusutsu"
+      ],
+      "url": "https://snowisnow.com/",
+      "booking_url": null,
+      "lang": [
+        "zh",
+        "en",
+        "ja"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private",
+        "kids"
+      ],
+      "note": "北海道多場授課，創辦人與多數教練中文授課",
+      "source": "https://snowisnow.com/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "snowland",
+      "name": "SnowLand 滑雪學校",
+      "resort_ids": [
+        "tomamu",
+        "rusutsu",
+        "teine"
+      ],
+      "url": "https://land110602.com/",
+      "booking_url": null,
+      "lang": [
+        "zh"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private",
+        "kids"
+      ],
+      "note": "Tomamu、留壽都、手稻中文課",
+      "source": "https://land110602.com/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "pure-ski",
+      "name": "PURE SKI 滑雪純愛組",
+      "resort_ids": [
+        "tomamu",
+        "teine",
+        "rusutsu"
+      ],
+      "url": "https://www.pureski-school.com/",
+      "booking_url": null,
+      "lang": [
+        "zh"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private",
+        "group"
+      ],
+      "note": "團體課只在手稻開班",
+      "source": "https://www.pureski-school.com/tomamu/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "jstyle-ski",
+      "name": "Jstyle Ski 中文滑雪學校",
+      "resort_ids": [
+        "tomamu",
+        "rusutsu"
+      ],
+      "url": "https://www.jstyleski.com/",
+      "booking_url": null,
+      "lang": [
+        "zh"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [],
+      "note": "北海道中文教練預約平台",
+      "source": "https://www.jstyleski.com/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "krt-snow-school",
+      "name": "KRT 中文滑雪學校",
+      "resort_ids": [
+        "furano",
+        "naeba"
+      ],
+      "url": "https://www.krtsnowschool.com/",
+      "booking_url": "https://lin.ee/tWJ8XJm",
+      "lang": [
+        "zh"
+      ],
+      "kids_min_age": 7,
+      "lesson_types": [
+        "private",
+        "group"
+      ],
+      "note": "苗場、新富良野的王子飯店櫃台報到",
+      "source": "https://www.krtsnowschool.com/en/furano",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "pandaruman-furano",
+      "name": "PANDARUMAN Kids Ski School",
+      "resort_ids": [
+        "furano"
+      ],
+      "url": "https://www.pandarumankidsschool.com/en/furano",
+      "booking_url": "https://www.pandarumankidsschool.com/en/furano-panda",
+      "lang": [
+        "en",
+        "zh",
+        "ja"
+      ],
+      "kids_min_age": 3,
+      "lesson_types": [
+        "kids"
+      ],
+      "note": "新富良野王子飯店的兒童雙板學校，3–6 歲",
+      "source": "https://www.pandarumankidsschool.com/en/furano",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "prince-chinese-ski-school",
+      "name": "王子中文滑雪學校",
+      "resort_ids": [
+        "furano",
+        "naeba",
+        "kagura",
+        "karuizawa",
+        "myoko"
+      ],
+      "url": "https://www.princeskischool.com/",
+      "booking_url": "http://jp.mikecrm.com/UBh60Hw",
+      "lang": [
+        "zh",
+        "ja",
+        "en"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private",
+        "group",
+        "kids"
+      ],
+      "note": "王子飯店集團認證的中文學校，苗場、神樂、輕井澤、妙高、富良野",
+      "source": "https://www.princeskischool.com/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "teine-chinese-ski-school",
+      "name": "手稻中文滑雪學校",
+      "resort_ids": [
+        "teine"
+      ],
+      "url": "https://www.teineskischool.com/",
+      "booking_url": null,
+      "lang": [
+        "zh"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [],
+      "note": "札幌手稻官網列名的中文學校",
+      "source": "https://www.teineskischool.com/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "iski",
+      "name": "iSKI 滑雪學校",
+      "resort_ids": [
+        "teine",
+        "rusutsu",
+        "ishiuchi",
+        "kagura",
+        "gala-yuzawa",
+        "naeba"
+      ],
+      "url": "https://www.iski.com.tw/ski-school",
+      "booking_url": "https://www.iski.com.tw/index.php?route=product/snowing_product&trail_class_id=102",
+      "lang": [
+        "zh"
+      ],
+      "kids_min_age": 3,
+      "lesson_types": [
+        "private",
+        "group",
+        "kids"
+      ],
+      "note": "台灣業者；湯澤圈以石打為主，北海道在手稻、留壽都",
+      "source": "https://www.iski.com.tw/ski-school",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "snowlife",
+      "name": "雪道 SnowLife",
+      "resort_ids": [
+        "rusutsu",
+        "teine"
+      ],
+      "url": "https://www.hokkaidosnowlife.com/",
+      "booking_url": null,
+      "lang": [
+        "zh"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private"
+      ],
+      "note": "北海道中文私人課",
+      "source": "https://www.hokkaidosnowlife.com/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "appi-ski-snowboard-school",
+      "name": "Appi Ski & Snowboard School",
+      "resort_ids": [
+        "appi"
+      ],
+      "url": "https://www.appi-ski-and-snowboard-school.com/",
+      "booking_url": "https://www.appi-ski-and-snowboard-school.com/book-now",
+      "lang": [
+        "zh",
+        "en",
+        "ja"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private",
+        "group",
+        "kids"
+      ],
+      "note": "安比高原的滑雪學校；中文師資有限，請提早預約",
+      "source": "https://www.appi-ski-and-snowboard-school.com/home-ch",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "sora-nekoma",
+      "name": "SORA International Ski & Snowboard School",
+      "resort_ids": [
+        "bandai"
+      ],
+      "url": "https://sorasnow.com/",
+      "booking_url": "https://sorasnow.com/pages/book-now",
+      "lang": [
+        "zh",
+        "en"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private"
+      ],
+      "note": "貓魔山的國際滑雪學校，雪場官網列為中英文授課",
+      "source": "https://www.nekoma.co.jp/special-program/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "snow-star",
+      "name": "雪星球滑雪學校 SNOW STAR",
+      "resort_ids": [
+        "zao",
+        "teine"
+      ],
+      "url": "https://snowstar.com.tw/",
+      "booking_url": null,
+      "lang": [
+        "zh"
+      ],
+      "kids_min_age": 5,
+      "lesson_types": [
+        "private",
+        "group"
+      ],
+      "note": "台灣團隊，全中文教學；5–8 歲只收一對一",
+      "source": "https://snowstar.com.tw/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "outdoorland",
+      "name": "凹豆郎 Outdoorland",
+      "resort_ids": [
+        "zao"
+      ],
+      "url": "https://outdoorland.club/",
+      "booking_url": "https://outdoorland.club/products/ski-snowboard-lesson-zao",
+      "lang": [
+        "zh"
+      ],
+      "kids_min_age": 3,
+      "lesson_types": [
+        "private"
+      ],
+      "note": "藏王中文課，3 或 5 小時，雙板單板都有",
+      "source": "https://outdoorland.club/products/ski-snowboard-lesson-zao",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "naeba-ski-school",
+      "name": "Naeba Ski School",
+      "resort_ids": [
+        "naeba"
+      ],
+      "url": "https://zh.naebass.jp/",
+      "booking_url": "https://reserva.be/naebaskischool",
+      "lang": [
+        "zh",
+        "en",
+        "ja"
+      ],
+      "kids_min_age": 3,
+      "lesson_types": [
+        "private",
+        "group",
+        "kids"
+      ],
+      "note": "苗場在地雪校；雙板 3 歲起、單板 6 歲起",
+      "source": "https://zh.naebass.jp/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "sherpa-naeba",
+      "name": "Sherpa International Snow School Naeba",
+      "resort_ids": [
+        "naeba"
+      ],
+      "url": "https://sherpasnow.com/",
+      "booking_url": "https://www.trunktools.jp/_app/sherpasnow/#!/en",
+      "lang": [
+        "zh",
+        "en"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private"
+      ],
+      "note": "苗場，雙板與單板私人課",
+      "source": "https://sherpasnow.com/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "kagura-ski-school",
+      "name": "かぐらスキースクール",
+      "resort_ids": [
+        "kagura"
+      ],
+      "url": "https://www.kagura-ss.jp/chinese_hantai/",
+      "booking_url": null,
+      "lang": [
+        "zh",
+        "ja"
+      ],
+      "kids_min_age": 6,
+      "lesson_types": [
+        "private"
+      ],
+      "note": "神樂三俣滑雪中心 2 樓；中文教練需事先預約",
+      "source": "https://www.kagura-ss.jp/chinese_hantai/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "canyons",
+      "name": "Canyons Snow Sports School",
+      "resort_ids": [
+        "gala-yuzawa",
+        "kagura",
+        "naeba",
+        "ishiuchi"
+      ],
+      "url": "https://canyons.jp/en/winter-tours/chinese-ski-school",
+      "booking_url": "https://canyons.active-manager.io/customers/book-now/start?area=3&location=4",
+      "lang": [
+        "zh",
+        "en"
+      ],
+      "kids_min_age": 4,
+      "lesson_types": [
+        "private"
+      ],
+      "note": "GALA湯澤的國際雪校；也在神樂、苗場、石打開課",
+      "source": "https://canyons.jp/en/winter-tours/gala-yuzawa-snow-resort/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "giant-ski-school",
+      "name": "巨人中文滑雪學校",
+      "resort_ids": [
+        "gala-yuzawa"
+      ],
+      "url": "https://www.giantskischool.com/",
+      "booking_url": "http://jp.mikecrm.com/3Tz7hh1",
+      "lang": [
+        "zh"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private",
+        "group",
+        "kids"
+      ],
+      "note": "GALA湯澤官網列名的中文學校",
+      "source": "https://gala.co.jp/en/winter/school/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "snow-country-instructors",
+      "name": "雪國教練 Snow Country Instructors",
+      "resort_ids": [
+        "naeba",
+        "gala-yuzawa",
+        "ishiuchi",
+        "joetsu-kokusai",
+        "kagura",
+        "maiko"
+      ],
+      "url": "https://www.snowcountry-instructors.com/chn/",
+      "booking_url": "https://www.snowcountry-instructors.com/chn/contact/#book",
+      "lang": [
+        "zh",
+        "en",
+        "ja"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private",
+        "group",
+        "kids"
+      ],
+      "note": "湯澤町據點，湯澤圈多場授課，國語或粵語",
+      "source": "https://www.snowcountry-instructors.com/chn/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "snowgame",
+      "name": "SnowGame 雪遊中文滑雪學校",
+      "resort_ids": [
+        "kagura",
+        "naeba",
+        "ishiuchi",
+        "maiko"
+      ],
+      "url": "https://www.snowgame.school/",
+      "booking_url": "https://booking.snowgame.school/",
+      "lang": [
+        "zh"
+      ],
+      "kids_min_age": 4,
+      "lesson_types": [
+        "private",
+        "kids"
+      ],
+      "note": "越後湯澤，台灣教練；雙板 4 歲、單板 6 歲起",
+      "source": "https://www.snowgame.school/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "pod-snowsports",
+      "name": "Pod Snowsports",
+      "resort_ids": [
+        "yuzawa-kogen",
+        "naeba"
+      ],
+      "url": "https://podsnowsports.com/",
+      "booking_url": "https://podsnowsports.com/store/",
+      "lang": [
+        "zh",
+        "en"
+      ],
+      "kids_min_age": 4,
+      "lesson_types": [
+        "private",
+        "group"
+      ],
+      "note": "湯澤高原官網列名的英中文雪校，需事先預約",
+      "source": "https://www.yuzawakogen.com/winter/school/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "snowsenpai",
+      "name": "Snow Senpai 雪長姐",
+      "resort_ids": [
+        "ishiuchi",
+        "gala-yuzawa"
+      ],
+      "url": "https://www.snowsenpai.com/",
+      "booking_url": "https://www.snowsenpai.com/yuzawa/",
+      "lang": [
+        "zh"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private",
+        "group"
+      ],
+      "note": "越後湯澤多場授課，全程中文",
+      "source": "https://www.snowsenpai.com/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "crazy-snow",
+      "name": "Crazy Snow 瘋雪滑雪學校",
+      "resort_ids": [
+        "gala-yuzawa",
+        "kagura",
+        "naeba",
+        "ishiuchi"
+      ],
+      "url": "https://tokyo.crazyforsnow.com/",
+      "booking_url": null,
+      "lang": [
+        "zh"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private"
+      ],
+      "note": "越後湯澤地區，GALA、神樂、苗場、石打等",
+      "source": "https://tokyo.crazyforsnow.com/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "snowfish-vic",
+      "name": "維克養雪魚 Snowfish Vic",
+      "resort_ids": [
+        "ishiuchi",
+        "maiko",
+        "gala-yuzawa",
+        "naeba",
+        "kagura"
+      ],
+      "url": "https://snowfish-vic.com/",
+      "booking_url": "https://snowfish-vic.com/booking-process/",
+      "lang": [
+        "zh"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [],
+      "note": "越後湯澤的中文教練團隊，單板與雙板",
+      "source": "https://snowfish-vic.com/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "evergreen-hakuba",
+      "name": "Evergreen International Ski School",
+      "resort_ids": [
+        "happo-one",
+        "tsugaike"
+      ],
+      "url": "https://www.evergreen-skischool.com/",
+      "booking_url": "https://www.evergreen-skischool.com/cn/reservations/",
+      "lang": [
+        "zh",
+        "en",
+        "ja"
+      ],
+      "kids_min_age": 3,
+      "lesson_types": [
+        "private",
+        "group",
+        "kids"
+      ],
+      "note": "白馬的國際滑雪學校，八方與栂池都有據點",
+      "source": "https://www.tsugaike.gr.jp/snow/school",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "tsugaike-ski-school",
+      "name": "栂池スキー学校",
+      "resort_ids": [
+        "tsugaike"
+      ],
+      "url": "https://www.tsugaike-ss.com/",
+      "booking_url": "https://jski-outdoors.jp.mikecrm.com/A0OwB3V",
+      "lang": [
+        "zh",
+        "ja"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private",
+        "group",
+        "kids"
+      ],
+      "note": "栂池的在地雪校，雪場官網另設中文課預約表單",
+      "source": "https://www.tsugaike.gr.jp/snow/school",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "toomi-snow-school",
+      "name": "TOOMI Snow School 遠見中文滑雪學校",
+      "resort_ids": [
+        "hakuba-goryu"
+      ],
+      "url": "https://toomisnow.com/",
+      "booking_url": "https://booking.toomisnow.com/",
+      "lang": [
+        "zh"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private",
+        "group"
+      ],
+      "note": "全中文教學，白馬五龍官網列名",
+      "source": "https://www.hakubaescal.com/winter-en/school/",
+      "updated": "2026-09-30"
+    },
+    {
+      "id": "chillyhill-snowsports",
+      "name": "Chillyhill Snowsports",
+      "resort_ids": [
+        "tsugaike",
+        "nozawa",
+        "shiga-kogen"
+      ],
+      "url": "https://www.chillyhill.jp/",
+      "booking_url": "https://www.chillyhill.jp/booking",
+      "lang": [
+        "zh",
+        "en"
+      ],
+      "kids_min_age": null,
+      "lesson_types": [
+        "private",
+        "kids"
+      ],
+      "note": "中文、廣東話私人課；8 歲以下兒童限一對一",
+      "source": "https://www.chillyhill.jp/",
+      "updated": "2026-09-30"
+    }
+  ],
   "season": {
     "id": "2026-27",
     "resorts": {
