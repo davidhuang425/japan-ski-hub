@@ -39,6 +39,8 @@ var DATA = {
   "regions": {
     "hokkaido": {
       "name": "北海道",
+      "en": "Hokkaido",
+      "img": "img/region-hokkaido.jpg",
       "sub": "粉雪 · 7 個雪場",
       "desc": "全日本粉雪指標，從台灣直飛新千歲最順。",
       "resortIds": [
@@ -53,6 +55,8 @@ var DATA = {
     },
     "tohoku": {
       "name": "東北",
+      "en": "Tohoku",
+      "img": "img/region-tohoku.jpg",
       "sub": "樹冰 · 3 個雪場",
       "desc": "人較少、雪季長，樹冰與度假村型雪場。",
       "resortIds": [
@@ -63,6 +67,8 @@ var DATA = {
     },
     "niigata": {
       "name": "新潟／越後",
+      "en": "Niigata",
+      "img": "img/region-niigata.jpg",
       "sub": "新幹線 · 8 個雪場",
       "desc": "東京最近的雪國。越後湯澤是樞紐，不是一座場。",
       "resortIds": [
@@ -78,6 +84,8 @@ var DATA = {
     },
     "nagano": {
       "name": "長野／北信",
+      "en": "Nagano",
+      "img": "img/region-nagano.jpg",
       "sub": "冬奧 · 6 個雪場",
       "desc": "白馬谷要先選山。輕井澤歸長野，適合東京當日。",
       "resortIds": [
@@ -90,6 +98,7 @@ var DATA = {
       ]
     }
   },
+  "news": [],
   "areas": {
     "yuzawa": {
       "id": "yuzawa",

@@ -39,11 +39,15 @@ DATA = {
         "nagano": [22, 90],
     },
     "regions": {
-        "hokkaido": {"name": "北海道", "sub": "粉雪 · 7 個雪場", "desc": "全日本粉雪指標，從台灣直飛新千歲最順。", "resortIds": ["niseko", "rusutsu", "furano", "kiroro", "tomamu", "teine", "sahoro"]},
-        "tohoku": {"name": "東北", "sub": "樹冰 · 3 個雪場", "desc": "人較少、雪季長，樹冰與度假村型雪場。", "resortIds": ["zao", "appi", "bandai"]},
-        "niigata": {"name": "新潟／越後", "sub": "新幹線 · 8 個雪場", "desc": "東京最近的雪國。越後湯澤是樞紐，不是一座場。", "resortIds": ["gala-yuzawa", "ishiuchi", "yuzawa-kogen", "naeba", "kagura", "joetsu-kokusai", "myoko", "maiko"]},
-        "nagano": {"name": "長野／北信", "sub": "冬奧 · 6 個雪場", "desc": "白馬谷要先選山。輕井澤歸長野，適合東京當日。", "resortIds": ["happo-one", "tsugaike", "hakuba-goryu", "nozawa", "shiga-kogen", "karuizawa"]},
+        "hokkaido": {"name": "北海道", "en": "Hokkaido", "img": "img/region-hokkaido.jpg", "sub": "粉雪 · 7 個雪場", "desc": "全日本粉雪指標，從台灣直飛新千歲最順。", "resortIds": ["niseko", "rusutsu", "furano", "kiroro", "tomamu", "teine", "sahoro"]},
+        "tohoku": {"name": "東北", "en": "Tohoku", "img": "img/region-tohoku.jpg", "sub": "樹冰 · 3 個雪場", "desc": "人較少、雪季長，樹冰與度假村型雪場。", "resortIds": ["zao", "appi", "bandai"]},
+        "niigata": {"name": "新潟／越後", "en": "Niigata", "img": "img/region-niigata.jpg", "sub": "新幹線 · 8 個雪場", "desc": "東京最近的雪國。越後湯澤是樞紐，不是一座場。", "resortIds": ["gala-yuzawa", "ishiuchi", "yuzawa-kogen", "naeba", "kagura", "joetsu-kokusai", "myoko", "maiko"]},
+        "nagano": {"name": "長野／北信", "en": "Nagano", "img": "img/region-nagano.jpg", "sub": "冬奧 · 6 個雪場", "desc": "白馬谷要先選山。輕井澤歸長野，適合東京當日。", "resortIds": ["happo-one", "tsugaike", "hakuba-goryu", "nozawa", "shiga-kogen", "karuizawa"]},
     },
+    # 首頁「本週雪國」跑馬燈。排程 Agent 每週寫入，格式：
+    # {"date": "YYYY-MM-DD", "resort_id": "gala-yuzawa", "text": "早鳥票開賣", "url": "https://..."}
+    # 超過 60 天的項目由首頁自動忽略；空的時候首頁改顯示各場 season_delta。
+    "news": [],
     "areas": {
         "yuzawa": {
             "id": "yuzawa", "name": "越後湯澤", "romaji": "Echigo-Yuzawa",
@@ -1102,7 +1106,9 @@ HEAD = """<!doctype html>
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="zh_TW">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Noto+Sans+TC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="{css}">
 <!--JSONLD-->
 </head>
@@ -1145,15 +1151,15 @@ def chrome(prefix, active="map"):
         '<header class="topbar">'
         '<a class="brand" href="%sindex.html">'
         '<div class="brand-cn">雪國轉運站</div>'
-        '<div class="brand-en">Snow Country Transit Hub</div></a>'
-        '<div class="subhead">台灣人的日本滑雪選場入口</div>'
-        '<nav class="nav">%s%s%s%s</nav></header>'
+        '<div class="brand-en">Snow Country Transit</div></a>'
+        '<nav class="nav">%s%s%s'
+        '<a href="%sgo.html" class="nav-cta%s">30 秒選場</a></nav></header>'
     ) % (
         prefix,
-        item(prefix + "go.html", "quiz", "選場"),
-        item(prefix + "index.html#map", "map", "地圖"),
+        item(prefix + "index.html#regions", "map", "雪場"),
         item(prefix + "compare.html", "compare", "比較"),
         item(prefix + "guide/first-trip.html", "guide", "第一次"),
+        prefix, " active" if active == "quiz" else "",
     )
 
 
@@ -1274,6 +1280,7 @@ def resort_article(r):
         '<main class="page" id="page">'
         '<div class="crumb"><a href="%sindex.html">轉運站</a> · '
         '<a href="%sindex.html#%s">%s</a>%s · <a href="%sgo.html">30 秒選場</a></div>'
+        '%s'
         '<div class="resort-name-row"><h1 class="page-title">%s</h1><span class="resort-romaji">%s</span></div>'
         '<div class="muted">%s</div>'
         '<div class="tag-row">%s</div>'
@@ -1289,6 +1296,7 @@ def resort_article(r):
         "</main>"
     ) % (
         prefix, prefix, r["region"], hx(region["name"]), hub, prefix,
+        ('<img class="resort-banner" src="%s%s" alt="%s">' % (prefix, region["img"], hx(region["name"]))) if region.get("img") else "",
         hx(r["name"]), hx(r["romaji"]), hx(r["prefecture"]), tags_html(r.get("tags")),
         hx(r["one_liner"]), hx(r["not_for"]), prefix, routes, budget, facts, hx(r.get("season_note")),
         rhythm, pitfalls, companion, experts, community, delta, compare, links,

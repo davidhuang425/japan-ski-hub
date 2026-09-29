@@ -61,14 +61,13 @@
     return '<header class="topbar">' +
       '<a class="brand" href="' + r + 'index.html">' +
         '<div class="brand-cn">雪國轉運站</div>' +
-        '<div class="brand-en">Snow Country Transit Hub</div>' +
+        '<div class="brand-en">Snow Country Transit</div>' +
       '</a>' +
-      '<div class="subhead">台灣人的日本滑雪選場入口</div>' +
       '<nav class="nav">' +
-        item(r + 'go.html', 'quiz', '選場') +
-        item(r + 'index.html#map', 'map', '地圖') +
+        item(r + 'index.html#regions', 'map', '雪場') +
         item(r + 'compare.html', 'compare', '比較') +
         item(r + 'guide/first-trip.html', 'guide', '第一次') +
+        '<a href="' + r + 'go.html" class="nav-cta' + (active === 'quiz' ? ' active' : '') + '">30 秒選場</a>' +
       '</nav></header>';
   }
   function footerHtml() {
@@ -222,6 +221,34 @@
     var dotsEl = document.getElementById('dots');
     var cardsEl = document.getElementById('cards');
     var panelEl = document.getElementById('panel');
+    var gridEl = document.getElementById('regionGrid');
+    var tickerEl = document.getElementById('ticker');
+
+    if (gridEl) {
+      gridEl.innerHTML = Object.keys(DATA.regions).map(function (id) {
+        var r = DATA.regions[id];
+        return '<a class="region-tile" href="#' + id + '">' +
+          (r.img ? '<img src="' + rootPath() + r.img + '" alt="' + esc(r.name) + '" loading="lazy">' : '') +
+          '<div class="body"><span class="sub">' + esc(r.en || '') + ' · ' + esc(r.sub) + '</span>' +
+          '<span class="name">' + esc(r.name) + '</span>' +
+          '<span class="desc">' + esc(r.desc) + '</span></div></a>';
+      }).join('');
+    }
+    if (tickerEl) {
+      var items = (DATA.news || []).slice(0, 8).map(function (n) {
+        var r = DATA.resorts[n.resort_id];
+        var label = (r ? r.name + ' ' : '') + n.text;
+        var href = r ? resortUrl(n.resort_id) : (n.url || '#');
+        return '<a class="ticker-item" href="' + esc(href) + '"><b>' + esc((n.date || '').slice(5).replace('-', '.')) + '</b>' + esc(label) + '</a>';
+      });
+      if (!items.length) {
+        Object.keys(DATA.resorts).forEach(function (id) {
+          var r = DATA.resorts[id];
+          if (r.season_delta && items.length < 8) items.push('<a class="ticker-item" href="' + resortUrl(id) + '"><b>這季</b>' + esc(r.name) + '：' + esc(r.season_delta) + '</a>');
+        });
+      }
+      tickerEl.innerHTML = items.length ? '<span class="pill tag">本週雪國</span>' + items.join('') : '';
+    }
 
     function selectRegion(id) {
       selected = id;
@@ -352,15 +379,21 @@
       else homePanel();
     }
     draw();
+    function jumpToMap() {
+      var m = document.getElementById('map');
+      if (m) m.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
     if (location.hash === '#quiz') {
       location.replace(rootPath() + 'go.html');
       return;
     } else if (location.hash && DATA.regions[location.hash.slice(1)]) {
       selectRegion(location.hash.slice(1));
+      jumpToMap();
     }
     window.addEventListener('hashchange', function () {
       if (location.hash === '#quiz') { location.replace(rootPath() + 'go.html'); }
       if (location.hash === '#map') { mode = 'home'; selected = null; draw(); mountChrome('map'); }
+      if (location.hash && DATA.regions[location.hash.slice(1)]) { selectRegion(location.hash.slice(1)); jumpToMap(); }
     });
   }
 
@@ -429,9 +462,10 @@
       }).join('');
       el.innerHTML = '<div class="quiz">' +
         '<div class="share-card" id="shareCard">' +
-          '<div class="share-kicker">雪國轉運站 · 2026–27</div>' +
+          '<div class="share-kicker"><span>雪國轉運站</span><span>2026–27</span></div>' +
           '<div class="share-you">你：' + esc(youLine(answers)) + '</div>' +
           primary + avoidHtml +
+          '<div class="share-url">' + esc(localShareUrl(answers).replace(/^https?:\/\//, '')) + '</div>' +
         '</div>' +
         '<div class="card-actions" style="margin-top:16px">' +
           '<button class="btn" id="copyLink">複製連結</button>' +
@@ -535,7 +569,8 @@
     var hubLink = '';
     if (r.cluster === 'yuzawa') hubLink = ' · <a href="' + areaUrl('yuzawa') + '">越後湯澤樞紐</a>';
     if (r.cluster === 'hakuba') hubLink = ' · <a href="' + areaUrl('hakuba-valley') + '">白馬谷樞紐</a>';
-    el.innerHTML = '<div class="crumb"><a href="' + rootPath() + 'index.html">轉運站</a> · <a href="' + rootPath() + 'index.html#' + r.region + '">' + esc(region.name) + '</a>' + hubLink + '</div>' +
+    el.innerHTML = '<div class="crumb"><a href="' + rootPath() + 'index.html">轉運站</a> · <a href="' + rootPath() + 'index.html#' + r.region + '">' + esc(region.name) + '</a>' + hubLink + ' · <a href="' + rootPath() + 'go.html">30 秒選場</a></div>' +
+      (region.img ? '<img class="resort-banner" src="' + rootPath() + region.img + '" alt="' + esc(region.name) + '">' : '') +
       '<div class="resort-name-row"><h1 class="page-title">' + esc(r.name) + '</h1><span class="resort-romaji">' + esc(r.romaji) + '</span></div>' +
       '<div class="muted">' + esc(r.prefecture) + '</div>' +
       '<div class="tag-row">' + tagsHtml(r.tags) + '</div>' +
