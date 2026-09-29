@@ -2980,5 +2980,202 @@ var DATA = {
         }
       ]
     }
+  },
+  "season": {
+    "id": "2026-27",
+    "resorts": {
+      "niseko": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "rusutsu": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "furano": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "kiroro": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "tomamu": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "teine": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "sahoro": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "zao": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "appi": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "bandai": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "gala-yuzawa": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "ishiuchi": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "yuzawa-kogen": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "naeba": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "kagura": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "joetsu-kokusai": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "myoko": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "maiko": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "happo-one": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "tsugaike": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "hakuba-goryu": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "nozawa": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "shiga-kogen": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      },
+      "karuizawa": {
+        "open": null,
+        "close": null,
+        "early_bird": null,
+        "lift_price": null,
+        "source": null,
+        "updated": null
+      }
+    }
   }
 };

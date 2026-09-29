@@ -1087,6 +1087,18 @@ DATA["resorts"]["sahoro"]["community"] = [
     }
 ]
 
+# 2026–27 季節總表（/season/2026-27.html）。每週排程 Agent 從官網補齊。
+# 只填官方公布的事實；沒公布就保持 None，頁面會顯示例年季節並標「待公布」。
+#   open / close: "YYYY-MM-DD"（官方預定開季／閉季日）
+#   early_bird:   一句話，例：「早割全日券 ¥6,500，10/31 前線上」
+#   lift_price:   一句話，例：「旺季全日券 ¥8,000」
+#   source:       官方公告網址（open/close/early_bird/lift_price 任一有值就必填）
+#   updated:      "YYYY-MM-DD"（最後查證日）
+SEASON_ID = "2026-27"
+SEASON = {rid: {"open": None, "close": None, "early_bird": None, "lift_price": None, "source": None, "updated": None}
+          for rid in DATA["resorts"]}
+DATA["season"] = {"id": SEASON_ID, "resorts": SEASON}
+
 ORIGIN = "https://japanski.djhousetw.com"
 
 HEAD = """<!doctype html>
@@ -1152,11 +1164,12 @@ def chrome(prefix, active="map"):
         '<a class="brand" href="%sindex.html">'
         '<div class="brand-cn">雪國轉運站</div>'
         '<div class="brand-en">Snow Country Transit</div></a>'
-        '<nav class="nav">%s%s%s'
+        '<nav class="nav">%s%s%s%s'
         '<a href="%sgo.html" class="nav-cta%s">30 秒選場</a></nav></header>'
     ) % (
         prefix,
         item(prefix + "index.html#regions", "map", "雪場"),
+        item(prefix + "season/" + SEASON_ID + ".html", "season", "本季"),
         item(prefix + "compare.html", "compare", "比較"),
         item(prefix + "guide/first-trip.html", "guide", "第一次"),
         prefix, " active" if active == "quiz" else "",
@@ -1373,6 +1386,79 @@ def compare_article():
     )
 
 
+def md(date):
+    """'2026-11-28' -> '11/28'"""
+    if not date:
+        return ""
+    y, m, d = date.split("-")
+    return "%d/%d" % (int(m), int(d))
+
+
+def season_article():
+    prefix = "../"
+    rows_by_region = []
+    announced = 0
+    for reg_id, reg in DATA["regions"].items():
+        rows = []
+        for rid in reg["resortIds"]:
+            r = DATA["resorts"][rid]
+            s = SEASON[rid]
+            if s.get("open"):
+                announced += 1
+                open_cell = '<span class="season-date" data-open="%s">%s</span>' % (s["open"], md(s["open"]))
+                if s.get("close"):
+                    open_cell += '<span class="muted">～%s</span>' % md(s["close"])
+                status = '<span class="pill season-status" data-open="%s">已公布</span>' % s["open"]
+            else:
+                open_cell = '<span class="muted">待公布</span>'
+                status = '<span class="pill season-status tbd">待公布</span>'
+            price_bits = [x for x in (s.get("early_bird"), s.get("lift_price")) if x]
+            price = "<br>".join(hx(x) for x in price_bits) if price_bits else '<span class="muted">—</span>'
+            src = ('<a class="card-link" href="%s" target="_blank" rel="noopener noreferrer">官方公告</a>' % hx(s["source"])
+                   + ('<div class="muted">%s 查證</div>' % md(s["updated"]) if s.get("updated") else "")) if s.get("source") else '<span class="muted">—</span>'
+            rows.append(
+                "<tr>"
+                '<th scope="row"><a href="%sresorts/%s.html">%s</a><div class="resort-romaji">%s</div></th>'
+                "<td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td>"
+                "</tr>"
+                % (prefix, rid, hx(r["name"]), hx(r["romaji"]),
+                   open_cell, status, price, hx(r.get("season_note")), src)
+            )
+        rows_by_region.append(
+            '<div class="section season-region" id="%s"><h2>%s</h2>'
+            '<div class="table-wrap"><table class="compare-table season-table">'
+            "<thead><tr><th>雪場</th><th>本季開季</th><th>狀態</th><th>早鳥／票價</th><th>例年季節</th><th>來源</th></tr></thead>"
+            "<tbody>%s</tbody></table></div></div>"
+            % (reg_id, hx(reg["name"]), "".join(rows))
+        )
+    news = sorted(DATA.get("news") or [], key=lambda n: n.get("date", ""), reverse=True)[:8]
+    news_html = ""
+    if news:
+        items = "".join(
+            '<li><time>%s</time><a href="%sresorts/%s.html">%s</a> %s</li>'
+            % (hx(n.get("date")), prefix, hx(n.get("resort_id")),
+               hx(DATA["resorts"].get(n.get("resort_id"), {}).get("name", "")), hx(n.get("text")))
+            for n in news
+        )
+        news_html = '<div class="section"><h2>最近更新</h2><ul class="season-news">%s</ul></div>' % items
+    jump = " · ".join('<a href="#%s">%s</a>' % (k, hx(v["name"])) for k, v in DATA["regions"].items())
+    return (
+        '<main class="page page-wide" id="page">'
+        '<div class="crumb"><a href="%sindex.html">轉運站</a> · <a href="%sgo.html">30 秒選場</a></div>'
+        '<h1 class="page-title">2026–27 日本滑雪場開季日與早鳥票總表</h1>'
+        '<p class="lead-copy">24 座台灣人最常去的日本雪場，本季開季日、閉季日、早鳥票與票價。只收官方公布的資訊，每週更新；還沒公布的標「待公布」，先參考例年季節。</p>'
+        '<div class="season-summary">'
+        '<div><b id="seasonAnnounced">%d</b><span>/ 24 座已公布開季日</span></div>'
+        '<div><b id="seasonNext">—</b><span id="seasonNextLabel">最快開季</span></div>'
+        '<div><b>每週一</b><span>更新</span></div>'
+        "</div>"
+        '<p class="muted">跳到：%s　·　還沒決定去哪？<a class="card-link" href="%sgo.html">30 秒選場</a></p>'
+        "%s%s"
+        '<p class="muted" style="margin-top:28px">開閉季日依雪況可能提前或延後，出發前請再看官網。票價以日圓計、未含稅差。</p>'
+        "</main>"
+    ) % (prefix, prefix, announced, jump, prefix, news_html, "".join(rows_by_region))
+
+
 def main():
     with open(os.path.join(ROOT, "data.js"), "w", encoding="utf-8") as f:
         f.write("var DATA = ")
@@ -1417,9 +1503,20 @@ def main():
         compare_article(), active="compare",
     ))
 
+    for sid, s in SEASON.items():
+        if any(s.get(k) for k in ("open", "close", "early_bird", "lift_price")):
+            assert s.get("source"), "season.%s has data but no source URL" % sid
+    write("season/%s.html" % SEASON_ID, page(
+        "2026–27 日本滑雪場開季日與早鳥票總表｜雪國轉運站",
+        "二世谷、留壽都、GALA湯澤、苗場、白馬等 24 座日本雪場 2026–27 開季日、閉季日、早鳥票與票價，只收官方公布資訊，每週更新。",
+        ORIGIN + "/season/%s.html" % SEASON_ID, 1, "Hub.renderSeason();",
+        season_article(), active="season",
+    ))
+
     urls = [
         ORIGIN + "/",
         ORIGIN + "/go",
+        ORIGIN + "/season/%s.html" % SEASON_ID,
         ORIGIN + "/compare.html",
         ORIGIN + "/guide/first-trip.html",
         ORIGIN + "/areas/yuzawa.html",

@@ -65,6 +65,7 @@
       '</a>' +
       '<nav class="nav">' +
         item(r + 'index.html#regions', 'map', '雪場') +
+        item(r + 'season/' + ((DATA.season && DATA.season.id) || '2026-27') + '.html', 'season', '本季') +
         item(r + 'compare.html', 'compare', '比較') +
         item(r + 'guide/first-trip.html', 'guide', '第一次') +
         '<a href="' + r + 'go.html" class="nav-cta' + (active === 'quiz' ? ' active' : '') + '">30 秒選場</a>' +
@@ -644,7 +645,35 @@
       }).join('');
   }
 
+  function renderSeason() {
+    mountChrome('season');
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    function daysTo(iso) {
+      var p = iso.split('-');
+      var d = new Date(+p[0], +p[1] - 1, +p[2]);
+      return Math.round((d - today) / 86400000);
+    }
+    var next = null;
+    document.querySelectorAll('.season-status[data-open]').forEach(function (el) {
+      var n = daysTo(el.getAttribute('data-open'));
+      if (n > 0) { el.textContent = '倒數 ' + n + ' 天'; el.classList.add('soon'); }
+      else { el.textContent = '已開季'; el.classList.add('open'); }
+      if (n > 0 && (next === null || n < next.n)) next = { n: n, iso: el.getAttribute('data-open') };
+    });
+    var nb = document.getElementById('seasonNext');
+    var nl = document.getElementById('seasonNextLabel');
+    if (nb && next) {
+      nb.textContent = next.n + ' 天';
+      var p = next.iso.split('-');
+      nl.textContent = '後最快開季（' + (+p[1]) + '/' + (+p[2]) + '）';
+    } else if (nb) {
+      nb.textContent = '待公布';
+    }
+  }
+
   window.Hub = {
+    renderSeason: renderSeason,
     mountChrome: mountChrome,
     renderIndex: renderIndex,
     renderGo: renderGo,

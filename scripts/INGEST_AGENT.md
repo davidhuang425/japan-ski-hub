@@ -8,11 +8,13 @@
 
 - 24 座雪場的所有內容都在 `scripts/gen.py` 的 Python dict 裡。**只改 `gen.py`**，不要手改 `data.js` 或任何 HTML。
 - 改完跑 `python3 scripts/gen.py`，它會重寫 `data.js`、24 張雪場頁、比較頁、sitemap。
-- 可改的欄位只有四種：
+- 可改的欄位只有五種：
   1. `links` — 延伸閱讀。用 `L(title, source, url, typ)`，`typ` 只能是 `overview` / `access` / `hotel` / `slope` / `pitfall`。
   2. `community` — 社群短引用。dict 形狀：`{"quote": 中文一句(≤40字), "original": 原文(日文才填，否則 ""), "source": 來源名, "source_kind": "jp_review"|"ptt"|"dcard"|"threads"|"blogger", "url": 原文網址, "date": "YYYY-MM-DD", "theme": "snow"|"beginner"|"pitfall"}`。日文來源可用現成的 `jp(slug, quote, original, theme)`。
   3. `season_delta` — 這季結構變化一句話（開閉幕日、早鳥、票價大漲、新纜車、新直飛）。每座場只有一句，新的覆蓋舊的。
   4. `DATA["news"]` — 首頁「本週雪國」跑馬燈。每則 `{"date": "YYYY-MM-DD", "resort_id": id, "text": "≤30字", "url": 來源網址}`。新的加在最前面；**超過 60 天的移除**；最多保留 12 則。
+  5. `SEASON[rid]` — 季節總表（`/season/2026-27.html`）。在 `gen.py` 的 `SEASON = {...}` 那段之後，用 `SEASON["gala-yuzawa"].update({...})` 一行一座寫入。欄位：`open`／`close`（"YYYY-MM-DD"，官方預定開閉季日）、`early_bird`（≤30 字，例「早割全日券 ¥6,500，10/31 前線上」）、`lift_price`（≤30 字，例「旺季全日券 ¥8,000」）、`source`（官方公告網址，**任一欄有值就必填**，否則 generate 會報錯）、`updated`（查證日 "YYYY-MM-DD"）。**只收雪場官網或官方新聞稿**，部落客轉述不算。官方改期就覆蓋舊值。
+- **季節表補齊（每次都做，不受「過去 10 天」限制）**：對 `SEASON` 裡 `open` 還是 `None` 的雪場，逐一去官網（或官網的 news／お知らせ頁）查 2026–27 季的營業期間與早割券；查到就寫入，查不到就跳過，不要猜。每次最多補 12 座，優先順序：niseko、rusutsu、gala-yuzawa、naeba、happo-one、furano、zao、nozawa、tsugaike、kiroro、tomamu、appi，其餘依序。同一筆季節資訊若是新公布（發布日在過去 10 天內），也另外寫一則 `news`。
 - 24 個 `resort_id`（只能用這些）：
   `niseko, rusutsu, furano, kiroro, tomamu, teine, sahoro, zao, appi, bandai, gala-yuzawa, ishiuchi, yuzawa-kogen, naeba, kagura, joetsu-kokusai, myoko, maiko, happo-one, tsugaike, hakuba-goryu, nozawa, shiga-kogen, karuizawa`
 - 別名：二世谷/ニセコ→niseko、留壽都/ルスツ→rusutsu、Tomamu/星野トマム→tomamu、手稻/テイネ→teine、藏王/蔵王→zao、安比→appi、星野磐梯/貓魔/ネコマ→bandai、GALA湯澤/ガーラ湯沢→gala-yuzawa、石打丸山→ishiuchi、湯澤高原→yuzawa-kogen、苗場→naeba、神樂/かぐら→kagura、上越國際→joetsu-kokusai、妙高→myoko、舞子→maiko、八方尾根/Happo→happo-one、栂池→tsugaike、白馬五龍→hakuba-goryu、野澤溫泉→nozawa、志賀高原→shiga-kogen、輕井澤王子/軽井沢プリンス→karuizawa。
@@ -48,7 +50,7 @@
 1. 用 Edit 改 `scripts/gen.py`（照上面欄位形狀，保持既有縮排與風格）。
 2. 跑 `python3 scripts/gen.py`，必須印出 `resorts 24` 且沒有 traceback。
 3. 跑 `node --check app.js`（若有 node）。
-4. `python3 -c "import json;json.load(open('data.js').read()[len('var DATA = '):-2] and None)"` 不需要；改用 `git diff --stat` 確認只動了 `scripts/gen.py`、`data.js`、`resorts/*.html`、`compare.html`、`sitemap.xml`。
+4. 用 `git diff --stat` 確認只動了 `scripts/gen.py`、`data.js`、`resorts/*.html`、`areas/*.html`、`compare.html`、`season/*.html`、`sitemap.xml`。
 5. commit：訊息格式 `Weekly ingest YYYY-MM-DD: N items (K links, M quotes, S season, W news)`，內文列每一筆「resort_id · kind · 來源 · 日期」。
 6. `git push origin main`。
 
