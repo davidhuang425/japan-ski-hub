@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
-import json, os
+import json, os, sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import longtail
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -1513,7 +1516,7 @@ def main():
         html = page(
             title, desc, ORIGIN + "/resorts/%s.html" % rid, 1,
             "Hub.renderResort(%s);" % json.dumps(rid),
-            resort_article(r), active="map",
+            resort_article(r).replace("</main>", longtail.resort_links(r, "../", DATA) + "</main>"), active="map",
             jsonld='<script type="application/ld+json">%s</script>' % ld,
         )
         write("resorts/%s.html" % rid, html)
@@ -1544,6 +1547,8 @@ def main():
         season_article(), active="season",
     ))
 
+    longtail_urls = longtail.build(DATA, SEASON, page, hx, md, write, ORIGIN)
+
     urls = [
         ORIGIN + "/",
         ORIGIN + "/go",
@@ -1552,7 +1557,7 @@ def main():
         ORIGIN + "/guide/first-trip.html",
         ORIGIN + "/areas/yuzawa.html",
         ORIGIN + "/areas/hakuba-valley.html",
-    ] + [ORIGIN + "/resorts/%s.html" % i for i in ids]
+    ] + [ORIGIN + "/resorts/%s.html" % i for i in ids] + longtail_urls
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
@@ -1561,6 +1566,7 @@ def main():
     write("sitemap.xml", "\n".join(sm))
     write("robots.txt", "User-agent: *\nAllow: /\nSitemap: %s/sitemap.xml\n" % ORIGIN)
     print("resorts", len(ids))
+    print("longtail pages", len(longtail_urls))
     print("high-search community", sum(1 for i in ["niseko","rusutsu","furano","kiroro","tomamu","gala-yuzawa","naeba","ishiuchi","karuizawa","happo-one","tsugaike","nozawa","shiga-kogen","zao","appi"] if len(DATA["resorts"][i].get("community") or []) >= 2))
 
 if __name__ == "__main__":

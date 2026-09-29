@@ -456,3 +456,14 @@ img { max-width: 100%; }
 }
 .season-table td:last-child, .season-table td:nth-child(2) { white-space: nowrap; }
 .season-table td:last-child .muted { font-size: 0.72rem; }
+
+/* ---------- long-tail pages ---------- */
+.longtail-links { line-height: 2.1; }
+.vs-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+.vs-col { background: var(--bg-elevated); border-radius: var(--r); padding: 22px 24px; min-width: 0; }
+.vs-col h2 { margin: 0 0 8px; font-size: 1.4rem; }
+.vs-col h2 a { color: var(--ink); text-decoration: none; }
+.vs-col h3 { font-family: var(--body); font-size: 0.8rem; letter-spacing: 0.14em; color: var(--ink-faint); font-weight: 500; margin: 18px 0 6px; }
+.vs-table td.win { color: var(--accent); font-weight: 700; }
+.vs-table { min-width: 520px; }
+@media (max-width: 760px) { .vs-grid { grid-template-columns: 1fr; } }
