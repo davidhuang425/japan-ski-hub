@@ -454,3 +454,5 @@ img { max-width: 100%; }
   .season-summary { grid-template-columns: 1fr 1fr; }
   .season-summary div:last-child { grid-column: 1 / -1; }
 }
+.season-table td:last-child, .season-table td:nth-child(2) { white-space: nowrap; }
+.season-table td:last-child .muted { font-size: 0.72rem; }

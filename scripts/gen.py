@@ -1093,11 +1093,41 @@ DATA["resorts"]["sahoro"]["community"] = [
 #   early_bird:   一句話，例：「早割全日券 ¥6,500，10/31 前線上」
 #   lift_price:   一句話，例：「旺季全日券 ¥8,000」
 #   source:       官方公告網址（open/close/early_bird/lift_price 任一有值就必填）
+#   early_bird_source: 早鳥資訊若在另一個官方頁面，填這裡（選填）
 #   updated:      "YYYY-MM-DD"（最後查證日）
 SEASON_ID = "2026-27"
-SEASON = {rid: {"open": None, "close": None, "early_bird": None, "lift_price": None, "source": None, "updated": None}
+SEASON = {rid: {"open": None, "close": None, "early_bird": None, "lift_price": None, "source": None, "early_bird_source": None, "updated": None}
           for rid in DATA["resorts"]}
 DATA["season"] = {"id": SEASON_ID, "resorts": SEASON}
+
+# 2026-09-29 官網查證（gala-yuzawa 尚未公布開季日）
+SEASON["niseko"].update({"open": "2026-11-28", "close": "2027-05-05", "lift_price": "全山券 旺季 ¥13,500／一般 ¥12,600", "source": "https://www.niseko.ne.jp/ja/lift/", "updated": "2026-09-29"})
+SEASON["rusutsu"].update({"open": "2026-11-28", "close": "2027-03-31", "early_bird": "KWP 季票早割 ¥95,000，11/3 前", "early_bird_source": "https://rusutsu.com/winter-season-passes/", "lift_price": "全日券 線上 ¥13,200／窗口 ¥16,700", "source": "https://rusutsu.com/winter-lift-tickets/", "updated": "2026-09-29"})
+SEASON["furano"].update({"open": "2026-11-28", "close": "2027-05-05", "lift_price": "全日券 ¥9,000（初滑／春季 ¥7,500）", "source": "https://www.princehotels.co.jp/ski/furano/winter/lift/", "updated": "2026-09-29"})
+SEASON["kiroro"].update({"open": "2026-11-28", "close": "2027-05-05", "early_bird": "季票早割 ¥72,000，12/13 前網購", "early_bird_source": "https://www.kiroro.co.jp/ja/news/2026-27-seasonpasssaleseb/", "lift_price": "全日券 ¥9,200（季初／春季 ¥5,800）", "source": "https://www.kiroro.co.jp/ja/lift_price/", "updated": "2026-09-29"})
+SEASON["tomamu"].update({"open": "2026-12-01", "close": "2027-04-05", "early_bird": "季票早割 ¥76,000，10/1–11/30", "lift_price": "全日券 ¥9,200", "source": "https://www.snowtomamu.jp/winter/ski/ticket/", "updated": "2026-09-29"})
+SEASON["teine"].update({"open": "2026-11-21", "early_bird": "KWP 季票早割，11/3 前，最多省 ¥28,000", "early_bird_source": "https://sapporo-teine.com/snow/news/30497", "source": "https://sapporo-teine.com/snow/", "updated": "2026-09-29"})
+SEASON["sahoro"].update({"open": "2026-12-01", "close": "2027-03-31", "source": "https://sahoro-resort.com/", "updated": "2026-09-29"})
+SEASON["zao"].update({"open": "2026-12-12", "early_bird": "早割季票 ¥88,000，11/1–17 官網限定", "lift_price": "全日券 ¥8,000（旺季 ¥9,000）", "source": "https://zaomountainresort.com/chrage/", "updated": "2026-09-29"})
+SEASON["appi"].update({"early_bird": "季票 Final Sale ¥89,900，11/30 前", "source": "https://www.appi.co.jp/snow-mountain-resort/ticket/seasonpass.php", "updated": "2026-09-29"})
+SEASON["bandai"].update({"open": "2026-11-28", "close": "2027-05-09", "source": "https://www.nekoma.co.jp/", "updated": "2026-09-29"})
+SEASON["ishiuchi"].update({"open": "2026-12-18", "close": "2027-04-04", "early_bird": "早割一日券 ¥5,800（原價 ¥8,500）", "early_bird_source": "https://ishiuchi.or.jp/winter/other/8304/", "lift_price": "一日券 ¥8,500", "source": "https://ishiuchi.or.jp/winter/seasonpass-1/", "updated": "2026-09-29"})
+SEASON["yuzawa-kogen"].update({"open": "2026-12-18", "close": "2027-04-04", "source": "https://www.yuzawakogen.com/topics/2627_seasonpass_w/", "updated": "2026-09-29"})
+SEASON["naeba"].update({"open": "2026-12-18", "close": "2027-04-04", "source": "https://www.princehotels.co.jp/ski/naeba/winter/", "updated": "2026-09-29"})
+SEASON["kagura"].update({"open": "2026-11-28", "close": "2027-05-16", "source": "https://www.princehotels.co.jp/ski/kagura/winter/", "updated": "2026-09-29"})
+SEASON["joetsu-kokusai"].update({"open": "2026-12-12", "close": "2027-04-04", "early_bird": "早割一日券 ¥3,900，10/31 前", "lift_price": "一日券 ¥5,500", "source": "https://jkokusai.co.jp/ski/lift/", "updated": "2026-09-29"})
+SEASON["myoko"].update({"open": "2026-12-19", "close": "2027-05-05", "source": "https://akr-ski.com/slope", "updated": "2026-09-29"})
+SEASON["maiko"].update({"open": "2026-12-19", "close": "2027-03-28", "early_bird": "早割季票 ¥45,000，9/30 前", "early_bird_source": "https://smile-resort.com/ticket/maiko/", "source": "https://www.maiko-resort.com/news/2027seasonticket.html", "updated": "2026-09-29"})
+SEASON["happo-one"].update({"close": "2027-05-05", "early_bird": "早割季票 ¥90,000 起，10/1–11/15", "early_bird_source": "https://www.happo-one.jp/ticket/seasonpass/", "lift_price": "一日券 ¥9,800（高峰期）", "source": "https://www.happo-one.jp/ticket/", "updated": "2026-09-29"})
+SEASON["tsugaike"].update({"close": "2027-05-05", "early_bird": "早割一日券 ¥6,500，11/30 前", "lift_price": "一日券 ¥9,800", "source": "https://www.tsugaike.gr.jp/price", "updated": "2026-09-29"})
+SEASON["hakuba-goryu"].update({"close": "2027-05-06", "lift_price": "一日券 ¥10,000（網購 ¥8,200）", "source": "https://www.hakubaescal.com/winter/tickets/lift/", "updated": "2026-09-29"})
+SEASON["nozawa"].update({"early_bird": "早割季票 9/30 截止", "early_bird_source": "https://nozawaski.com/report_summer/40933/?summer", "lift_price": "一日券 ¥7,800", "source": "https://nozawaski.com/winter/lift_price/", "updated": "2026-09-29"})
+SEASON["shiga-kogen"].update({"open": "2026-12-05", "close": "2027-05-05", "lift_price": "全山一日券 ¥9,500（網購 ¥8,500）", "source": "https://shigakogen-ski.or.jp/2026/08/2026-2027.html", "updated": "2026-09-29"})
+SEASON["karuizawa"].update({"open": "2026-10-31", "source": "https://www.princehotels.co.jp/press/260925_03", "updated": "2026-09-29"})
+DATA["news"][:0] = [
+    {"date": "2026-09-25", "resort_id": "karuizawa", "text": "10/31 開季，10/3 起開始造雪", "url": "https://www.princehotels.co.jp/press/260925_03"},
+    {"date": "2026-09-15", "resort_id": "gala-yuzawa", "text": "本季南區停止營業", "url": "https://gala.co.jp/winter/news/64209"},
+]
 
 ORIGIN = "https://japanski.djhousetw.com"
 
@@ -1410,11 +1440,12 @@ def season_article():
                     open_cell += '<span class="muted">～%s</span>' % md(s["close"])
                 status = '<span class="pill season-status" data-open="%s">已公布</span>' % s["open"]
             else:
-                open_cell = '<span class="muted">待公布</span>'
+                open_cell = '<span class="muted">待公布</span>' + (('<span class="muted">～%s</span>' % md(s["close"])) if s.get("close") else "")
                 status = '<span class="pill season-status tbd">待公布</span>'
             price_bits = [x for x in (s.get("early_bird"), s.get("lift_price")) if x]
             price = "<br>".join(hx(x) for x in price_bits) if price_bits else '<span class="muted">—</span>'
             src = ('<a class="card-link" href="%s" target="_blank" rel="noopener noreferrer">官方公告</a>' % hx(s["source"])
+                   + (('<div><a class="card-link" href="%s" target="_blank" rel="noopener noreferrer">早鳥公告</a></div>' % hx(s["early_bird_source"])) if s.get("early_bird_source") else "")
                    + ('<div class="muted">%s 查證</div>' % md(s["updated"]) if s.get("updated") else "")) if s.get("source") else '<span class="muted">—</span>'
             rows.append(
                 "<tr>"

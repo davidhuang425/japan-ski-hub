@@ -98,7 +98,20 @@ var DATA = {
       ]
     }
   },
-  "news": [],
+  "news": [
+    {
+      "date": "2026-09-25",
+      "resort_id": "karuizawa",
+      "text": "10/31 開季，10/3 起開始造雪",
+      "url": "https://www.princehotels.co.jp/press/260925_03"
+    },
+    {
+      "date": "2026-09-15",
+      "resort_id": "gala-yuzawa",
+      "text": "本季南區停止營業",
+      "url": "https://gala.co.jp/winter/news/64209"
+    }
+  ],
   "areas": {
     "yuzawa": {
       "id": "yuzawa",
@@ -2985,84 +2998,94 @@ var DATA = {
     "id": "2026-27",
     "resorts": {
       "niseko": {
-        "open": null,
-        "close": null,
+        "open": "2026-11-28",
+        "close": "2027-05-05",
         "early_bird": null,
-        "lift_price": null,
-        "source": null,
-        "updated": null
+        "lift_price": "全山券 旺季 ¥13,500／一般 ¥12,600",
+        "source": "https://www.niseko.ne.jp/ja/lift/",
+        "early_bird_source": null,
+        "updated": "2026-09-29"
       },
       "rusutsu": {
-        "open": null,
-        "close": null,
-        "early_bird": null,
-        "lift_price": null,
-        "source": null,
-        "updated": null
+        "open": "2026-11-28",
+        "close": "2027-03-31",
+        "early_bird": "KWP 季票早割 ¥95,000，11/3 前",
+        "lift_price": "全日券 線上 ¥13,200／窗口 ¥16,700",
+        "source": "https://rusutsu.com/winter-lift-tickets/",
+        "early_bird_source": "https://rusutsu.com/winter-season-passes/",
+        "updated": "2026-09-29"
       },
       "furano": {
-        "open": null,
-        "close": null,
+        "open": "2026-11-28",
+        "close": "2027-05-05",
         "early_bird": null,
-        "lift_price": null,
-        "source": null,
-        "updated": null
+        "lift_price": "全日券 ¥9,000（初滑／春季 ¥7,500）",
+        "source": "https://www.princehotels.co.jp/ski/furano/winter/lift/",
+        "early_bird_source": null,
+        "updated": "2026-09-29"
       },
       "kiroro": {
-        "open": null,
-        "close": null,
-        "early_bird": null,
-        "lift_price": null,
-        "source": null,
-        "updated": null
+        "open": "2026-11-28",
+        "close": "2027-05-05",
+        "early_bird": "季票早割 ¥72,000，12/13 前網購",
+        "lift_price": "全日券 ¥9,200（季初／春季 ¥5,800）",
+        "source": "https://www.kiroro.co.jp/ja/lift_price/",
+        "early_bird_source": "https://www.kiroro.co.jp/ja/news/2026-27-seasonpasssaleseb/",
+        "updated": "2026-09-29"
       },
       "tomamu": {
-        "open": null,
-        "close": null,
-        "early_bird": null,
-        "lift_price": null,
-        "source": null,
-        "updated": null
+        "open": "2026-12-01",
+        "close": "2027-04-05",
+        "early_bird": "季票早割 ¥76,000，10/1–11/30",
+        "lift_price": "全日券 ¥9,200",
+        "source": "https://www.snowtomamu.jp/winter/ski/ticket/",
+        "early_bird_source": null,
+        "updated": "2026-09-29"
       },
       "teine": {
-        "open": null,
+        "open": "2026-11-21",
         "close": null,
-        "early_bird": null,
+        "early_bird": "KWP 季票早割，11/3 前，最多省 ¥28,000",
         "lift_price": null,
-        "source": null,
-        "updated": null
+        "source": "https://sapporo-teine.com/snow/",
+        "early_bird_source": "https://sapporo-teine.com/snow/news/30497",
+        "updated": "2026-09-29"
       },
       "sahoro": {
-        "open": null,
-        "close": null,
+        "open": "2026-12-01",
+        "close": "2027-03-31",
         "early_bird": null,
         "lift_price": null,
-        "source": null,
-        "updated": null
+        "source": "https://sahoro-resort.com/",
+        "early_bird_source": null,
+        "updated": "2026-09-29"
       },
       "zao": {
-        "open": null,
+        "open": "2026-12-12",
         "close": null,
-        "early_bird": null,
-        "lift_price": null,
-        "source": null,
-        "updated": null
+        "early_bird": "早割季票 ¥88,000，11/1–17 官網限定",
+        "lift_price": "全日券 ¥8,000（旺季 ¥9,000）",
+        "source": "https://zaomountainresort.com/chrage/",
+        "early_bird_source": null,
+        "updated": "2026-09-29"
       },
       "appi": {
         "open": null,
         "close": null,
-        "early_bird": null,
+        "early_bird": "季票 Final Sale ¥89,900，11/30 前",
         "lift_price": null,
-        "source": null,
-        "updated": null
+        "source": "https://www.appi.co.jp/snow-mountain-resort/ticket/seasonpass.php",
+        "early_bird_source": null,
+        "updated": "2026-09-29"
       },
       "bandai": {
-        "open": null,
-        "close": null,
+        "open": "2026-11-28",
+        "close": "2027-05-09",
         "early_bird": null,
         "lift_price": null,
-        "source": null,
-        "updated": null
+        "source": "https://www.nekoma.co.jp/",
+        "early_bird_source": null,
+        "updated": "2026-09-29"
       },
       "gala-yuzawa": {
         "open": null,
@@ -3070,111 +3093,125 @@ var DATA = {
         "early_bird": null,
         "lift_price": null,
         "source": null,
+        "early_bird_source": null,
         "updated": null
       },
       "ishiuchi": {
-        "open": null,
-        "close": null,
-        "early_bird": null,
-        "lift_price": null,
-        "source": null,
-        "updated": null
+        "open": "2026-12-18",
+        "close": "2027-04-04",
+        "early_bird": "早割一日券 ¥5,800（原價 ¥8,500）",
+        "lift_price": "一日券 ¥8,500",
+        "source": "https://ishiuchi.or.jp/winter/seasonpass-1/",
+        "early_bird_source": "https://ishiuchi.or.jp/winter/other/8304/",
+        "updated": "2026-09-29"
       },
       "yuzawa-kogen": {
-        "open": null,
-        "close": null,
+        "open": "2026-12-18",
+        "close": "2027-04-04",
         "early_bird": null,
         "lift_price": null,
-        "source": null,
-        "updated": null
+        "source": "https://www.yuzawakogen.com/topics/2627_seasonpass_w/",
+        "early_bird_source": null,
+        "updated": "2026-09-29"
       },
       "naeba": {
-        "open": null,
-        "close": null,
+        "open": "2026-12-18",
+        "close": "2027-04-04",
         "early_bird": null,
         "lift_price": null,
-        "source": null,
-        "updated": null
+        "source": "https://www.princehotels.co.jp/ski/naeba/winter/",
+        "early_bird_source": null,
+        "updated": "2026-09-29"
       },
       "kagura": {
-        "open": null,
-        "close": null,
+        "open": "2026-11-28",
+        "close": "2027-05-16",
         "early_bird": null,
         "lift_price": null,
-        "source": null,
-        "updated": null
+        "source": "https://www.princehotels.co.jp/ski/kagura/winter/",
+        "early_bird_source": null,
+        "updated": "2026-09-29"
       },
       "joetsu-kokusai": {
-        "open": null,
-        "close": null,
-        "early_bird": null,
-        "lift_price": null,
-        "source": null,
-        "updated": null
+        "open": "2026-12-12",
+        "close": "2027-04-04",
+        "early_bird": "早割一日券 ¥3,900，10/31 前",
+        "lift_price": "一日券 ¥5,500",
+        "source": "https://jkokusai.co.jp/ski/lift/",
+        "early_bird_source": null,
+        "updated": "2026-09-29"
       },
       "myoko": {
-        "open": null,
-        "close": null,
+        "open": "2026-12-19",
+        "close": "2027-05-05",
         "early_bird": null,
         "lift_price": null,
-        "source": null,
-        "updated": null
+        "source": "https://akr-ski.com/slope",
+        "early_bird_source": null,
+        "updated": "2026-09-29"
       },
       "maiko": {
-        "open": null,
-        "close": null,
-        "early_bird": null,
+        "open": "2026-12-19",
+        "close": "2027-03-28",
+        "early_bird": "早割季票 ¥45,000，9/30 前",
         "lift_price": null,
-        "source": null,
-        "updated": null
+        "source": "https://www.maiko-resort.com/news/2027seasonticket.html",
+        "early_bird_source": "https://smile-resort.com/ticket/maiko/",
+        "updated": "2026-09-29"
       },
       "happo-one": {
         "open": null,
-        "close": null,
-        "early_bird": null,
-        "lift_price": null,
-        "source": null,
-        "updated": null
+        "close": "2027-05-05",
+        "early_bird": "早割季票 ¥90,000 起，10/1–11/15",
+        "lift_price": "一日券 ¥9,800（高峰期）",
+        "source": "https://www.happo-one.jp/ticket/",
+        "early_bird_source": "https://www.happo-one.jp/ticket/seasonpass/",
+        "updated": "2026-09-29"
       },
       "tsugaike": {
         "open": null,
-        "close": null,
-        "early_bird": null,
-        "lift_price": null,
-        "source": null,
-        "updated": null
+        "close": "2027-05-05",
+        "early_bird": "早割一日券 ¥6,500，11/30 前",
+        "lift_price": "一日券 ¥9,800",
+        "source": "https://www.tsugaike.gr.jp/price",
+        "early_bird_source": null,
+        "updated": "2026-09-29"
       },
       "hakuba-goryu": {
         "open": null,
-        "close": null,
+        "close": "2027-05-06",
         "early_bird": null,
-        "lift_price": null,
-        "source": null,
-        "updated": null
+        "lift_price": "一日券 ¥10,000（網購 ¥8,200）",
+        "source": "https://www.hakubaescal.com/winter/tickets/lift/",
+        "early_bird_source": null,
+        "updated": "2026-09-29"
       },
       "nozawa": {
         "open": null,
         "close": null,
-        "early_bird": null,
-        "lift_price": null,
-        "source": null,
-        "updated": null
+        "early_bird": "早割季票 9/30 截止",
+        "lift_price": "一日券 ¥7,800",
+        "source": "https://nozawaski.com/winter/lift_price/",
+        "early_bird_source": "https://nozawaski.com/report_summer/40933/?summer",
+        "updated": "2026-09-29"
       },
       "shiga-kogen": {
-        "open": null,
-        "close": null,
+        "open": "2026-12-05",
+        "close": "2027-05-05",
         "early_bird": null,
-        "lift_price": null,
-        "source": null,
-        "updated": null
+        "lift_price": "全山一日券 ¥9,500（網購 ¥8,500）",
+        "source": "https://shigakogen-ski.or.jp/2026/08/2026-2027.html",
+        "early_bird_source": null,
+        "updated": "2026-09-29"
       },
       "karuizawa": {
-        "open": null,
+        "open": "2026-10-31",
         "close": null,
         "early_bird": null,
         "lift_price": null,
-        "source": null,
-        "updated": null
+        "source": "https://www.princehotels.co.jp/press/260925_03",
+        "early_bird_source": null,
+        "updated": "2026-09-29"
       }
     }
   }
