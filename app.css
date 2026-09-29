@@ -497,3 +497,14 @@ img { max-width: 100%; }
 .step-other { font-family: var(--body); font-size: 0.82rem; font-weight: 500; color: var(--accent); text-decoration: none; }
 .step-other:hover { text-decoration: underline; }
 .go-wrap .next-steps { margin-top: 22px; }
+
+/* ---------- about / footer ---------- */
+.footer-links a { color: var(--accent); text-decoration: none; font-weight: 500; }
+.footer-links a:hover { text-decoration: underline; }
+.about-owner { background: var(--bg-elevated); border-radius: var(--r); padding: 22px 24px; }
+.about-owner p { margin: 0 0 10px; }
+.about-owner p:last-child { margin: 0; }
+.report-mail { margin: 14px 0 6px; }
+.about-footnote { margin-top: 48px; font-size: 0.74rem; }
+.report-line { margin-top: 32px; font-size: 0.8rem; }
+.report-line a { color: var(--accent); }

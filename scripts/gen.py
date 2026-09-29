@@ -1325,12 +1325,14 @@ HEAD = """<!doctype html>
 </html>
 """
 
-FOOTER = (
-    '<footer class="site-footer">'
-    '<p>本站只做地區整理與外部連結導引，不代辦訂房或滑雪課程；延伸閱讀與引用的版權與內容都屬於原作者，點擊會開新分頁前往原文，請支持原創作者。預算與季節資訊為約略整理，以當季官網為準。</p>'
-    '<p>現場回報尚未開放。雪場頁上的「看看社群怎麼說」是編輯引用公開來源，不是使用者留言板。</p>'
-    '</footer>'
-)
+def footer(prefix=""):
+    return (
+        '<footer class="site-footer">'
+        '<p class="footer-links"><a href="%sabout.html">關於本站</a> · <a href="%sabout.html#report">回報錯誤</a> · <a href="%sseason/2026-27.html">本季總表</a></p>'
+        '<p>本站只做地區整理與外部連結導引，不代辦訂房或滑雪課程；延伸閱讀與引用的版權與內容都屬於原作者，點擊會開新分頁前往原文，請支持原創作者。預算與季節資訊為約略整理，以當季官網為準。</p>'
+        '<p>雪場頁上的「看看社群怎麼說」是編輯引用公開來源，不是使用者留言板。</p>'
+        '</footer>'
+    ) % (prefix, prefix, prefix)
 
 
 def hx(s):
@@ -1379,7 +1381,7 @@ def page(title, desc, canonical, depth, boot, main_html, active="map", jsonld=""
         title=hx(title), desc=hx(desc), canonical=canonical, origin=ORIGIN,
         css=prefix + "app.css", data=prefix + "data.js", app=prefix + "app.js",
         depth=depth, boot=boot, main=main_html,
-        header=chrome(prefix, active), footer=FOOTER,
+        header=chrome(prefix, active), footer=footer(prefix),
     )
     return html.replace("<!--JSONLD-->", jsonld or "")
 
@@ -1514,13 +1516,14 @@ def resort_article(r):
         "%s"
         '<div class="section"><h2>現場坑</h2><ul class="pitfalls">%s</ul></div>'
         "%s%s%s%s%s%s"
+        '<p class="report-line muted">這頁有錯？<a href="%sabout.html#report">告訴我們</a></p>'
         "</main>"
     ) % (
         prefix, prefix, r["region"], hx(region["name"]), hub, prefix,
         ('<img class="resort-banner" src="%s%s" alt="%s">' % (prefix, region["img"], hx(region["name"]))) if region.get("img") else "",
         hx(r["name"]), hx(r["romaji"]), hx(r["prefecture"]), tags_html(r.get("tags")),
         hx(r["one_liner"]), hx(r["not_for"]), prefix, next_steps_html(r), routes, budget, facts, hx(r.get("season_note")),
-        rhythm, pitfalls, companion, experts, community, delta, compare, links,
+        rhythm, pitfalls, companion, experts, community, delta, compare, links, prefix,
     )
 
 
@@ -1744,6 +1747,7 @@ def main():
         ORIGIN + "/",
         ORIGIN + "/go",
         ORIGIN + "/season/%s.html" % SEASON_ID,
+        ORIGIN + "/about.html",
         ORIGIN + "/compare.html",
         ORIGIN + "/guide/first-trip.html",
         ORIGIN + "/areas/yuzawa.html",

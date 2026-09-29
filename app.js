@@ -82,9 +82,11 @@
       '</nav></header>';
   }
   function footerHtml() {
+    var r = rootPath();
     return '<footer class="site-footer">' +
+      '<p class="footer-links"><a href="' + r + 'about.html">關於本站</a> · <a href="' + r + 'about.html#report">回報錯誤</a> · <a href="' + r + 'season/2026-27.html">本季總表</a></p>' +
       '<p>本站只做地區整理與外部連結導引，不代辦訂房或滑雪課程；延伸閱讀與引用的版權與內容都屬於原作者，點擊會開新分頁前往原文，請支持原創作者。預算與季節資訊為約略整理，以當季官網為準。</p>' +
-      '<p>現場回報尚未開放。雪場頁上的「看看社群怎麼說」是編輯引用公開來源，不是使用者留言板。</p>' +
+      '<p>雪場頁上的「看看社群怎麼說」是編輯引用公開來源，不是使用者留言板。</p>' +
       '</footer>';
   }
   function mountChrome(active) {
@@ -651,7 +653,8 @@
       communityHtml(r.community) +
       delta +
       (compare ? '<div class="section"><h2>不要和它搞混</h2><p>' + compare + '</p></div>' : '') +
-      linksHtml(r.links, skip);
+      linksHtml(r.links, skip) +
+      '<p class="report-line muted">這頁有錯？<a href="' + rootPath() + 'about.html#report">告訴我們</a></p>';
   }
 
   function renderArea(id) {
