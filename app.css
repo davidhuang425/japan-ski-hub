@@ -480,3 +480,4 @@ img { max-width: 100%; }
   .nav a { padding: 8px 7px; font-size: 0.84rem; }
   .nav a.nav-cta { padding: 8px 12px; }
 }
+.share-row.note span.label { background: var(--bg); color: var(--ink-faint); }

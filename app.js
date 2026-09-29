@@ -26,6 +26,16 @@
     ['onsen', '溫泉／度假感'],
     ['coach', '中文教練好找']
   ];
+  var Q5_OPTS = [
+    ['early', '11 月～12 月中（開季初期）'],
+    ['peak', '12 月下旬～2 月（旺季）'],
+    ['spring', '3 月以後（春雪）'],
+    ['unsure', '還沒定']
+  ];
+  var QUIZ = { 1: ['q1', '程度', Q1_OPTS], 2: ['q2', '這趟怎麼走', Q2_OPTS], 3: ['q3', '同行', Q3_OPTS], 4: ['q4', '這趟最在乎', Q4_OPTS], 5: ['q5', '什麼時候去', Q5_OPTS] };
+  var QUIZ_STEPS = 5;
+  function emptyAnswers() { return { q1: null, q2: null, q3: null, q4: null, q5: null }; }
+  function monthFit(r, q5) { return (r.month_fit && q5 && q5 !== 'unsure') ? r.month_fit[q5] : null; }
 
   function rootPath() {
     return (document.body.getAttribute('data-depth') || '0') === '1' ? '../' : '';
@@ -94,11 +104,20 @@
     if (a.q2 === 'tokyo_day' && TOKYO_DAY_IDS.indexOf(id) === -1) return true;
     if (a.q1 === 'first' && (id === 'happo-one' || id === 'shiga-kogen')) return true;
     if (a.q3 === 'kids' && id === 'happo-one') return true;
+    if (seasonVeto(id, a)) return true;
+    return false;
+  }
+  // 月份否決：選的時段還沒開或已經關（month_fit <= 1），或春天為粉雪去二世谷。主選與備選都適用。
+  function seasonVeto(id, a) {
+    var mf = monthFit(DATA.resorts[id], a.q5);
+    if (mf !== null && mf <= 1 && (a.q5 === 'early' || a.q5 === 'spring')) return true;
+    if (a.q5 === 'spring' && id === 'niseko' && (a.q1 === 'powder' || a.q4 === 'powder')) return true;
     return false;
   }
   function allowAlt(id, a) {
     var r = DATA.resorts[id];
     if (!r) return false;
+    if (seasonVeto(id, a)) return false;
     if (a.q2 === 'tokyo_day') return id === 'naeba' || TOKYO_DAY_IDS.indexOf(id) !== -1;
     if (a.q1 === 'first' && id === 'happo-one') return true;
     return true;
@@ -122,6 +141,8 @@
     else if (a.q4 === 'powder') s += sc.powder * 3;
     else if (a.q4 === 'onsen') s += sc.onsen * 3;
     else if (a.q4 === 'coach') s += sc.chinese_coach * 3;
+    var mf = monthFit(DATA.resorts[id], a.q5);
+    if (mf !== null) s += mf * 3;
     return s;
   }
   function whyFor(r, a, asAlt) {
@@ -173,13 +194,15 @@
     return opts.some(function (o) { return o[0] === val; });
   }
   function encodeAnswers(a) {
-    return [a.q1, a.q2, a.q3, a.q4].join('.');
+    var bits = [a.q1, a.q2, a.q3, a.q4];
+    if (a.q5 && a.q5 !== 'unsure') bits.push(a.q5);
+    return bits.join('.');
   }
   function decodeAnswers(s) {
     var p = String(s || '').split('.');
-    if (p.length !== 4) return null;
-    var a = { q1: p[0], q2: p[1], q3: p[2], q4: p[3] };
-    if (!hasOpt(Q1_OPTS, a.q1) || !hasOpt(Q2_OPTS, a.q2) || !hasOpt(Q3_OPTS, a.q3) || !hasOpt(Q4_OPTS, a.q4)) return null;
+    if (p.length !== 4 && p.length !== 5) return null;
+    var a = { q1: p[0], q2: p[1], q3: p[2], q4: p[3], q5: p[4] || 'unsure' };
+    if (!hasOpt(Q1_OPTS, a.q1) || !hasOpt(Q2_OPTS, a.q2) || !hasOpt(Q3_OPTS, a.q3) || !hasOpt(Q4_OPTS, a.q4) || !hasOpt(Q5_OPTS, a.q5)) return null;
     return a;
   }
   function youLine(a) {
@@ -192,17 +215,33 @@
     else if (a.q2 === 'tokyo_transfer') bits.push('東京再轉');
     else if (a.q2 === 'tokyo_day') bits.push('已在東京');
     else if (a.q2 === 'undecided') bits.push('行程未定');
+    if (a.q5 === 'early') bits.push('開季初期');
+    else if (a.q5 === 'peak') bits.push('旺季');
+    else if (a.q5 === 'spring') bits.push('春雪');
     if (a.q3 === 'kids') bits.push('有小孩');
     else if (a.q3 === 'non_skier') bits.push('有人不滑');
     return bits.join(' · ');
   }
-  function avoidFor(a) {
-    if (a.q2 === 'tokyo_day') return { id: 'niseko', line: '已在東京短待，北海道當天到不了' };
-    if (a.q3 === 'kids') return { id: 'happo-one', line: '帶小孩不要以八方當主場' };
-    if (a.q1 === 'first') return { id: 'happo-one', line: '第一次先別當第一座山' };
-    if (a.q1 === 'powder' || a.q4 === 'powder') return { id: 'karuizawa', line: '不是為粉雪來的場' };
-    return { id: 'happo-one', line: '第一次或帶小孩先別當主場' };
+  // 「不要」照順序挑第一個候選；已經是主選或備選的跳過，避免卡片上同時叫你去又叫你別去。
+  function avoidFor(a, picked) {
+    var c = [];
+    if (a.q5 === 'spring' && (a.q1 === 'powder' || a.q4 === 'powder')) c.push({ id: 'niseko', line: '3 月後粉雪明顯變少，別為粉雪去' });
+    if (a.q5 === 'early' && a.q2 === 'tokyo_day') c.push({ id: 'gala-yuzawa', line: '例年 12 月下旬才開，開季初期去不了' });
+    if (a.q2 === 'tokyo_day') c.push({ id: 'niseko', line: '已在東京短待，北海道當天到不了' });
+    if (a.q3 === 'kids') c.push({ id: 'happo-one', line: '帶小孩不要以八方當主場' });
+    if (a.q1 === 'first') c.push({ id: 'happo-one', line: '第一次先別當第一座山' });
+    if (a.q1 === 'powder' || a.q4 === 'powder') c.push({ id: 'karuizawa', line: '不是為粉雪來的場' });
+    if (a.q1 === 'red') c.push({ id: 'karuizawa', line: '想找地形，這裡坡太緩' });
+    c.push({ id: 'happo-one', line: '第一次或帶小孩先別當主場' });
+    c.push({ id: 'karuizawa', line: '不是為地形或粉雪來的場' });
+    c.push({ id: 'niseko', line: '預算與天數都要夠，不是隨便排的場' });
+    picked = picked || [];
+    for (var k = 0; k < c.length; k++) {
+      if (picked.indexOf(c[k].id) === -1) return c[k];
+    }
+    return c[0];
   }
+
   function goPageBase() {
     if (/japanski\.djhousetw\.com$/.test(location.hostname) || /\.vercel\.app$/.test(location.hostname)) return '/go';
     return rootPath() + 'go.html';
@@ -217,7 +256,7 @@
     mountChrome('map');
     var selected = null;
     var mode = 'home';
-    var answers = { q1: null, q2: null, q3: null, q4: null };
+    var answers = emptyAnswers();
     var step = 1;
     var dotsEl = document.getElementById('dots');
     var cardsEl = document.getElementById('cards');
@@ -274,7 +313,7 @@
       cardsEl.innerHTML = cardsHtml;
       document.querySelectorAll('.region-card').forEach(function (btn) {
         btn.addEventListener('click', function () {
-          answers = { q1: null, q2: null, q3: null, q4: null };
+          answers = emptyAnswers();
           step = 1;
           selectRegion(btn.getAttribute('data-id'));
         });
@@ -296,14 +335,14 @@
       });
     }
     function quizPanel() {
-      var qMap = { 1: ['q1', '程度', Q1_OPTS], 2: ['q2', '這趟怎麼走', Q2_OPTS], 3: ['q3', '同行', Q3_OPTS], 4: ['q4', '這趟最在乎', Q4_OPTS] };
+      var qMap = QUIZ;
       var q = qMap[step];
       var choices = q[2].map(function (opt) {
         var sel = answers[q[0]] === opt[0] ? ' selected' : '';
         return '<button class="choice' + sel + '" data-val="' + opt[0] + '">' + esc(opt[1]) + '</button>';
       }).join('');
       panelEl.innerHTML = '<div class="quiz">' +
-        '<div class="quiz-progress">選場 ' + step + ' / 4</div>' +
+        '<div class="quiz-progress">選場 ' + step + ' / ' + QUIZ_STEPS + '</div>' +
         '<div class="quiz-q">' + esc(q[1]) + '</div>' +
         '<div class="choice-row">' + choices + '</div>' +
         '<div class="quiz-actions">' +
@@ -313,7 +352,7 @@
       panelEl.querySelectorAll('.choice').forEach(function (btn) {
         btn.addEventListener('click', function () {
           answers[q[0]] = btn.getAttribute('data-val');
-          if (step < 4) { step += 1; draw(); }
+          if (step < QUIZ_STEPS) { step += 1; draw(); }
           else { mode = 'results'; draw(); }
         });
       });
@@ -401,7 +440,7 @@
   function renderGo() {
     mountChrome('quiz');
     var el = document.getElementById('go');
-    var answers = { q1: null, q2: null, q3: null, q4: null };
+    var answers = emptyAnswers();
     var step = 1;
     var mode = 'quiz';
     var params = new URLSearchParams(location.search);
@@ -425,7 +464,7 @@
       } else quizView();
     }
     function quizView() {
-      var qMap = { 1: ['q1', '程度', Q1_OPTS], 2: ['q2', '這趟怎麼走', Q2_OPTS], 3: ['q3', '同行', Q3_OPTS], 4: ['q4', '這趟最在乎', Q4_OPTS] };
+      var qMap = QUIZ;
       var q = qMap[step];
       var choices = q[2].map(function (opt) {
         var sel = answers[q[0]] === opt[0] ? ' selected' : '';
@@ -433,7 +472,7 @@
       }).join('');
       el.innerHTML = '<div class="quiz go-quiz">' +
         '<div class="season-chip">2026–27 雪季</div>' +
-        '<div class="quiz-progress">選場 ' + step + ' / 4</div>' +
+        '<div class="quiz-progress">選場 ' + step + ' / ' + QUIZ_STEPS + '</div>' +
         '<div class="quiz-q">' + esc(q[1]) + '</div>' +
         '<div class="choice-row">' + choices + '</div>' +
         '<div class="quiz-actions">' +
@@ -442,7 +481,7 @@
       el.querySelectorAll('.choice').forEach(function (btn) {
         btn.addEventListener('click', function () {
           answers[q[0]] = btn.getAttribute('data-val');
-          if (step < 4) { step += 1; draw(); }
+          if (step < QUIZ_STEPS) { step += 1; draw(); }
           else { mode = 'results'; draw(); }
         });
       });
@@ -451,11 +490,16 @@
     }
     function resultsView() {
       var picked = pickResults(answers);
-      var avoid = avoidFor(answers);
+      var avoid = avoidFor(answers, picked.primary.concat(picked.alt ? [picked.alt] : []));
       var primary = picked.primary.map(function (id) {
         var r = DATA.resorts[id];
         return '<div class="share-row pick"><span class="label">主選</span><div><div class="name">' + esc(r.name) + '</div><div class="why-line">' + esc(whyFor(r, answers, false)) + '</div></div></div>';
       }).join('');
+      var onlyOne = picked.primary.length === 1
+        ? '<div class="share-row note"><span class="label">註</span><div><div class="why-line">' +
+          (answers.q2 === 'tokyo_day' && answers.q5 === 'early' ? '開季初期從東京當日能滑的只有這一座，湯澤圈要到 12 月中下旬才開。' : '這個條件下只有一座真正合適。') +
+          '</div></div></div>'
+        : '';
       var avoidR = DATA.resorts[avoid.id];
       var avoidHtml = '<div class="share-row avoid"><span class="label">不要</span><div><div class="name">' + esc(avoidR.name) + '</div><div class="why-line">' + esc(avoid.line) + '</div></div></div>';
       var idBtns = picked.primary.map(function (id) {
@@ -465,7 +509,7 @@
         '<div class="share-card" id="shareCard">' +
           '<div class="share-kicker"><span>雪國轉運站</span><span>2026–27</span></div>' +
           '<div class="share-you">你：' + esc(youLine(answers)) + '</div>' +
-          primary + avoidHtml +
+          primary + onlyOne + avoidHtml +
           '<div class="share-url">' + esc(localShareUrl(answers).replace(/^https?:\/\//, '')) + '</div>' +
         '</div>' +
         '<div class="card-actions" style="margin-top:16px">' +
@@ -490,7 +534,7 @@
         }
       });
       document.getElementById('again').addEventListener('click', function () {
-        answers = { q1: null, q2: null, q3: null, q4: null };
+        answers = emptyAnswers();
         step = 1;
         mode = 'quiz';
         history.replaceState(null, '', goPageBase());
@@ -681,6 +725,10 @@
     renderArea: renderArea,
     renderCompare: renderCompare,
     pickResults: pickResults,
+    decodeAnswers: decodeAnswers,
+    encodeAnswers: encodeAnswers,
+    Q5_OPTS: Q5_OPTS,
+    avoidFor: avoidFor,
     scoreResort: scoreResort,
     vetoPrimary: vetoPrimary
   };

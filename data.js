@@ -314,7 +314,12 @@ var DATA = {
           "url": "https://japowproject.com/zh-tw/guides/japan-ski-trip-cost",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 3,
+        "peak": 5,
+        "spring": 3
+      }
     },
     "rusutsu": {
       "id": "rusutsu",
@@ -449,7 +454,12 @@ var DATA = {
           "url": "https://www.klook.com/zh-TW/blog/rusutsu-ski-resort/",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 2,
+        "peak": 5,
+        "spring": 2
+      }
     },
     "furano": {
       "id": "furano",
@@ -583,7 +593,12 @@ var DATA = {
           "url": "https://whitemileage.com/hokkaido-ski-in-ski-out-guide/",
           "type": "hotel"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 3,
+        "peak": 5,
+        "spring": 3
+      }
     },
     "kiroro": {
       "id": "kiroro",
@@ -706,7 +721,12 @@ var DATA = {
           "url": "https://natasha-traveler.tw/kiroro-ski/",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 4,
+        "peak": 5,
+        "spring": 4
+      }
     },
     "tomamu": {
       "id": "tomamu",
@@ -835,7 +855,12 @@ var DATA = {
           "url": "https://natasha-traveler.tw/tomamu-restaurent/",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 2,
+        "peak": 4,
+        "spring": 2
+      }
     },
     "teine": {
       "id": "teine",
@@ -930,7 +955,12 @@ var DATA = {
           "url": "https://natasha-traveler.tw/sapporo-teine-ski-resort-review/",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 4,
+        "peak": 4,
+        "spring": 2
+      }
     },
     "sahoro": {
       "id": "sahoro",
@@ -1035,7 +1065,12 @@ var DATA = {
           "url": "https://japowproject.com/zh-tw/guides/japan-ski-trip-planning-guide/",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 2,
+        "peak": 4,
+        "spring": 1
+      }
     },
     "zao": {
       "id": "zao",
@@ -1170,7 +1205,12 @@ var DATA = {
           "url": "https://www.snowpink.com.tw/blog/2026-eb86fc20-6301-4679-92f7-214a8b3ffa29",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 1,
+        "peak": 5,
+        "spring": 3
+      }
     },
     "appi": {
       "id": "appi",
@@ -1293,7 +1333,12 @@ var DATA = {
           "url": "https://natasha-traveler.tw/appi-kogen-resort-review/",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 2,
+        "peak": 4,
+        "spring": 4
+      }
     },
     "bandai": {
       "id": "bandai",
@@ -1388,7 +1433,12 @@ var DATA = {
           "url": "https://natasha-traveler.tw/japan-ski-resorts-guide/",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 3,
+        "peak": 3,
+        "spring": 4
+      }
     },
     "gala-yuzawa": {
       "id": "gala-yuzawa",
@@ -1517,7 +1567,12 @@ var DATA = {
           "url": "https://natasha-traveler.tw/yuzawa-ski/",
           "type": "access"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 1,
+        "peak": 4,
+        "spring": 3
+      }
     },
     "ishiuchi": {
       "id": "ishiuchi",
@@ -1640,7 +1695,12 @@ var DATA = {
           "url": "https://natasha-traveler.tw/ishiuchi-maruyama-ski-resort-guide/",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 1,
+        "peak": 4,
+        "spring": 2
+      }
     },
     "yuzawa-kogen": {
       "id": "yuzawa-kogen",
@@ -1734,7 +1794,12 @@ var DATA = {
           "url": "https://natasha-traveler.tw/yuzawa-kogen/",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 1,
+        "peak": 3,
+        "spring": 2
+      }
     },
     "naeba": {
       "id": "naeba",
@@ -1863,7 +1928,12 @@ var DATA = {
           "url": "https://www.yuriselfmedia.tw/japan-ski-beginner/",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 1,
+        "peak": 4,
+        "spring": 2
+      }
     },
     "kagura": {
       "id": "kagura",
@@ -1958,7 +2028,12 @@ var DATA = {
           "url": "https://natasha-traveler.tw/kagura-ski-resort-review/",
           "type": "slope"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 4,
+        "peak": 4,
+        "spring": 5
+      }
     },
     "joetsu-kokusai": {
       "id": "joetsu-kokusai",
@@ -2052,7 +2127,12 @@ var DATA = {
           "url": "https://natasha-traveler.tw/yuzawa-ski/",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 1,
+        "peak": 4,
+        "spring": 2
+      }
     },
     "myoko": {
       "id": "myoko",
@@ -2159,7 +2239,12 @@ var DATA = {
           "url": "http://jeterchen-snowbackpacker.blogspot.com/2015/09/myoko.html",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 1,
+        "peak": 5,
+        "spring": 3
+      }
     },
     "maiko": {
       "id": "maiko",
@@ -2253,7 +2338,12 @@ var DATA = {
           "url": "https://natasha-traveler.tw/maiko-resor/",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 1,
+        "peak": 4,
+        "spring": 1
+      }
     },
     "happo-one": {
       "id": "happo-one",
@@ -2388,7 +2478,12 @@ var DATA = {
           "url": "https://www.magiccat.tw/%E9%95%B7%E9%87%8E%E7%99%BD%E9%A6%AC-ski-in-ski-out-%E6%BB%91%E9%9B%AA%E8%A1%8C%E7%A8%8B/",
           "type": "hotel"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 2,
+        "peak": 5,
+        "spring": 4
+      }
     },
     "tsugaike": {
       "id": "tsugaike",
@@ -2510,7 +2605,12 @@ var DATA = {
           "url": "https://natasha-traveler.tw/tsugaike-ski/",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 3,
+        "peak": 4,
+        "spring": 4
+      }
     },
     "hakuba-goryu": {
       "id": "hakuba-goryu",
@@ -2604,7 +2704,12 @@ var DATA = {
           "url": "https://sswboardhouse.com/hakuba-ski-resort-guide-zh/",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 2,
+        "peak": 4,
+        "spring": 3
+      }
     },
     "nozawa": {
       "id": "nozawa",
@@ -2739,7 +2844,12 @@ var DATA = {
           "url": "https://andyventure.com/japan-nozawa-onsen-village-itinerary/",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 3,
+        "peak": 5,
+        "spring": 3
+      }
     },
     "shiga-kogen": {
       "id": "shiga-kogen",
@@ -2862,7 +2972,12 @@ var DATA = {
           "url": "https://natasha-traveler.tw/shiga-kogen/",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 2,
+        "peak": 5,
+        "spring": 5
+      }
     },
     "karuizawa": {
       "id": "karuizawa",
@@ -2991,7 +3106,12 @@ var DATA = {
           "url": "https://linshibi.com/?p=16980",
           "type": "overview"
         }
-      ]
+      ],
+      "month_fit": {
+        "early": 5,
+        "peak": 3,
+        "spring": 2
+      }
     }
   },
   "season": {

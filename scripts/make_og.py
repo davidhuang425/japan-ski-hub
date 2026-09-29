@@ -101,7 +101,7 @@ def main():
     pill(d, x, 96, "●  2026–27 雪季", hei_m(20), ACCENT, ACCENT_SOFT, padx=18, pady=9)
     d.text((x - 4, 160), "今年冬天，", font=song_b(84), fill=INK)
     d.text((x - 4, 262), "去哪滑？", font=song_b(84), fill=INK)
-    d.text((x, 384), "從台灣出發、全繁中、四題給答案", font=hei_l(28), fill=INK_SOFT)
+    d.text((x, 384), "從台灣出發、全繁中、五題給答案", font=hei_l(28), fill=INK_SOFT)
 
     # CTA button
     bx, by = x, 446

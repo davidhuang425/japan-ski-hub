@@ -1090,6 +1090,33 @@ DATA["resorts"]["sahoro"]["community"] = [
     }
 ]
 
+# /go 第五題「幾月去」：early=11 月～12 月中、peak=12 月下旬～2 月、spring=3 月～閉季，各 1–5。
+# 只依站內既有事實給分（season_note、SEASON 開閉季日、scores.powder、pitfalls）。
+DATA["resorts"]["niseko"]["month_fit"] = {"early": 3, "peak": 5, "spring": 3}  # 11/28 開、5/5 關；粉雪 1–2 月最穩，3 月後變少
+DATA["resorts"]["rusutsu"]["month_fit"] = {"early": 2, "peak": 5, "spring": 2}  # 標高較低，12 月初與 3 月下旬雪質打折，3/31 就關
+DATA["resorts"]["furano"]["month_fit"] = {"early": 3, "peak": 5, "spring": 3}  # 11/28 開、5/5 關，乾粉雪旺季最好
+DATA["resorts"]["kiroro"]["month_fit"] = {"early": 4, "peak": 5, "spring": 4}  # 季初季末雪量是北海道最強帶之一，11/28–5/5
+DATA["resorts"]["tomamu"]["month_fit"] = {"early": 2, "peak": 4, "spring": 2}  # 12/1 才開、4/5 關
+DATA["resorts"]["teine"]["month_fit"] = {"early": 4, "peak": 4, "spring": 2}  # 11/21 開，北海道最早一批；閉季未公布
+DATA["resorts"]["sahoro"]["month_fit"] = {"early": 2, "peak": 4, "spring": 1}  # 12/1–3/31，春季最早關
+DATA["resorts"]["zao"]["month_fit"] = {"early": 1, "peak": 5, "spring": 3}  # 12/12 才開；樹冰只在 1–2 月
+DATA["resorts"]["appi"]["month_fit"] = {"early": 2, "peak": 4, "spring": 4}  # 例年 12 月開；北斜面，春滑可到很晚
+DATA["resorts"]["bandai"]["month_fit"] = {"early": 3, "peak": 3, "spring": 4}  # 貓魔 11/28 開、5/9 關，季長
+DATA["resorts"]["gala-yuzawa"]["month_fit"] = {"early": 1, "peak": 4, "spring": 3}  # 例年 12 月下旬才開、5 月初關
+DATA["resorts"]["ishiuchi"]["month_fit"] = {"early": 1, "peak": 4, "spring": 2}  # 12/18–4/4
+DATA["resorts"]["yuzawa-kogen"]["month_fit"] = {"early": 1, "peak": 3, "spring": 2}  # 12/18–4/4，雪質普通
+DATA["resorts"]["naeba"]["month_fit"] = {"early": 1, "peak": 4, "spring": 2}  # 12/18–4/4
+DATA["resorts"]["kagura"]["month_fit"] = {"early": 4, "peak": 4, "spring": 5}  # 11/28 開、5/16 關，本州最晚關之一
+DATA["resorts"]["joetsu-kokusai"]["month_fit"] = {"early": 1, "peak": 4, "spring": 2}  # 12/12–4/4
+DATA["resorts"]["myoko"]["month_fit"] = {"early": 1, "peak": 5, "spring": 3}  # 12/19 才開；雪量本州前段，5/5 關
+DATA["resorts"]["maiko"]["month_fit"] = {"early": 1, "peak": 4, "spring": 1}  # 12/19–3/28，春季最早關
+DATA["resorts"]["happo-one"]["month_fit"] = {"early": 2, "peak": 5, "spring": 4}  # 例年 12 月上旬開、5/5 關，旺季地形最好
+DATA["resorts"]["tsugaike"]["month_fit"] = {"early": 3, "peak": 4, "spring": 4}  # 白馬谷季初較早開的之一，5/5 關
+DATA["resorts"]["hakuba-goryu"]["month_fit"] = {"early": 2, "peak": 4, "spring": 3}  # 例年 12 月上旬開、5/6 關
+DATA["resorts"]["nozawa"]["month_fit"] = {"early": 3, "peak": 5, "spring": 3}  # 例年 11 月底開、天然雪季長
+DATA["resorts"]["shiga-kogen"]["month_fit"] = {"early": 2, "peak": 5, "spring": 5}  # 12/5 開；標高高，4 月仍常有好雪，5/5 關
+DATA["resorts"]["karuizawa"]["month_fit"] = {"early": 5, "peak": 3, "spring": 2}  # 10/31 開，人造雪為主；旺季人多、春雪弱
+
 # 2026–27 季節總表（/season/2026-27.html）。每週排程 Agent 從官網補齊。
 # 只填官方公布的事實；沒公布就保持 None，頁面會顯示例年季節並標「待公布」。
 #   open / close: "YYYY-MM-DD"（官方預定開季／閉季日）
