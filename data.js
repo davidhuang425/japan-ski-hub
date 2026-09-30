@@ -313,6 +313,12 @@ var DATA = {
           "source": "The Japow Project",
           "url": "https://japowproject.com/zh-tw/guides/japan-ski-trip-cost",
           "type": "overview"
+        },
+        {
+          "title": "二世谷滑雪全攻略 2026-27：雪場、交通、住宿",
+          "source": "SSW Board House",
+          "url": "https://sswboardhouse.com/niseko-ski-resort-guide-zh/",
+          "type": "overview"
         }
       ],
       "month_fit": {

@@ -122,6 +122,7 @@ add({
         L("20間飯店真實評比：二世谷、留壽都、富良野還是星野度假村？", "Mimi韓の旅遊指南", "https://mimigo.tw/hokkaido-ski-hotel-guide/", "hotel"),
         L("北海道雪場 Ski In/Out 住宿大集合", "雪豹的白色里數", "https://whitemileage.com/hokkaido-ski-in-ski-out-guide/", "hotel"),
         L("日本滑雪要花多少錢？", "The Japow Project", "https://japowproject.com/zh-tw/guides/japan-ski-trip-cost", "overview"),
+        L("二世谷滑雪全攻略 2026-27：雪場、交通、住宿", "SSW Board House", "https://sswboardhouse.com/niseko-ski-resort-guide-zh/", "overview"),
     ],
 })
 
