@@ -1265,8 +1265,8 @@ DATA["vs_notes"] = {
     "sahoro-vs-tomamu": "想要 Club Med 全包、晴天率高選 Sahoro；要自由行好到、設施多選 Tomamu。",
 }
 
-# 雪場代表圖：只用雪場官網媒體素材頁明寫可用於介紹的照片；hero_credit 寫「○○提供」並附授權頁。
-# 沒有就 None，頁面退回地區示意圖。
+# 雪場代表圖：站長決定（2026-09-30）全站使用電腦繪製示意圖，不下載官方照片。
+# 之後若要每座場一張專屬示意圖，放在 img/resort-<id>.jpg 並填 hero_img；hero_credit 保持 None。
 for _rid in DATA["resorts"]:
     DATA["resorts"][_rid].setdefault("hero_img", None)
     DATA["resorts"][_rid].setdefault("hero_credit", None)
