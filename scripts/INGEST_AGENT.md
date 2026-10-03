@@ -39,7 +39,7 @@
 
 回報信寄到 `djhousetw@gmail.com`，轉寄進已連線的 Gmail。用 Gmail 工具：
 
-1. `search_threads`，query 用 `to:djhousetw@gmail.com newer_than:14d -from:davidhuang425@gmail.com -from:djhousetw@gmail.com`，`view` 用 `THREAD_VIEW_MINIMAL`。
+1. `search_threads`，query 用 `to:djhousetw@gmail.com subject:雪國轉運站 newer_than:14d -from:davidhuang425@gmail.com -from:djhousetw@gmail.com`，`view` 用 `THREAD_VIEW_MINIMAL`。**只讀主旨含「雪國轉運站」的信**（關於頁的回報按鈕會預填主旨「雪國轉運站 回報」）。djhousetw 也會收到金流通知等其他信，那些一律不讀、不列進回報。搜尋結果裡如果混進主旨不含「雪國轉運站」的信，也直接跳過，不要用 `get_thread` 打開。
 2. 讀本機紀錄 `~/.claude/scheduled-tasks/japanski-weekly-ingest/processed-mail.txt`（一行一個 message id；檔案不存在就當空的）。已經在裡面的跳過。
 3. 其餘用 `get_thread`（`messageFormat: PLAIN_TEXT`）讀內文。
 
