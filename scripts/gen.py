@@ -304,6 +304,7 @@ def bulk():
         "links": [
             L("Tomamu 星野渡假村滑雪場攻略", "娜塔蝦的滑雪食旅手記", "https://natasha-traveler.tw/tomamu-ski-resort/", "overview"),
             L("13 間餐廳、下午茶、酒吧總整理", "娜塔蝦的滑雪食旅手記", "https://natasha-traveler.tw/tomamu-restaurent/", "overview"),
+            L("RISONARE Tomamu 飯店開箱：北館樓下就是雪具租借與雪場出口", "娜塔蝦的滑雪食旅手記", "https://natasha-traveler.tw/risonare-tomamu/", "hotel"),
         ],
     })
 
@@ -529,7 +530,7 @@ def niigata_nagano():
         "snow_rhythm": "午後下山道擠、雪質變差。週末上午滑雪中心像戰場。",
         "pitfalls": ["週末租借與更衣室能耗掉一小時，請先在手機完成租借。", "新手區又窄又擠，完全沒滑過未必是最好的第一堂。", "下山道標成初中級，其實初學者會很痛苦。"],
         "companion_note": "場內有 SPA 與雪盆區；也可回湯澤站泡溫泉、逛ぽんしゅ館。",
-        "season_delta": "票務與租借已大量改成事前手機辦理，比舊印象好一點，但人還是很多。",
+        "season_delta": "2026–27 預定 12/19 開季，南區停止營業；早割券 10/15 線上開賣。",
         "scores": sc(5, 2, 5, 1, 4, 4, 4, 5, 3, 2),
         "why_beginner": "下車即滑、中文教練好找，第一次從東京出發的最短路徑。",
         "why_powder": "不是為粉雪來的。南區有非壓雪，但別期待北海道。",
@@ -924,7 +925,7 @@ def niigata_nagano():
         "snow_rhythm": None,
         "pitfalls": ["和八方、栂池不是走過去就到，住宿要選五龍區。", "第一次仍偏硬。"],
         "companion_note": "夜滑是加分；不滑雪的人不如野澤。",
-        "season_delta": None,
+        "season_delta": "2026–27 官方公布 11/21 開季，預定營業到 5/6。",
         "scores": sc(3, 3, 3, 1, 3, 3, 2, 4, 3, 4),
         "why_beginner": "能滑，但第一次仍建議栂池。",
         "why_powder": "白馬谷中段選擇，地形比栂池有內容。",
@@ -959,7 +960,7 @@ def niigata_nagano():
         "snow_rhythm": "上的平雪質好但尖峰擠；湯之峰、水無較空。長坂 Gondola 週末上午可能排很久。",
         "pitfalls": ["長坂 Gondola 尖峰能排一小時。", "Skyline 景觀道比標示難，事故多。", "村子路窄、停車少，自駕要有心理準備。"],
         "companion_note": "不滑雪的理由非常充分：外湯、老街、吃。這是少數「帶不滑雪的人也不虧」的場。",
-        "season_delta": None,
+        "season_delta": "2026–27 官網票價表營業期間 12/19–3/28，一日券 ¥7,800。",
         "scores": sc(4, 4, 3, 1, 3, 4, 5, 3, 5, 3),
         "why_beginner": "上的平有寬緩坡，第一次可以，但村子移動要走路。",
         "why_powder": "天然雪、季長，本州粉雪前段。",
@@ -1339,9 +1340,10 @@ SEASON["kiroro"].update({"open": "2026-11-28", "close": "2027-05-05", "early_bir
 SEASON["tomamu"].update({"open": "2026-12-01", "close": "2027-04-05", "early_bird": "季票早割 ¥76,000，10/1–11/30", "lift_price": "全日券 ¥9,200", "source": "https://www.snowtomamu.jp/winter/ski/ticket/", "updated": "2026-09-29"})
 SEASON["teine"].update({"open": "2026-11-21", "early_bird": "KWP 季票早割，11/3 前，最多省 ¥28,000", "early_bird_source": "https://sapporo-teine.com/snow/news/30497", "source": "https://sapporo-teine.com/snow/", "updated": "2026-09-29"})
 SEASON["sahoro"].update({"open": "2026-12-01", "close": "2027-03-31", "source": "https://sahoro-resort.com/", "updated": "2026-09-29"})
-SEASON["zao"].update({"open": "2026-12-12", "early_bird": "早割季票 ¥88,000，11/1–17 官網限定", "lift_price": "全日券 ¥8,000（旺季 ¥9,000）", "source": "https://zaomountainresort.com/chrage/", "updated": "2026-09-29"})
+SEASON["zao"].update({"open": "2026-12-12", "close": "2027-05-05", "early_bird": "早割季票 ¥88,000，11/1–17 官網限定", "lift_price": "全日券 ¥8,000（旺季 ¥9,000）", "source": "https://zaomountainresort.com/chrage/", "updated": "2026-10-07"})
 SEASON["appi"].update({"early_bird": "季票 Final Sale ¥89,900，11/30 前", "source": "https://www.appi.co.jp/snow-mountain-resort/ticket/seasonpass.php", "updated": "2026-09-29"})
 SEASON["bandai"].update({"open": "2026-11-28", "close": "2027-05-09", "source": "https://www.nekoma.co.jp/", "updated": "2026-09-29"})
+SEASON["gala-yuzawa"].update({"open": "2026-12-19", "early_bird": "早割券 10/15 線上開賣；超早割 ¥4,300 已完售", "lift_price": "窗口全日券 ¥8,000", "source": "https://gala.co.jp/winter/information/liftticketearlysale20261015/", "updated": "2026-10-07"})
 SEASON["ishiuchi"].update({"open": "2026-12-18", "close": "2027-04-04", "early_bird": "早割一日券 ¥5,800（原價 ¥8,500）", "early_bird_source": "https://ishiuchi.or.jp/winter/other/8304/", "lift_price": "一日券 ¥8,500", "source": "https://ishiuchi.or.jp/winter/seasonpass-1/", "updated": "2026-09-29"})
 SEASON["yuzawa-kogen"].update({"open": "2026-12-18", "close": "2027-04-04", "source": "https://www.yuzawakogen.com/topics/2627_seasonpass_w/", "updated": "2026-09-29"})
 SEASON["naeba"].update({"open": "2026-12-18", "close": "2027-04-04", "source": "https://www.princehotels.co.jp/ski/naeba/winter/", "updated": "2026-09-29"})
@@ -1351,11 +1353,13 @@ SEASON["myoko"].update({"open": "2026-12-19", "close": "2027-05-05", "source": "
 SEASON["maiko"].update({"open": "2026-12-19", "close": "2027-03-28", "early_bird": "早割季票 ¥45,000，9/30 前", "early_bird_source": "https://smile-resort.com/ticket/maiko/", "source": "https://www.maiko-resort.com/news/2027seasonticket.html", "updated": "2026-09-29"})
 SEASON["happo-one"].update({"close": "2027-05-05", "early_bird": "早割季票 ¥90,000 起，10/1–11/15", "early_bird_source": "https://www.happo-one.jp/ticket/seasonpass/", "lift_price": "一日券 ¥9,800（高峰期）", "source": "https://www.happo-one.jp/ticket/", "updated": "2026-09-29"})
 SEASON["tsugaike"].update({"close": "2027-05-05", "early_bird": "早割一日券 ¥6,500，11/30 前", "lift_price": "一日券 ¥9,800", "source": "https://www.tsugaike.gr.jp/price", "updated": "2026-09-29"})
-SEASON["hakuba-goryu"].update({"close": "2027-05-06", "lift_price": "一日券 ¥10,000（網購 ¥8,200）", "source": "https://www.hakubaescal.com/winter/tickets/lift/", "updated": "2026-09-29"})
-SEASON["nozawa"].update({"early_bird": "早割季票 9/30 截止", "early_bird_source": "https://nozawaski.com/report_summer/40933/?summer", "lift_price": "一日券 ¥7,800", "source": "https://nozawaski.com/winter/lift_price/", "updated": "2026-09-29"})
+SEASON["hakuba-goryu"].update({"open": "2026-11-21", "close": "2027-05-06", "lift_price": "一日券 ¥10,000（網購 ¥8,200）", "source": "https://www.hakubaescal.com/winter/information/2026/10/01/2026-27%e3%82%b7%e3%83%bc%e3%82%ba%e3%83%b3-%e3%82%aa%e3%83%bc%e3%83%97%e3%83%b3%e6%97%a5%e6%b1%ba%e5%ae%9a%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b/", "updated": "2026-10-07"})
+SEASON["nozawa"].update({"open": "2026-12-19", "close": "2027-03-28", "early_bird": "早割季票 9/30 截止", "early_bird_source": "https://nozawaski.com/report_summer/40933/?summer", "lift_price": "一日券 ¥7,800", "source": "https://nozawaski.com/winter/lift_price/", "updated": "2026-10-07"})
 SEASON["shiga-kogen"].update({"open": "2026-12-05", "close": "2027-05-05", "lift_price": "全山一日券 ¥9,500（網購 ¥8,500）", "source": "https://shigakogen-ski.or.jp/2026/08/2026-2027.html", "updated": "2026-09-29"})
-SEASON["karuizawa"].update({"open": "2026-10-31", "source": "https://www.princehotels.co.jp/press/260925_03", "updated": "2026-09-29"})
+SEASON["karuizawa"].update({"open": "2026-10-31", "close": "2027-03-31", "source": "https://www.princehotels.co.jp/ski/karuizawa/winter/", "updated": "2026-10-07"})
 DATA["news"][:0] = [
+    {"date": "2026-10-02", "resort_id": "gala-yuzawa", "text": "12/19 開季；早割券 10/15 線上開賣", "url": "https://gala.co.jp/winter/information/liftticketearlysale20261015/"},
+    {"date": "2026-10-01", "resort_id": "hakuba-goryu", "text": "官方公布 11/21 開季", "url": "https://www.hakubaescal.com/winter/information/2026/10/01/2026-27%e3%82%b7%e3%83%bc%e3%82%ba%e3%83%b3-%e3%82%aa%e3%83%bc%e3%83%97%e3%83%b3%e6%97%a5%e6%b1%ba%e5%ae%9a%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b/"},
     {"date": "2026-09-25", "resort_id": "karuizawa", "text": "10/31 開季，10/3 起開始造雪", "url": "https://www.princehotels.co.jp/press/260925_03"},
     {"date": "2026-09-15", "resort_id": "gala-yuzawa", "text": "本季南區停止營業", "url": "https://gala.co.jp/winter/news/64209"},
 ]

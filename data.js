@@ -100,6 +100,18 @@ var DATA = {
   },
   "news": [
     {
+      "date": "2026-10-02",
+      "resort_id": "gala-yuzawa",
+      "text": "12/19 開季；早割券 10/15 線上開賣",
+      "url": "https://gala.co.jp/winter/information/liftticketearlysale20261015/"
+    },
+    {
+      "date": "2026-10-01",
+      "resort_id": "hakuba-goryu",
+      "text": "官方公布 11/21 開季",
+      "url": "https://www.hakubaescal.com/winter/information/2026/10/01/2026-27%e3%82%b7%e3%83%bc%e3%82%ba%e3%83%b3-%e3%82%aa%e3%83%bc%e3%83%97%e3%83%b3%e6%97%a5%e6%b1%ba%e5%ae%9a%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b/"
+    },
+    {
       "date": "2026-09-25",
       "resort_id": "karuizawa",
       "text": "10/31 開季，10/3 起開始造雪",
@@ -936,6 +948,12 @@ var DATA = {
           "source": "娜塔蝦的滑雪食旅手記",
           "url": "https://natasha-traveler.tw/tomamu-restaurent/",
           "type": "overview"
+        },
+        {
+          "title": "RISONARE Tomamu 飯店開箱：北館樓下就是雪具租借與雪場出口",
+          "source": "娜塔蝦的滑雪食旅手記",
+          "url": "https://natasha-traveler.tw/risonare-tomamu/",
+          "type": "hotel"
         }
       ],
       "month_fit": {
@@ -1676,7 +1694,7 @@ var DATA = {
         "下山道標成初中級，其實初學者會很痛苦。"
       ],
       "companion_note": "場內有 SPA 與雪盆區；也可回湯澤站泡溫泉、逛ぽんしゅ館。",
-      "season_delta": "票務與租借已大量改成事前手機辦理，比舊印象好一點，但人還是很多。",
+      "season_delta": "2026–27 預定 12/19 開季，南區停止營業；早割券 10/15 線上開賣。",
       "scores": {
         "beginner": 5,
         "powder": 2,
@@ -3037,7 +3055,7 @@ var DATA = {
         "第一次仍偏硬。"
       ],
       "companion_note": "夜滑是加分；不滑雪的人不如野澤。",
-      "season_delta": null,
+      "season_delta": "2026–27 官方公布 11/21 開季，預定營業到 5/6。",
       "scores": {
         "beginner": 3,
         "powder": 3,
@@ -3156,7 +3174,7 @@ var DATA = {
         "村子路窄、停車少，自駕要有心理準備。"
       ],
       "companion_note": "不滑雪的理由非常充分：外湯、老街、吃。這是少數「帶不滑雪的人也不虧」的場。",
-      "season_delta": null,
+      "season_delta": "2026–27 官網票價表營業期間 12/19–3/28，一日券 ¥7,800。",
       "scores": {
         "beginner": 4,
         "powder": 4,
@@ -4568,12 +4586,12 @@ var DATA = {
       },
       "zao": {
         "open": "2026-12-12",
-        "close": null,
+        "close": "2027-05-05",
         "early_bird": "早割季票 ¥88,000，11/1–17 官網限定",
         "lift_price": "全日券 ¥8,000（旺季 ¥9,000）",
         "source": "https://zaomountainresort.com/chrage/",
         "early_bird_source": null,
-        "updated": "2026-09-29"
+        "updated": "2026-10-07"
       },
       "appi": {
         "open": null,
@@ -4594,13 +4612,13 @@ var DATA = {
         "updated": "2026-09-29"
       },
       "gala-yuzawa": {
-        "open": null,
+        "open": "2026-12-19",
         "close": null,
-        "early_bird": null,
-        "lift_price": null,
-        "source": null,
+        "early_bird": "早割券 10/15 線上開賣；超早割 ¥4,300 已完售",
+        "lift_price": "窗口全日券 ¥8,000",
+        "source": "https://gala.co.jp/winter/information/liftticketearlysale20261015/",
         "early_bird_source": null,
-        "updated": null
+        "updated": "2026-10-07"
       },
       "ishiuchi": {
         "open": "2026-12-18",
@@ -4684,22 +4702,22 @@ var DATA = {
         "updated": "2026-09-29"
       },
       "hakuba-goryu": {
-        "open": null,
+        "open": "2026-11-21",
         "close": "2027-05-06",
         "early_bird": null,
         "lift_price": "一日券 ¥10,000（網購 ¥8,200）",
-        "source": "https://www.hakubaescal.com/winter/tickets/lift/",
+        "source": "https://www.hakubaescal.com/winter/information/2026/10/01/2026-27%e3%82%b7%e3%83%bc%e3%82%ba%e3%83%b3-%e3%82%aa%e3%83%bc%e3%83%97%e3%83%b3%e6%97%a5%e6%b1%ba%e5%ae%9a%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b/",
         "early_bird_source": null,
-        "updated": "2026-09-29"
+        "updated": "2026-10-07"
       },
       "nozawa": {
-        "open": null,
-        "close": null,
+        "open": "2026-12-19",
+        "close": "2027-03-28",
         "early_bird": "早割季票 9/30 截止",
         "lift_price": "一日券 ¥7,800",
         "source": "https://nozawaski.com/winter/lift_price/",
         "early_bird_source": "https://nozawaski.com/report_summer/40933/?summer",
-        "updated": "2026-09-29"
+        "updated": "2026-10-07"
       },
       "shiga-kogen": {
         "open": "2026-12-05",
@@ -4712,12 +4730,12 @@ var DATA = {
       },
       "karuizawa": {
         "open": "2026-10-31",
-        "close": null,
+        "close": "2027-03-31",
         "early_bird": null,
         "lift_price": null,
-        "source": "https://www.princehotels.co.jp/press/260925_03",
+        "source": "https://www.princehotels.co.jp/ski/karuizawa/winter/",
         "early_bird_source": null,
-        "updated": "2026-09-29"
+        "updated": "2026-10-07"
       }
     }
   }
